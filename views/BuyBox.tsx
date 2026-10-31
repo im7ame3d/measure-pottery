@@ -18,12 +18,14 @@ export default function BuyBox({ p }: { p: Product }) {
   const unique = p.tag === "One of a kind";
   return (
     <section className="wrap pdp">
-      <div className="gallery">
+      <div className={`gallery${p.gallery.length > 1 ? "" : " single"}`}>
+        {p.gallery.length > 1 && (
         <div className="thumbs">
           {p.gallery.map((g, i) => (
             <button key={g + i} className={i === active ? "on" : ""} onClick={() => setActive(i)} aria-label={t(`Show photo ${i + 1}`, `عرض الصورة ${num(i + 1, "ar")}`)}><img src={img(g)} alt="" /></button>
           ))}
         </div>
+        )}
         <div className="photo mainpic"><img src={img(p.gallery[active])} alt={name} /></div>
       </div>
       <div>
