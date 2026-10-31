@@ -36,6 +36,8 @@ export default function Slider({ children, label }: { children: React.ReactNode;
     const panel = root.current, el = track.current;
     if (!panel || !el) return;
     panel.classList.add("ready");
+    // native snapping: the page settles the panel to fill the screen and a fling stops on it (holds)
+    document.documentElement.classList.add("snap-y");
     const first = el.children[0] as HTMLElement | undefined;
 
     // reveal the first slide when the panel scrolls into view
@@ -87,12 +89,35 @@ export default function Slider({ children, label }: { children: React.ReactNode;
       run(dir, a);
     };
 
+    // "hold": when the panel comes into view, arm a strict (mandatory) snap so even a fast fling stops on it;
+    // once it has landed, disarm so the next swipe can leave. It re-arms only after the panel fully leaves the screen.
+    const html = document.documentElement;
+    let visible: boolean | null = null, disarmTimer = 0;
+    const disarm = () => { html.classList.remove("snap-hard"); window.clearTimeout(disarmTimer); };
+    const arm = () => { html.classList.add("snap-hard"); window.clearTimeout(disarmTimer); disarmTimer = window.setTimeout(disarm, 2500); };
+    const seen = new IntersectionObserver(([e]) => {
+      if (visible === false && e.isIntersecting) arm();   // stays armed through the fling; disarmed once landed
+      visible = e.isIntersecting;
+    });
+    seen.observe(panel);
+    let settle = 0;
+    const onScroll = () => {
+      window.clearTimeout(settle);
+      settle = window.setTimeout(() => {
+        if (html.classList.contains("snap-hard") && Math.abs(panel.getBoundingClientRect().top) < 2) disarm();
+      }, 140);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    const cleanupSnap = () => { seen.disconnect(); disarm(); window.removeEventListener("scroll", onScroll); html.classList.remove("snap-y"); };
+
+    if (count < 2) return () => { io.disconnect(); cleanupSnap(); };
     panel.addEventListener("touchstart", onStart, { passive: true });
     panel.addEventListener("touchmove", onMove, { passive: false });
     panel.addEventListener("touchend", onEnd);
     panel.addEventListener("wheel", onWheel, { passive: false });
     return () => {
       io.disconnect();
+      cleanupSnap();
       panel.removeEventListener("touchstart", onStart);
       panel.removeEventListener("touchmove", onMove);
       panel.removeEventListener("touchend", onEnd);

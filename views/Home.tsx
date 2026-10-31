@@ -30,10 +30,6 @@ export default function Home({ lang }: { lang: Lang }) {
     [["01", "Consult", "Tell us about your venue, menu and the pieces you need."], ["02", "Sample", "We throw and glaze samples for you to test in service."], ["03", "Production", "Your order is made in small batches, logo-stamped if you like."], ["04", "Delivery", "Packed with care and delivered to your door across the Kingdom."]],
     [["٠١", "الاستشارة", "حدّثنا عن مكانك وقائمتك والقطع التي تحتاجها."], ["٠٢", "العيّنات", "نشكّل عيّنات ونطليها لتجرّبها في الخدمة الفعلية."], ["٠٣", "الإنتاج", "نصنع طلبك على دفعات صغيرة، مع ختم شعارك إن رغبت."], ["٠٤", "التوصيل", "نغلّفه بعناية ونوصله إلى بابك في جميع أنحاء المملكة."]],
   );
-  const GIFTS = t(
-    [["Under ⃁ 200", "espresso", "/shop"], ["Gift sets", "mumsie", "/shop?c=Gift%20sets"], ["One-of-a-kind pieces", "spread_wide", "/shop"]],
-    [["أقل من ٢٠٠ ⃁", "espresso", "/shop"], ["أطقم هدايا", "mumsie", "/shop?c=Gift%20sets"], ["قطع فريدة لا تتكرر", "spread_wide", "/shop"]],
-  );
   const title = <BlurLines lines={t(["Ceramics, made", "to measure."], ["خزفٌ مصنوع", "على قياسك."])} />;
   const eyebrow = <BlurWords text={t("Ceramics production studio · Saudi Arabia", "استوديو إنتاج خزف · المملكة العربية السعودية")} />;
   return (
@@ -140,18 +136,6 @@ export default function Home({ lang }: { lang: Lang }) {
           </div>
         </section>
 
-        <section className="wrap" style={{ paddingBottom: 112 }}>
-          <div className="eyebrow">{t("Gift ideas", "أفكار للهدايا")}</div>
-          <h2 style={{ margin: "12px 0 40px" }}>{t("Something made by hand", "هدية مصنوعة باليد")}</h2>
-          <div className="grid3">
-            {GIFTS.map(([g, im, link]) => (
-              <Link href={h(link)} key={g} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                <div className="photo" style={{ height: 360 }}><img src={img(im)} alt={g} loading="lazy" /></div>
-                <div className="row" style={{ justifyContent: "space-between" }}><h4>{g}</h4><Icon name="arrow" /></div>
-              </Link>
-            ))}
-          </div>
-        </section>
 
         <section className="quote">
           <div className="wrap">
