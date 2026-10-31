@@ -11,4 +11,4 @@ export const switchHref = (lang: Lang, pathname: string) =>
   lang === "ar" ? pathname.replace(/^\/ar(?=\/|$)/, "") || "/" : pathname === "/" ? "/ar" : `/ar${pathname}`;
 
 /** Numbers in Arabic-Indic digits on the Arabic site. */
-export const num = (n: number, lang: Lang) => n.toLocaleString(lang === "ar" ? "ar-SA" : "en-US");
+export const num = (n: number, lang: Lang) => (lang === "ar" ? n.toLocaleString("ar-SA", { useGrouping: false }) : n.toLocaleString("en-US"));

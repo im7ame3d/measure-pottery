@@ -9,8 +9,9 @@
   --white: #ffffff;
   --serif: var(--font-cormorant), "Cormorant Garamond", serif;
   --sans: var(--font-inter), "Inter", sans-serif;
-  --arabic: var(--font-arabic), "Noto Sans Arabic", var(--font-inter), sans-serif;
-  --arabic-head: var(--font-ko), "KOMission", var(--font-inter), var(--font-arabic), sans-serif;
+  --arabic: var(--font-arabic), var(--font-inter), sans-serif;
+  --arabic-display: var(--font-arabic-display), var(--font-arabic), serif;
+  --arabic-serif: var(--font-arabic-serif), var(--font-arabic), serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -90,7 +91,7 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .footer li a:hover { color: #fff; }
 .footer .about { font-size: 14px; color: #bdbdbd; margin-top: 18px; max-width: 260px; }
 .footer .news { display: flex; gap: 8px; margin-top: 16px; }
-.footer .news input { flex: 1; min-width: 0; height: 46px; border-radius: 8px; border: 1px solid #555; background: transparent; padding: 0 14px; color: #fff; }
+.footer .news input { flex: 1; width: 0; min-width: 0; height: 46px; border-radius: 8px; border: 1px solid #555; background: transparent; padding: 0 14px; color: #fff; }
 .footer .bottom { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; border-top: 1px solid #444; margin-top: 64px; padding-top: 28px; font-size: 13px; color: #a8a8a8; }
 .pay { display: flex; gap: 8px; flex-wrap: wrap; }
 .pay span { height: 30px; padding: 0 12px; border-radius: 6px; background: #fff; color: var(--ink); font-size: 12px; font-weight: 600; display: flex; align-items: center; }
@@ -250,8 +251,8 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 /* arabic (RTL) */
 [dir="rtl"] body { font-family: var(--arabic); }
 [dir="rtl"] * { letter-spacing: 0 !important; }
-[dir="rtl"] .serif, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] .pcard .name, [dir="rtl"] .step .n, [dir="rtl"] .stats .v, [dir="rtl"] .quote blockquote { font-family: var(--arabic); }
-[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] .stats .v { font-family: var(--arabic-head); font-weight: 900; line-height: 1.35; }
+[dir="rtl"] .serif, [dir="rtl"] .pcard .name, [dir="rtl"] .step .n, [dir="rtl"] .quote blockquote { font-family: var(--arabic-serif); }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] .stats .v { font-family: var(--arabic-display); font-weight: 500; line-height: 1.4; }
 [dir="rtl"] h1 { font-size: clamp(38px, 4.4vw, 62px); }
 [dir="rtl"] h2 { font-size: clamp(30px, 3vw, 42px); }
 [dir="rtl"] h3 { font-size: 26px; }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CartProvider } from "@/components/Cart";
 import { LangProvider } from "@/components/Lang";
-import { fontVars } from "@/lib/fonts";
+import { enFontVars } from "@/lib/fonts-en";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={fontVars}>
+    <html lang="en" className={enFontVars}>
       <body>
         <LangProvider lang="en"><CartProvider>{children}</CartProvider></LangProvider>
       </body>

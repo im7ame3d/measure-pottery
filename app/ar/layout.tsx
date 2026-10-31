@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CartProvider } from "@/components/Cart";
 import { LangProvider } from "@/components/Lang";
-import { arabicHeadVar, fontVars } from "@/lib/fonts";
+import { arFontVars } from "@/lib/fonts-ar";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ArabicRootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" className={`${fontVars} ${arabicHeadVar}`}>
+    <html lang="ar" dir="rtl" className={arFontVars}>
       <body>
         <LangProvider lang="ar"><CartProvider>{children}</CartProvider></LangProvider>
       </body>
