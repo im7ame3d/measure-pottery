@@ -15,7 +15,7 @@ const PROJECTS = [
     city: ["Dammam", "الدمام"],
     text: [
       "Hand-thrown cups in a soft pink glaze, lettered with the Mumsie logo and finished with sculpted clay handles.",
-      "أكواب مشكّلة يدوياً بطلاء وردي ناعم، تحمل شعار Mumsie ومقابض طينية مشكّلة باليد.",
+      "لمخبز ممزي سوّينا أكواب وردية تفتح النفس، كل واحد منها مشكّل باليد وعليه شعارهم، ومقابضها من الطين معقودة على شكل فيونكة. تشرب فيها قهوتك وتحس إن الصبح صار أحلى.",
     ],
     logo: { src: "/clients/mumsie.svg", w: 87, h: 24 },
     images: [{ src: "/img/work-mumsie.jpg", alt: ["Pink-glazed Mumsie Bakery cups laid out on linen", "أكواب مخبز ممزي بطلاء وردي على قماش"] }],
@@ -27,7 +27,7 @@ const PROJECTS = [
     city: ["Khobar", "الخبر"],
     text: [
       "Wheel-thrown cups stamped with the Peek a Brew logo in green, with “Have a brew-tiful day!” inside the rim and a pair of eyes peeking up from the bottom.",
-      "أكواب مشكّلة على العجلة بختم شعار Peek a Brew الأخضر، مع عبارة «\u2068Have a brew-tiful day!\u2069» على الحافة الداخلية وعينين تختلسان النظر من القاع.",
+      "أكواب بيك ا برو وراها سالفة حلوة: من برّا ختم شعارهم بالأخضر، ومن داخل على الحافة «\u2068Have a brew-tiful day!\u2069» تصبّح عليك، ولا خلّصت قهوتك تلقى عيونين يطالعونك من قاع الكوب. يعني لازم تخلّصها!",
     ],
     logo: { src: "/clients/hands.svg", w: 30, h: 34 },
     images: [
