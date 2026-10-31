@@ -40,6 +40,7 @@ export default function Home({ lang }: { lang: Lang }) {
         {/* Phones: full-screen video hero with the header floating on top. */}
         <section className="vhero">
           <HeroVideo src="/video/hero.mp4" poster="/video/hero-poster.jpg" />
+          <div className="vhero-blur" aria-hidden="true" />
           <div className="vhero-copy">
             <div className="eyebrow">{t("Handmade ceramics studio · Saudi Arabia", "استوديو خزف يدوي · المملكة العربية السعودية")}</div>
             <h1>{title}</h1>
