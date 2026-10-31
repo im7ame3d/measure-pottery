@@ -126,7 +126,6 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 /* client logo marquee */
 .marquee { overflow: hidden; direction: ltr; -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent); }
 .marquee-track { display: flex; width: max-content; animation: marquee 45s linear infinite; will-change: transform; -webkit-backface-visibility: hidden; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
 [dir="rtl"] .marquee-track { animation-direction: reverse; }
 .marquee .client { flex: 0 0 auto; height: 72px; padding: 0 40px; display: flex; align-items: center; justify-content: center; }
 .marquee .client img { max-width: none; flex: none; display: block; }
