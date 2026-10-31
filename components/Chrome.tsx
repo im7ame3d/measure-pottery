@@ -58,7 +58,7 @@ export function Header({ overlay = false, announce = true }: { overlay?: boolean
     <>
       {announce && (
       <div className={`announce${overlay ? " overlay-hide" : ""}`}>
-          <span>{t("Free delivery in Riyadh on orders over ⃁ 500", "توصيل مجاني داخل الرياض للطلبات فوق ٥٠٠ ⃁")}</span>
+          <span>{t("Free delivery across the Kingdom on orders over ⃁ 500", "توصيل مجاني لأنحاء المملكة للطلبات فوق ٥٠٠ ⃁")}</span>
           <span className="sep">|</span>
           <span className="second">{t("Split into 4 interest-free payments with Tamara", "قسّم مشترياتك على ٤ دفعات بدون فوائد مع تمارا")}</span>
         </div>
@@ -102,9 +102,7 @@ export function Footer() {
             <Logo light />
             <p className="about">{t("Handmade ceramics for cafés, restaurants and homes. Thrown, glazed and fired in our studio.", "خزف مصنوع يدوياً للمقاهي والمطاعم والبيوت. نشكّله ونطليه ونحرقه في معملنا.")}</p>
           </div>
-          <div><h5>{t("Shop", "المتجر")}</h5><ul><li><Link href={h("/shop")}>{t("All pieces", "كل القطع")}</Link></li><li><Link href={h("/shop?c=Cups%20%26%20mugs")}>{t("Cups & mugs", "أكواب وفناجين")}</Link></li><li><Link href={h("/shop?c=Plates")}>{t("Plates & bowls", "أطباق وزبادي")}</Link></li><li><Link href={h("/shop?c=Vases")}>{t("Vases", "مزهريات")}</Link></li><li><Link href={h("/shop?c=Gift%20sets")}>{t("Gift sets", "أطقم هدايا")}</Link></li></ul></div>
-          <div><h5>{t("Business", "للأعمال")}</h5><ul><li><Link href={h("/business")}>{t("For cafés & restaurants", "للمقاهي والمطاعم")}</Link></li><li><Link href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")}</Link></li><li><Link href={h("/portfolio")}>{t("Portfolio", "أعمالنا")}</Link></li><li><Link href={h("/business#custom")}>{t("Custom glazes", "طلاءات مخصّصة")}</Link></li></ul></div>
-          <div><h5>{t("Help", "المساعدة")}</h5><ul><li><Link href={h("/contact")}>{t("Shipping & delivery", "الشحن والتوصيل")}</Link></li><li><Link href={h("/contact")}>{t("Returns & exchanges", "الاسترجاع والاستبدال")}</Link></li><li><Link href={h("/contact")}>{t("Care guide", "دليل العناية")}</Link></li><li><Link href={h("/contact")}>{t("Privacy policy", "سياسة الخصوصية")}</Link></li><li><Link href={h("/contact")}>{t("Contact", "تواصل معنا")}</Link></li></ul></div>
+          <div className="links"><h5>{t("Explore", "تصفّح")}</h5><ul>{NAV.map((n) => <li key={n.href}><Link href={h(n.href)}>{t(n.en, n.ar)}</Link></li>)}</ul></div>
           <div>
             <h5>{t("Studio letters", "رسائل المعمل")}</h5>
             <p className="small" style={{ color: "#bdbdbd" }}>{t("New collections and studio news, once a month.", "المجموعات الجديدة وأخبار المعمل، مرة واحدة في الشهر.")}</p>
@@ -118,7 +116,7 @@ export function Footer() {
         </div>
         <div className="bottom">
           <span>{t("© 2026 Measure Ceramics. All rights reserved.", "© ٢٠٢٦ Measure Ceramics. جميع الحقوق محفوظة.")}</span>
-          <div className="row" style={{ gap: 20 }}><a href="https://instagram.com/measure.pottery" target="_blank" rel="noreferrer">{t("Instagram", "إنستغرام")}</a><span>{t("TikTok", "تيك توك")}</span><span>{t("Pinterest", "بنترست")}</span></div>
+          <a href="https://instagram.com/measure.pottery" target="_blank" rel="noreferrer">{t("Instagram", "إنستغرام")}</a>
           <div className="pay"><span>mada</span><span>Apple Pay</span><span>VISA</span><span>Mastercard</span><span>tamara</span></div>
         </div>
       </div>

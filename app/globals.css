@@ -95,7 +95,7 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 
 /* footer */
 .footer { background: var(--ink); color: #dcdcdc; padding: 80px 0 36px; }
-.footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.3fr; gap: 48px; }
+.footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1.3fr; gap: 48px; }
 .footer h5 { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; font-weight: 500; margin-bottom: 18px; }
 .footer li { list-style: none; font-size: 14px; margin-bottom: 10px; color: #bdbdbd; }
 .footer li a:hover { color: #fff; }
@@ -449,6 +449,8 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   [dir="rtl"] .panel .path h2 { white-space: nowrap; }
   .grid4 { gap: 24px 12px; }
   .grid3, .cases, .custom3, .values, .footer .cols { grid-template-columns: 1fr; }
+  .footer .links ul { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+  .footer .links li { margin: 0; }
   .pcard .name { font-size: 18px; }
   .btype { grid-template-columns: 1fr 1fr; }
   .grid2 { grid-template-columns: 1fr; }

@@ -113,7 +113,7 @@ function CartDrawer() {
         ) : (
           <>
             <div style={{ padding: "16px 32px 0" }}>
-              <p className="small" style={{ marginBottom: 8 }}>{left > 0 ? t(<>You&apos;re <b>{sar(left)}</b> away from free delivery in Riyadh</>, <>باقي <b>{sar(left, lang)}</b> على التوصيل المجاني داخل الرياض</>) : t("You’ve unlocked free delivery in Riyadh", "حصلت على توصيل مجاني داخل الرياض")}</p>
+              <p className="small" style={{ marginBottom: 8 }}>{left > 0 ? t(<>You&apos;re <b>{sar(left)}</b> away from free delivery across the Kingdom</>, <>باقي <b>{sar(left, lang)}</b> على التوصيل المجاني لأنحاء المملكة</>) : t("You’ve unlocked free delivery across the Kingdom", "حصلت على توصيل مجاني لأنحاء المملكة")}</p>
               <div className="progress"><i style={{ width: `${Math.min(100, (subtotal / FREE_DELIVERY) * 100)}%` }} /></div>
             </div>
             <div className="items">
