@@ -1,6 +1,9 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { Footer, Header } from "@/components/Chrome";
-import { tr, type Lang } from "@/lib/i18n";
+import ProductCard from "@/components/ProductCard";
+import { href, tr, type Lang } from "@/lib/i18n";
+import { PRODUCTS } from "@/lib/products";
 import ShopGrid from "./ShopGrid";
 
 export default function Shop({ lang }: { lang: Lang }) {
@@ -9,12 +12,13 @@ export default function Shop({ lang }: { lang: Lang }) {
     <>
       <Header />
       <main>
-        <section className="wrap" style={{ paddingTop: 48, paddingBottom: 40 }}>
-          <div className="crumb">{t("Home / Shop", "الرئيسية / المتجر")}</div>
-          <h1 style={{ marginTop: 18 }}>{t("Shop", "المتجر")}</h1>
-          <p className="lead" style={{ marginTop: 12 }}>{t("Handmade pieces for your table, your shelves and your gifts.", "قطع مصنوعة يدوياً لمائدتك ورفوفك وهداياك.")}</p>
+        <section className="wrap shop-page">
+          <div className="crumb"><Link href={href(lang, "/")}>{t("Home", "الرئيسية")}</Link> / {t("Shop", "المتجر")}</div>
+          <h1>{t("Shop", "المتجر")}</h1>
+          <Suspense fallback={<div className="grid4">{PRODUCTS.map((p) => <ProductCard key={p.slug} p={p} lang={lang} />)}</div>}>
+            <ShopGrid />
+          </Suspense>
         </section>
-        <Suspense><ShopGrid /></Suspense>
       </main>
       <Footer />
     </>

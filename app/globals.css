@@ -177,6 +177,8 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .crumb a:hover { color: var(--ink); }
 
 /* shop */
+.shop-page { padding-top: 56px; padding-bottom: 112px; }
+.shop-page h1 { margin: 18px 0 40px; }
 .shop { display: grid; grid-template-columns: 260px 1fr; gap: 56px; padding-bottom: 112px; }
 .fgroup { padding: 22px 0; border-bottom: 1px solid var(--line); }
 .fgroup h6 { font-size: 15px; font-weight: 500; margin-bottom: 14px; font-family: var(--sans); }
@@ -318,6 +320,8 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .story-hero .card-over { inset-inline: 20px; }
 }
 @media (max-width: 640px) {
+  .shop-page { padding-top: 32px; padding-bottom: 72px; }
+  .shop-page h1 { margin: 14px 0 24px; }
   .marquee .client { padding: 0 24px; height: 64px; }
   .clients { padding-top: 72px; }
   .marquee-track { animation-duration: 35s; }
