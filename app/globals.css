@@ -353,8 +353,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .featured .photo { border-radius: 0; height: 560px; }
 .featured .copy { padding: 56px; display: flex; flex-direction: column; gap: 18px; justify-content: center; }
 .pull { border-inline-start: 2px solid var(--brand); padding-inline-start: 18px; }
-.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 24px; }
-.cases .photo { height: 400px; margin-bottom: 16px; }
+.projects { display: grid; gap: 32px; }
 .dark-banner { background: var(--ink); color: #fff; border-radius: 12px; padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
 
 /* story */
@@ -393,7 +392,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .hero, .story, .paths, .pdp, .checkout, .biz-hero .inner, .moq, .quote-wrap, .featured, .contact { grid-template-columns: 1fr; }
   .hero-pics { height: 460px; }
   .grid4, .cats { grid-template-columns: repeat(2, 1fr); }
-  .grid3, .cases, .custom3, .values { grid-template-columns: 1fr 1fr; }
+  .grid3, .custom3, .values { grid-template-columns: 1fr 1fr; }
   .steps4, .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .shop { grid-template-columns: 1fr; }
   .footer .cols { grid-template-columns: 1fr 1fr; }
@@ -455,7 +454,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .panel .path h2 { font-size: min(30px, 8vw); }
   [dir="rtl"] .panel .path h2 { white-space: nowrap; }
   .grid4 { gap: 24px 12px; }
-  .grid3, .cases, .custom3, .values, .footer .cols { grid-template-columns: 1fr; }
+  .grid3, .custom3, .values, .footer .cols { grid-template-columns: 1fr; }
   .footer .links ul { display: flex; flex-wrap: wrap; gap: 12px 28px; }
   .footer .links li { margin: 0; }
   .pcard .name { font-size: 18px; }
@@ -467,6 +466,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .thumbs button { width: 72px; height: 88px; }
   .mainpic { height: 420px; }
   .featured .copy, .dark-banner { padding: 28px; }
+  .featured .photo { height: auto; aspect-ratio: 1; }
   .story-hero .card-over { padding: 28px; bottom: 24px; }
   .section-head { flex-direction: column; align-items: flex-start; }
   .section-head.inline { flex-direction: row; align-items: center; }
