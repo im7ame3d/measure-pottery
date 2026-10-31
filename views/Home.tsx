@@ -6,7 +6,7 @@ import ProductCard from "@/components/ProductCard";
 import { href, tr, type Lang } from "@/lib/i18n";
 import { PRODUCTS, img } from "@/lib/products";
 
-// Client logos: black SVGs in public/clients/. Remaining slots stay as placeholders.
+// Client logos: black SVGs in public/clients/, shown in the scrolling strip on the home page.
 const CLIENTS = [
   { name: "Mumsie", logo: "/clients/mumsie.svg", h: 30 },
   { name: "urbn.", logo: "/clients/urbn.svg", h: 30 },
@@ -75,10 +75,15 @@ export default function Home({ lang }: { lang: Lang }) {
         </section>
 
         <section className="wrap" style={{ paddingBottom: 96 }}>
-          <div className="eyebrow" style={{ textAlign: "center", marginBottom: 28 }}>{t(<>Served at cafés &amp; restaurants across the Kingdom</>, "نخدم المقاهي والمطاعم في أنحاء المملكة")}</div>
-          <div className="logos">
-            {CLIENTS.map((c) => <div key={c.name} className="client"><img src={c.logo} alt={c.name} loading="lazy" style={{ height: c.h }} /></div>)}
-            {Array.from({ length: Math.max(0, 6 - CLIENTS.length) }, (_, i) => <div key={i}>{t("CLIENT LOGO", "شعار العميل")}</div>)}
+          <h2 style={{ textAlign: "center", marginBottom: 36 }}>{t("Our valued clients", "عملاؤنا المميّزون")}</h2>
+          {/* Endless marquee: the list is rendered twice and the track slides by exactly half its width. */}
+          <div className="marquee">
+            <div className="marquee-track">
+              {[...CLIENTS, ...CLIENTS].map((c, i) => {
+                const copy = i >= CLIENTS.length;
+                return <div key={i} className="client" aria-hidden={copy || undefined}><img src={c.logo} alt={copy ? "" : c.name} style={{ height: c.h }} /></div>;
+              })}
+            </div>
           </div>
         </section>
 
