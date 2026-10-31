@@ -41,7 +41,7 @@ export default function BuyBox({ p }: { p: Product }) {
         {gift && <div className="field" style={{ marginBottom: 8 }}><label htmlFor="msg">{t("Gift message (optional)", "رسالة الهدية (اختياري)")}</label><textarea id="msg" className="input" placeholder={t("Write a short note — we'll handwrite it on a card.", "اكتب رسالة قصيرة — سنكتبها بخط اليد على بطاقة.")} /></div>}
         <div className="row" style={{ gap: 12, marginTop: 18 }}>
           {!unique && <Qty value={qty} onChange={(n) => setQty(Math.max(1, n))} />}
-          <button className="btn primary" style={{ flex: 1 }} onClick={() => add(p.slug, unique ? 1 : qty)}>{t("Get it now", "اقتنِه الآن")}</button>
+          <button className="btn primary buy" style={{ flex: 1 }} onClick={() => add(p.slug, unique ? 1 : qty)}>{t("Get it now", "اقتنِه الآن")}</button>
         </div>
         {p.capacity && (
           <div style={{ marginTop: 28, borderTop: "1px solid var(--line)" }}>
