@@ -175,9 +175,9 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .wide-card-text { flex: 1; display: flex; flex-direction: column; gap: 6px; }
 .wide-card h2 { font-size: clamp(30px, 3.6vw, 54px); line-height: 1.1; color: #fff; }
 [dir="rtl"] .wide-card h2 { font-size: clamp(28px, 3.4vw, 50px); line-height: 1.35; }
-.wide-card p { color: rgba(255, 255, 255, 0.86); font-size: 16px; }
-.wide-card .btn { flex: none; background: var(--ivory); color: var(--brown); }
-.wide-card .btn:hover { background: #fff; }
+.wide-card p { color: #fff; font-size: 16px; }
+.wide-card .btn { flex: none; background: transparent; color: #fff; border: 1px solid #fff; }
+.wide-card .btn:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
 
 /* full-screen "for business" panel: photo blends into the page at top and bottom, CTA comes into focus */
 .panel { position: relative; margin-bottom: 64px; }

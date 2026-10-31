@@ -120,7 +120,7 @@ export default function Home({ lang }: { lang: Lang }) {
                 <h2>{t(<>For you, your home &amp; your gifts</>, "لك ولبيتك ولهداياك")}</h2>
                 <p>{t("Limited, one-of-a-kind pieces, gift-wrapped with a handwritten note on request.", "قطع محدودة لا تتكرر، نغلّفها كهدية مع بطاقة مكتوبة بخط اليد عند الطلب.")}</p>
               </div>
-              <Link className="btn" href={h("/shop")}>{t("Shop the collection", "تسوّق المجموعة")} <Icon name="arrow" /></Link>
+              <Link className="btn" href={h("/shop")}>{t("Shop", "المتجر")} <Icon name="arrow" /></Link>
             </div>
           </div>
         </section>
@@ -129,7 +129,6 @@ export default function Home({ lang }: { lang: Lang }) {
           <div className="wrap section">
             <div className="section-head" style={{ marginBottom: 56 }}>
               <div><div className="eyebrow">{t("B2B ordering", "طلبات الأعمال")}</div><h2 style={{ marginTop: 12 }}>{t("How it works", "كيف نعمل")}</h2></div>
-              <Link className="btn primary" href={h("/business#quote")}>{t("Start your order", "ابدأ طلبك")}</Link>
             </div>
             {/* same simple layout as the business page highlights: big display title + one muted line */}
             <div className="stats plain">
@@ -137,6 +136,7 @@ export default function Home({ lang }: { lang: Lang }) {
                 <div key={n}><div className="v">{s}</div><div className="small muted">{d}</div></div>
               ))}
             </div>
+            <Link className="btn primary" href={h("/business#quote")} style={{ marginTop: 56 }}>{t("Start your order", "ابدأ طلبك")} <Icon name="arrow" /></Link>
           </div>
         </section>
 
