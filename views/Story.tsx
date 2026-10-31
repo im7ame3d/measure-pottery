@@ -18,9 +18,9 @@ export default function Story({ lang }: { lang: Lang }) {
     <>
       <Header />
       <main>
-        <section className="story-hero">
-          <div className="photo"><img src={img("studio")} alt={t("The Measure studio", "معمل Measure")} style={{ objectPosition: "40% 60%" }} /></div>
-          <div className="card-over"><div className="eyebrow">{t("Our story", "قصتنا")}</div><h1 style={{ marginTop: 14 }}>{t(<>Made slowly,<br />made to last.</>, <>صُنعت بتأنٍّ،<br />لتدوم طويلاً.</>)}</h1></div>
+        <section className="wrap story-hero">
+          <div className="story-hero-copy"><div className="eyebrow">{t("Our story", "قصتنا")}</div><h1 style={{ marginTop: 14 }}>{t(<>Made slowly,<br />made to last.</>, <>صُنعت بتأنٍّ،<br />لتدوم طويلاً.</>)}</h1></div>
+          <div className="photo"><img src="/img/story-studio-wall.jpg" alt={t("The Measure Pottery sign on the studio wall above a red slab roller", "لوحة Measure Pottery على جدار المعمل فوق آلة فرد الطين الحمراء")} /></div>
         </section>
         <section className="wrap section story" style={{ alignItems: "start" }}>
           <h2>{t("Measure began with a single wheel and a simple idea.", "بدأت Measure بعجلة واحدة وفكرة بسيطة.")}</h2>
