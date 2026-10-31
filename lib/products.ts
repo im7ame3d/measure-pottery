@@ -14,6 +14,8 @@ export type Product = {
   description: string;
   details: string;
   ar: { name: string; description: string; details: string };
+  /** Shown under the "السعة" heading on the product page, e.g. { en: "250 ml", ar: "٢٥٠ مل" }. */
+  capacity?: { en: string; ar: string };
 };
 
 export const PRODUCTS: Product[] = [

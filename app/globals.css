@@ -105,7 +105,7 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 
 /* product card */
 .pcard { display: flex; flex-direction: column; gap: 14px; }
-.pcard .photo { aspect-ratio: 4 / 5; }
+.pcard .photo { aspect-ratio: 4 / 5; display: block; }
 .pcard .top { position: absolute; top: 14px; left: 14px; right: 14px; display: flex; justify-content: space-between; }
 .pcard .name { font-family: var(--serif); font-size: 22px; line-height: 1.2; }
 .pcard .meta { display: flex; justify-content: space-between; align-items: baseline; }
@@ -203,6 +203,12 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .thumbs button.on { border-color: var(--ink); }
 .thumbs img { width: 100%; height: 100%; object-fit: cover; }
 .mainpic { height: 720px; }
+/* product photos: whole piece on the site background, thin light grey frame */
+.mainpic, .pcard .photo, .thumbs button { background: var(--bg); border: 1px solid var(--line); }
+.mainpic img, .pcard .photo img, .thumbs img { object-fit: contain; }
+.thumbs button.on { border-color: var(--ink); }
+.pcard .pcard-info { display: flex; flex-direction: column; gap: 4px; }
+.pcard .btn.block { margin-top: 4px; }
 .tamara { display: flex; gap: 10px; align-items: center; margin-top: 10px; padding: 12px 14px; background: #fff; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; }
 .qty { display: flex; align-items: center; height: 52px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 .qty button { width: 44px; height: 100%; font-size: 18px; }
