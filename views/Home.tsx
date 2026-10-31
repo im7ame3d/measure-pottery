@@ -14,6 +14,11 @@ const CLIENTS = [
   { name: "KEU", logo: "/clients/keu.svg", h: 30 },
   { name: "UR Specialty Coffee", logo: "/clients/ur-specialty-coffee.svg", h: 48 },
   { name: "Client logo", logo: "/clients/calligraphy.svg", h: 44 },
+  { name: "ديمة للاستشارات التربوية والتعليمية", logo: "/clients/deema.svg", h: 50 },
+  { name: "Solaire Beauty Lounge", logo: "/clients/solaire.svg", h: 36 },
+  { name: "Brownie Specialty Coffee", logo: "/clients/brownie.svg", h: 30 },
+  { name: "UMQ Coffee", logo: "/clients/umq-coffee.svg", h: 52 },
+  { name: "Client logo", logo: "/clients/hands.svg", h: 44 },
 ];
 
 export default function Home({ lang }: { lang: Lang }) {

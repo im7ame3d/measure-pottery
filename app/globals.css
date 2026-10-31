@@ -120,7 +120,8 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .vhero { display: none; }
 .hero-pics { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; height: 620px; }
 .hero-pics .stack { display: grid; grid-template-rows: 1fr 1fr; gap: 16px; }
-.logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.logos > div { flex: 0 0 calc((100% - 100px) / 6); }
 .logos div { height: 64px; border: 1px dashed var(--clay); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--muted); }
 .logos .client { border: 0; }
 .logos .client img { height: 30px; width: auto; max-width: 84%; object-fit: contain; }
@@ -277,7 +278,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .steps4, .stats { grid-template-columns: 1fr 1fr; }
   .shop { grid-template-columns: 1fr; }
   .footer .cols { grid-template-columns: 1fr 1fr; }
-  .logos { grid-template-columns: repeat(3, 1fr); }
+  .logos > div { flex-basis: calc((100% - 40px) / 3); }
   .mainpic { height: 520px; }
   .summary { position: static; }
   .story-hero .card-over { inset-inline: 20px; }
