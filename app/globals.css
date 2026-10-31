@@ -158,6 +158,13 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .path { overflow: hidden; }
 .path-media { margin: -56px -56px 12px; height: 260px; }
 .path-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+/* photo cards: the photo fills the card under a dark gradient, text in white */
+.path.photo { position: relative; isolation: isolate; color: #fff; border: 0; }
+.path.photo .path-media { position: absolute; inset: 0; margin: 0; height: auto; z-index: -2; }
+.path.photo::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to bottom, rgba(20, 14, 10, 0.45) 0%, rgba(20, 14, 10, 0.55) 40%, rgba(20, 14, 10, 0.85) 100%); }
+.path.photo .eyebrow, .path.photo h2, .path.photo p, .path.photo li { color: #fff; }
+.path.photo .btn { background: var(--ivory); color: var(--brown); }
+.path.photo .btn:hover { background: #fff; }
 .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
 .step { border-top: 1.5px solid var(--ink); padding-top: 22px; }
 .step .n { font-family: var(--serif); font-size: 40px; color: var(--brand); }
@@ -349,6 +356,8 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .section { padding-top: 72px; padding-bottom: 72px; }
   .path { padding: 28px; min-height: 0; }
   .path-media { margin: -28px -28px 8px; height: 200px; }
+  .path.photo .path-media { margin: 0; height: auto; }
+  .path.photo { min-height: 520px; }
   .grid4 { gap: 24px 12px; }
   .grid3, .cases, .custom3, .values, .footer .cols { grid-template-columns: 1fr; }
   .pcard .name { font-size: 18px; }

@@ -92,7 +92,7 @@ export default function Home({ lang }: { lang: Lang }) {
         </section>
 
         <section className="wrap paths" style={{ paddingBottom: 112 }}>
-          <div className="path terra">
+          <div className="path terra photo">
             <div className="path-media"><img src="/img/business-ceiling.jpg" alt={t("Terracotta coffered ceiling", "سقف خزفي بلون التيراكوتا")} loading="lazy" /></div>
             <div className="eyebrow">{t("For business", "للأعمال")}</div>
             <h2>{t(<>For your café<br />or restaurant</>, <>لمقهاك<br />أو مطعمك</>)}</h2>
@@ -104,7 +104,7 @@ export default function Home({ lang }: { lang: Lang }) {
             </ul>
             <Link className="btn" href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
           </div>
-          <div className="path ivory">
+          <div className="path ivory photo">
             <div className="path-media"><img src="/img/gift-box.jpg" alt={t("A handmade cup gift-wrapped in a kraft box with a 'For you' tag", "كوب مصنوع يدوياً مغلّف كهدية في علبة مع بطاقة «لك»")} loading="lazy" /></div>
             <div className="eyebrow">{t("For you", "لك")}</div>
             <h2>{t(<>For your home<br />&amp; gifting</>, <>لبيتك<br />وهداياك</>)}</h2>
