@@ -6,6 +6,9 @@ import ProductCard from "@/components/ProductCard";
 import { href, tr, type Lang } from "@/lib/i18n";
 import { PRODUCTS, img } from "@/lib/products";
 
+// Client logos: black SVGs in public/clients/. Remaining slots stay as placeholders.
+const CLIENTS = [{ name: "Mumsie", logo: "/clients/mumsie.svg" }];
+
 export default function Home({ lang }: { lang: Lang }) {
   const t = tr(lang);
   const h = (p: string) => href(lang, p);
@@ -61,7 +64,10 @@ export default function Home({ lang }: { lang: Lang }) {
 
         <section className="wrap" style={{ paddingBottom: 96 }}>
           <div className="eyebrow" style={{ textAlign: "center", marginBottom: 28 }}>{t(<>Served at cafés &amp; restaurants across the Kingdom</>, "نخدم المقاهي والمطاعم في أنحاء المملكة")}</div>
-          <div className="logos">{Array.from({ length: 6 }, (_, i) => <div key={i}>{t("CLIENT LOGO", "شعار العميل")}</div>)}</div>
+          <div className="logos">
+            {CLIENTS.map((c) => <div key={c.name} className="client"><img src={c.logo} alt={c.name} loading="lazy" /></div>)}
+            {Array.from({ length: 6 - CLIENTS.length }, (_, i) => <div key={i}>{t("CLIENT LOGO", "شعار العميل")}</div>)}
+          </div>
         </section>
 
         <section className="wrap paths" style={{ paddingBottom: 112 }}>
