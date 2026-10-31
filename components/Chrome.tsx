@@ -16,6 +16,16 @@ const NAV = [
   { href: "/contact", en: "Contact", ar: "تواصل معنا" },
 ];
 
+// payment and shipping partners shown in the footer (official artwork in public/pay/), heights tuned to look even
+const PAY = [
+  { name: "mada", label: "mada", h: 17 },
+  { name: "applepay", label: "Apple Pay", h: 17 },
+  { name: "visa", label: "Visa", h: 12 },
+  { name: "mastercard", label: "Mastercard", h: 20 },
+  { name: "tamara", label: "tamara", h: 15 },
+  { name: "aramex", label: "Aramex", h: 12 },
+];
+
 export function Logo({ light = false }: { light?: boolean }) {
   const lang = useLang();
   // Stacked lockup: mark above the MEASURE / CERAMICS wordmark (single SVG).
@@ -117,7 +127,7 @@ export function Footer() {
         <div className="bottom">
           <span>{t("© 2026 Measure Ceramics. All rights reserved.", "© ٢٠٢٦ Measure Ceramics. جميع الحقوق محفوظة.")}</span>
           <a href="https://instagram.com/measure.pottery" target="_blank" rel="noreferrer">{t("Instagram", "إنستغرام")}</a>
-          <div className="pay"><span>mada</span><span>Apple Pay</span><span>VISA</span><span>Mastercard</span><span>tamara</span></div>
+          <div className="pay">{PAY.map((l) => <span key={l.name} className={l.name === "tamara" ? "pay-tamara" : undefined}><img src={`/pay/${l.name}.svg`} alt={l.label} style={{ height: l.h }} /></span>)}</div>
         </div>
       </div>
     </footer>

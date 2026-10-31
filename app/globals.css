@@ -107,7 +107,9 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .credit { font-size: 12px; color: #000; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color 0.25s, text-underline-offset 0.25s; }
 .credit:hover, .credit:focus-visible { text-decoration-color: currentColor; text-underline-offset: 3px; }
 .pay { display: flex; gap: 8px; flex-wrap: wrap; }
-.pay span { height: 30px; padding: 0 12px; border-radius: 6px; background: #fff; color: var(--ink); font-size: 12px; font-weight: 600; display: flex; align-items: center; }
+.pay span { height: 34px; padding: 0 12px; border-radius: var(--radius-control); background: #fff; display: flex; align-items: center; }
+.pay span.pay-tamara { background: #6dc8bf; }
+.pay img { display: block; width: auto; }
 
 /* product card */
 .pcard { display: flex; flex-direction: column; gap: 14px; }
