@@ -7,6 +7,9 @@
   --line: #dedad4;
   --clay: #d3ccc2;
   --white: #ffffff;
+  --ivory: #fff8e7;
+  --terracotta: #c98262;
+  --brown: #6b4f3a;
   --serif: var(--font-cormorant), "Cormorant Garamond", serif;
   --sans: var(--font-inter), "Inter", sans-serif;
   --arabic: var(--font-arabic), var(--font-inter), sans-serif;
@@ -137,8 +140,14 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 }
 .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .path { border-radius: 12px; padding: 56px; display: flex; flex-direction: column; gap: 20px; min-height: 460px; }
-.path.dark { background: var(--ink); color: #fff; }
-.path.sandbg { background: var(--sand); }
+/* home cards: terracotta (business) and ivory (personal); brown + dark grey text */
+.path.terra { background: var(--terracotta); color: var(--ink); }
+.path.terra .btn { background: var(--ivory); color: var(--brown); }
+.path.terra .btn:hover { background: #fff; }
+.path.ivory { background: var(--ivory); color: var(--ink); border: 1px solid #efe6d2; }
+.path.ivory .eyebrow, .path.ivory h2 { color: var(--brown); }
+.path.ivory .btn { background: var(--brown); color: var(--ivory); }
+.path.ivory .btn:hover { background: #5a4231; }
 .path ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .path .btn { margin-top: auto; align-self: flex-start; }
 .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }

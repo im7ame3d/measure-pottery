@@ -89,27 +89,27 @@ export default function Home({ lang }: { lang: Lang }) {
         </section>
 
         <section className="wrap paths" style={{ paddingBottom: 112 }}>
-          <div className="path dark">
-            <div className="eyebrow" style={{ color: "#bdbdbd" }}>{t("For business", "للأعمال")}</div>
+          <div className="path terra">
+            <div className="eyebrow">{t("For business", "للأعمال")}</div>
             <h2>{t(<>For your café<br />or restaurant</>, <>لمقهاك<br />أو مطعمك</>)}</h2>
-            <p style={{ color: "#cfcfcf", maxWidth: 420 }}>{t("Custom tableware in your colours, with your logo, made in the quantities you need.", "أوانٍ مخصّصة بألوانك وشعارك، وبالكميات التي تحتاجها.")}</p>
-            <ul style={{ color: "#e6e6e6" }}>
+            <p style={{ maxWidth: 420 }}>{t("Custom tableware in your colours, with your logo, made in the quantities you need.", "أوانٍ مخصّصة بألوانك وشعارك، وبالكميات التي تحتاجها.")}</p>
+            <ul>
               <li className="check-item"><Icon name="check" /> {t(<>Cups, plates, bowls &amp; serving pieces</>, "أكواب وأطباق وزبادي وقطع تقديم")}</li>
               <li className="check-item"><Icon name="check" /> {t(<>Logo stamping &amp; custom glazes</>, "ختم الشعار وطلاءات مخصّصة")}</li>
               <li className="check-item"><Icon name="check" /> {t("Samples before production", "عيّنات قبل الإنتاج")}</li>
             </ul>
-            <Link className="btn light" href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
+            <Link className="btn" href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
           </div>
-          <div className="path sandbg">
+          <div className="path ivory">
             <div className="eyebrow">{t("For you", "لك")}</div>
             <h2>{t(<>For your home<br />&amp; gifting</>, <>لبيتك<br />وهداياك</>)}</h2>
-            <p className="muted" style={{ maxWidth: 420 }}>{t(<>Limited, one-of-a-kind pieces — when they&apos;re gone, they&apos;re gone. Gift-wrapped with a handwritten note on request.</>, "قطع محدودة لا تتكرر — حين تنفد لا تعود. نغلّفها كهدية مع بطاقة مكتوبة بخط اليد عند الطلب.")}</p>
+            <p style={{ maxWidth: 420 }}>{t(<>Limited, one-of-a-kind pieces — when they&apos;re gone, they&apos;re gone. Gift-wrapped with a handwritten note on request.</>, "قطع محدودة لا تتكرر — حين تنفد لا تعود. نغلّفها كهدية مع بطاقة مكتوبة بخط اليد عند الطلب.")}</p>
             <ul>
               <li className="check-item"><Icon name="check" /> {t("Exclusive pieces, never repeated", "قطع حصرية لا تتكرر")}</li>
               <li className="check-item"><Icon name="check" /> {t(<>Gift wrapping &amp; personal message</>, "تغليف هدايا ورسالة شخصية")}</li>
               <li className="check-item"><Icon name="check" /> {t("Pay in 4 with Tamara", "قسّمها على ٤ دفعات مع تمارا")}</li>
             </ul>
-            <Link className="btn primary" href={h("/shop")}>{t("Shop the collection", "تسوّق المجموعة")} <Icon name="arrow" /></Link>
+            <Link className="btn" href={h("/shop")}>{t("Shop the collection", "تسوّق المجموعة")} <Icon name="arrow" /></Link>
           </div>
         </section>
 
