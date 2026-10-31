@@ -154,6 +154,10 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .path.ivory .btn:hover { background: #5a4231; }
 .path ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
 .path .btn { margin-top: auto; align-self: flex-start; }
+/* full-bleed photo panel across the top of a card */
+.path { overflow: hidden; }
+.path-media { margin: -56px -56px 12px; height: 260px; }
+.path-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
 .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
 .step { border-top: 1.5px solid var(--ink); padding-top: 22px; }
 .step .n { font-family: var(--serif); font-size: 40px; color: var(--brand); }
@@ -344,6 +348,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .announce .sep, .announce .second { display: none; }
   .section { padding-top: 72px; padding-bottom: 72px; }
   .path { padding: 28px; min-height: 0; }
+  .path-media { margin: -28px -28px 8px; height: 200px; }
   .grid4 { gap: 24px 12px; }
   .grid3, .cases, .custom3, .values, .footer .cols { grid-template-columns: 1fr; }
   .pcard .name { font-size: 18px; }

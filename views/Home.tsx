@@ -93,6 +93,7 @@ export default function Home({ lang }: { lang: Lang }) {
 
         <section className="wrap paths" style={{ paddingBottom: 112 }}>
           <div className="path terra">
+            <div className="path-media"><img src="/img/business-ceiling.jpg" alt={t("Terracotta coffered ceiling", "سقف خزفي بلون التيراكوتا")} loading="lazy" /></div>
             <div className="eyebrow">{t("For business", "للأعمال")}</div>
             <h2>{t(<>For your café<br />or restaurant</>, <>لمقهاك<br />أو مطعمك</>)}</h2>
             <p style={{ maxWidth: 420 }}>{t("Custom tableware in your colours, with your logo, made in the quantities you need.", "أوانٍ مخصّصة بألوانك وشعارك، وبالكميات التي تحتاجها.")}</p>
