@@ -117,7 +117,7 @@ export default function Home({ lang }: { lang: Lang }) {
                     <h3>{t(p.name[0], p.name[1])}</h3>
                   </div>
                   <div className="row" style={{ gap: 8, flexWrap: "wrap" }}><span className="tag">{t(p.type[0], p.type[1])}</span><span className="tag">{t(p.city[0], p.city[1])}</span></div>
-                  <Link className="btn secondary" href={h(`/portfolio#${p.id}`)}>{t("View project", "عرض المشروع")} <Icon name="arrow" /></Link>
+                  <Link className="btn secondary" href={h(`/portfolio#${p.id}`)}>{t("View the work", "اعرض العمل")} <Icon name="arrow" /></Link>
                 </div>
               </article>
             ))}
