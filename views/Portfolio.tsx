@@ -16,9 +16,23 @@ const PROJECTS = [
       "Hand-thrown cups in a soft pink glaze, lettered with the Mumsie logo and finished with sculpted clay handles.",
       "أكواب مشكّلة يدوياً بطلاء وردي ناعم، تحمل شعار Mumsie ومقابض طينية مشكّلة باليد.",
     ],
-    logo: { src: "/clients/mumsie.svg", w: 144, h: 40 },
-    image: "/img/work-mumsie.jpg",
-    alt: ["Pink-glazed Mumsie Bakery cups laid out on linen", "أكواب مخبز ممزي بطلاء وردي على قماش"],
+    logo: { src: "/clients/mumsie.svg", w: 87, h: 24 },
+    images: [{ src: "/img/work-mumsie.jpg", alt: ["Pink-glazed Mumsie Bakery cups laid out on linen", "أكواب مخبز ممزي بطلاء وردي على قماش"] }],
+  },
+  {
+    id: "peek-a-brew",
+    name: ["Peek a Brew", "بيك ا برو"],
+    type: ["Café", "مقهى"],
+    city: ["Khobar", "الخبر"],
+    text: [
+      "Wheel-thrown cups stamped with the Peek a Brew logo in green, with “Have a brew-tiful day!” inside the rim and a pair of eyes peeking up from the bottom.",
+      "أكواب مشكّلة على العجلة بختم شعار Peek a Brew الأخضر، مع عبارة «\u2068Have a brew-tiful day!\u2069» على الحافة الداخلية وعينين تختلسان النظر من القاع.",
+    ],
+    logo: { src: "/clients/hands.svg", w: 30, h: 34 },
+    images: [
+      { src: "/img/work-peekabrew-1.jpg", alt: ["Peek a Brew cups with the stamped green logo on a shelf", "أكواب Peek a Brew بختم الشعار الأخضر على رف"] },
+      { src: "/img/work-peekabrew-2.jpg", alt: ["Looking into Peek a Brew cups: the rim message and the peeking eyes", "من داخل أكواب Peek a Brew: العبارة على الحافة والعينان في القاع"] },
+    ],
   },
 ] as const;
 
@@ -37,10 +51,14 @@ export default function Portfolio() {
         <section className="wrap projects" style={{ paddingBottom: 112 }}>
           {PROJECTS.map((p) => (
             <article key={p.id} className="featured">
-              <div className="photo"><img src={p.image} alt={pick(p.alt)} /></div>
+              <div className={`project-photos n${p.images.length}`}>
+                {p.images.map((im) => <div key={im.src} className="photo"><img src={im.src} alt={pick(im.alt)} loading="lazy" /></div>)}
+              </div>
               <div className="copy">
-                <img className="project-logo" src={p.logo.src} alt={p.name[0]} width={p.logo.w} height={p.logo.h} />
-                <h2>{pick(p.name)}</h2>
+                <div className="project-title">
+                  <img className="project-logo" src={p.logo.src} alt="" aria-hidden="true" width={p.logo.w} height={p.logo.h} style={{ height: p.logo.h }} />
+                  <h2>{pick(p.name)}</h2>
+                </div>
                 <div className="row" style={{ gap: 8, flexWrap: "wrap" }}><span className="tag">{pick(p.type)}</span><span className="tag">{pick(p.city)}</span></div>
                 <p className="muted">{pick(p.text)}</p>
                 <Link className="btn secondary" href={href(lang, "/business#quote")} style={{ alignSelf: "flex-start", marginTop: 8 }}>{t("Start a project like this", "ابدأ مشروعاً مثل هذا")}</Link>

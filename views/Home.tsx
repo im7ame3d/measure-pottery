@@ -20,7 +20,7 @@ const CLIENTS = [
   { name: "Solaire Beauty Lounge", logo: "/clients/solaire.svg", h: 36, w: 76 },
   { name: "Brownie Specialty Coffee", logo: "/clients/brownie.svg", h: 30, w: 117 },
   { name: "UMQ Coffee", logo: "/clients/umq-coffee.svg", h: 52, w: 48 },
-  { name: "Client logo", logo: "/clients/hands.svg", h: 46, w: 40 },
+  { name: "Peek a Brew", logo: "/clients/hands.svg", h: 46, w: 40 },
 ];
 
 export default function Home({ lang }: { lang: Lang }) {
