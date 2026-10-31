@@ -9,7 +9,7 @@ export default function Business({ lang }: { lang: Lang }) {
   const ar = lang === "ar";
   return (
     <>
-      <Header />
+      <Header announce={false} />
       <main>
         <section id="quote" className="enquiry">
           <img className="enquiry-bg" src="/img/business-ceiling.jpg" alt="" />

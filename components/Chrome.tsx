@@ -38,7 +38,7 @@ function LangSwitch({ className, onClick, style }: { className?: string; onClick
  * overlay: on phones the header floats transparently over the full-screen
  * video hero (no announcement bar) and turns solid once the hero scrolls away.
  */
-export function Header({ overlay = false }: { overlay?: boolean }) {
+export function Header({ overlay = false, announce = true }: { overlay?: boolean; announce?: boolean }) {
   const lang = useLang();
   const t = tr(lang);
   const path = usePathname();
@@ -56,11 +56,13 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
   const headCls = `header${overlay ? " overlay" : ""}${overlay && overHero && !menu ? " clear" : ""}`;
   return (
     <>
+      {announce && (
       <div className={`announce${overlay ? " overlay-hide" : ""}`}>
-        <span>{t("Free delivery in Riyadh on orders over ⃁ 500", "توصيل مجاني داخل الرياض للطلبات فوق ٥٠٠ ⃁")}</span>
-        <span className="sep">|</span>
-        <span className="second">{t("Split into 4 interest-free payments with Tamara", "قسّم مشترياتك على ٤ دفعات بدون فوائد مع تمارا")}</span>
-      </div>
+          <span>{t("Free delivery in Riyadh on orders over ⃁ 500", "توصيل مجاني داخل الرياض للطلبات فوق ٥٠٠ ⃁")}</span>
+          <span className="sep">|</span>
+          <span className="second">{t("Split into 4 interest-free payments with Tamara", "قسّم مشترياتك على ٤ دفعات بدون فوائد مع تمارا")}</span>
+        </div>
+      )}
       <header className={headCls}>
         <div className="wrap row" style={{ width: "100%", justifyContent: "space-between" }}>
           <Logo />
