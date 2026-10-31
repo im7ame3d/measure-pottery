@@ -8,17 +8,17 @@ import { PRODUCTS, img } from "@/lib/products";
 
 // Client logos: black SVGs in public/clients/, shown in the scrolling strip on the home page.
 const CLIENTS = [
-  { name: "Mumsie", logo: "/clients/mumsie.svg", h: 30 },
-  { name: "urbn.", logo: "/clients/urbn.svg", h: 30 },
-  { name: "طمية", logo: "/clients/tamya.svg", h: 46 },
-  { name: "KEU", logo: "/clients/keu.svg", h: 30 },
-  { name: "UR Specialty Coffee", logo: "/clients/ur-specialty-coffee.svg", h: 48 },
-  { name: "Client logo", logo: "/clients/calligraphy.svg", h: 44 },
-  { name: "ديمة للاستشارات التربوية والتعليمية", logo: "/clients/deema.svg", h: 50 },
-  { name: "Solaire Beauty Lounge", logo: "/clients/solaire.svg", h: 36 },
-  { name: "Brownie Specialty Coffee", logo: "/clients/brownie.svg", h: 30 },
-  { name: "UMQ Coffee", logo: "/clients/umq-coffee.svg", h: 52 },
-  { name: "Client logo", logo: "/clients/hands.svg", h: 44 },
+  { name: "Mumsie", logo: "/clients/mumsie.svg", h: 30, w: 108 },
+  { name: "urbn.", logo: "/clients/urbn.svg", h: 30, w: 78 },
+  { name: "طمية", logo: "/clients/tamya.svg", h: 46, w: 44 },
+  { name: "KEU", logo: "/clients/keu.svg", h: 30, w: 97 },
+  { name: "UR Specialty Coffee", logo: "/clients/ur-specialty-coffee.svg", h: 48, w: 43 },
+  { name: "Client logo", logo: "/clients/calligraphy.svg", h: 44, w: 50 },
+  { name: "ديمة للاستشارات التربوية والتعليمية", logo: "/clients/deema.svg", h: 50, w: 61 },
+  { name: "Solaire Beauty Lounge", logo: "/clients/solaire.svg", h: 36, w: 76 },
+  { name: "Brownie Specialty Coffee", logo: "/clients/brownie.svg", h: 30, w: 117 },
+  { name: "UMQ Coffee", logo: "/clients/umq-coffee.svg", h: 52, w: 48 },
+  { name: "Client logo", logo: "/clients/hands.svg", h: 46, w: 40 },
 ];
 
 export default function Home({ lang }: { lang: Lang }) {
@@ -74,14 +74,14 @@ export default function Home({ lang }: { lang: Lang }) {
           </div>
         </section>
 
-        <section className="wrap" style={{ paddingBottom: 96 }}>
-          <h2 style={{ textAlign: "center", marginBottom: 36 }}>{t("Our valued clients", "عملاؤنا المميّزون")}</h2>
+        <section className="wrap clients" style={{ paddingBottom: 96 }}>
+          <h2 style={{ textAlign: "center", marginBottom: 36 }}>{t("Our clients", "عمــلاؤنـا")}</h2>
           {/* Endless marquee: the list is rendered twice and the track slides by exactly half its width. */}
           <div className="marquee">
             <div className="marquee-track">
               {[...CLIENTS, ...CLIENTS].map((c, i) => {
                 const copy = i >= CLIENTS.length;
-                return <div key={i} className="client" aria-hidden={copy || undefined}><img src={c.logo} alt={copy ? "" : c.name} style={{ height: c.h }} /></div>;
+                return <div key={i} className="client" aria-hidden={copy || undefined}><img src={c.logo} alt={copy ? "" : c.name} width={c.w} height={c.h} style={{ width: c.w, height: c.h }} /></div>;
               })}
             </div>
           </div>
