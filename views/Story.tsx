@@ -14,14 +14,14 @@ export default function Story({ lang }: { lang: Lang }) {
   // "What we value" as a short chat: a visitor asks, the studio answers with the value.
   const CHAT = t(
     [
-      ["Is every piece really handmade?", "Handmade", "Yes. No moulds, no shortcuts — every piece passes through our hands."],
-      ["Where is it made?", "Local", "Right here in Saudi Arabia, made for the way we gather and eat."],
-      ["Why such small batches?", "Small-batch", "We make less, so every piece gets the time it deserves."],
+      ["Is every piece really handmade?", "Handmade", "Yes — from wedging the clay to the final form."],
+      ["Where is it made?", "Local", "Right here in Saudi Arabia, in the heart of Dhahran."],
+      ["Why does a project take weeks?", "Small-batch", "Because every piece gets its due."],
     ],
     [
-      ["كل قطعة يدوية فعلاً؟", "صناعة يدوية", "إيه والله، لا قوالب ولا اختصارات. كل قطعة تمر بين أيدينا."],
-      ["وين تنصنع؟", "صناعة محلية", "هنا في السعودية، على طريقتنا في الجَمعة والسفرة."],
-      ["ليش الكميات محدودة؟", "دفعات مقسمة", "نصنع أقل، عشان كل قطعة تاخذ وقتها اللي تستاهله."],
+      ["كل قطعة يدوية فعلاً؟", "صناعة يدوية", "إيه والله، من العجن إلى الشكل النهائي."],
+      ["وين تنصنع؟", "صناعة محلية", "هنا في السعودية، في قلب الظهران."],
+      ["ليه ياخذ المشروع أسابيع؟", "دفعات مقسمة", "لأن كل قطعة تاخذ حقها."],
     ],
   );
   return (
@@ -52,9 +52,9 @@ export default function Story({ lang }: { lang: Lang }) {
             ))}
           </div>
         </section>
-        <section style={{ background: "var(--ink)", color: "#fff" }}>
+        <section>
           <div className="wrap section">
-            <div className="eyebrow" style={{ color: "#bdbdbd" }}>{t("What we value", "ما نؤمن به")}</div>
+            <div className="eyebrow">{t("What we value", "ما نؤمن به")}</div>
             <h2 style={{ margin: "12px 0 48px" }}>{t(<>Three things we won&apos;t compromise</>, "ثلاثة أشياء لا نتنازل عنها")}</h2>
             <Reveal className="chat">
               {CHAT.map(([q, v, d]) => (
