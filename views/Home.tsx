@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Footer, Header } from "@/components/Chrome";
+import HeroVideo from "@/components/HeroVideo";
 import Icon from "@/components/Icon";
 import ProductCard from "@/components/ProductCard";
 import { href, tr, type Lang } from "@/lib/i18n";
@@ -21,7 +22,8 @@ export default function Home({ lang }: { lang: Lang }) {
       <Header />
       <main>
         <section className="wrap hero">
-          <div>
+          <HeroVideo src="/video/hero.mp4" poster="/video/hero-poster.jpg" />
+          <div className="hero-copy">
             <div className="eyebrow">{t("Handmade ceramics studio · Saudi Arabia", "استوديو خزف يدوي · المملكة العربية السعودية")}</div>
             <h1>{t(<>Ceramics, made<br />to measure.</>, <>خزفٌ مصنوع<br />على مقاسك.</>)}</h1>
             <p className="lead" style={{ maxWidth: 500 }}>{t("Tableware crafted for cafés and restaurants that care about every detail — and exclusive, one-of-a-kind pieces for your home and the people you love.", "أوانٍ مصنوعة يدوياً للمقاهي والمطاعم التي تهتم بأدق التفاصيل، وقطع حصرية فريدة لبيتك ولمن تحب.")}</p>
