@@ -79,10 +79,8 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .announce .sep { opacity: 0.4; }
 .header { height: 96px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 30; }
 .logo { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; }
-.logo .m { height: 44px; width: auto; }
-.logo .w { height: 18px; width: auto; }
-.footer .logo .m { height: 56px; }
-.footer .logo .w { height: 23px; }
+.logo .lockup { height: 64px; width: auto; display: block; }
+.footer .logo .lockup { height: 92px; }
 .nav { display: flex; gap: 36px; font-size: 15px; }
 .nav a { padding-bottom: 4px; border-bottom: 1.5px solid transparent; }
 .nav a.on, .nav a:hover { border-bottom-color: var(--ink); }
@@ -369,8 +367,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .vhero-ctas .btn.primary { flex: 1.5 1 auto; background: #f7f3ec; color: var(--ink); }
   .vhero-ctas .btn.secondary { flex: 1 1 auto; border-color: rgba(255, 255, 255, 0.6); color: #fff; }
   .header { height: 72px; }
-  .logo .m { height: 32px; }
-  .logo .w { height: 13px; }
+  .logo .lockup { height: 50px; }
   .announce .sep, .announce .second { display: none; }
   .section { padding-top: 72px; padding-bottom: 72px; }
   .path { padding: 28px; min-height: 0; }

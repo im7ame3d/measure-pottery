@@ -18,11 +18,10 @@ const NAV = [
 
 export function Logo({ light = false }: { light?: boolean }) {
   const lang = useLang();
-  // Stacked lockup: vase mark above the MEASURE / POTTERY wordmark.
+  // Stacked lockup: mark above the MEASURE / CERAMICS wordmark (single SVG).
   return (
     <Link href={href(lang, "/")} className="logo" aria-label={tr(lang)("Measure Pottery, home", "Measure Pottery، الصفحة الرئيسية")}>
-      <img className="m" src="/logo/mark.svg" alt="" />
-      <img className="w" src={light ? "/logo/wordmark-light.svg" : "/logo/wordmark.svg"} alt="Measure Pottery" />
+      <img className="lockup" src={light ? "/logo/logo-light.svg" : "/logo/logo.svg"} alt="Measure Ceramics" width={121} height={112} />
     </Link>
   );
 }
