@@ -1,0 +1,22 @@
+import type { Metadata } from "next";
+import { CartProvider } from "@/components/Cart";
+import { LangProvider } from "@/components/Lang";
+import { arabicHeadVar, fontVars } from "@/lib/fonts";
+import "../globals.css";
+
+export const metadata: Metadata = {
+  title: { default: "Measure Pottery — خزف مصنوع يدوياً", template: "%s · Measure Pottery" },
+  description: "أوانٍ مصنوعة يدوياً للمقاهي والمطاعم، وقطع خزفية فريدة لبيتك وهداياك. صُنعت في المملكة العربية السعودية.",
+  icons: { icon: "/logo/mark.svg" },
+  alternates: { languages: { en: "/" } },
+};
+
+export default function ArabicRootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="ar" dir="rtl" className={`${fontVars} ${arabicHeadVar}`}>
+      <body>
+        <LangProvider lang="ar"><CartProvider>{children}</CartProvider></LangProvider>
+      </body>
+    </html>
+  );
+}

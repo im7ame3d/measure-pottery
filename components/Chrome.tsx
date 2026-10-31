@@ -3,56 +3,69 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { href, switchHref, tr } from "@/lib/i18n";
 import { CartButton } from "./Cart";
 import Icon from "./Icon";
+import { useLang } from "./Lang";
 
 const NAV = [
-  { href: "/shop", label: "Shop" },
-  { href: "/business", label: "For Business" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/story", label: "Our Story" },
-  { href: "/contact", label: "Contact" },
+  { href: "/shop", en: "Shop", ar: "المتجر" },
+  { href: "/business", en: "For Business", ar: "للأعمال" },
+  { href: "/portfolio", en: "Portfolio", ar: "أعمالنا" },
+  { href: "/story", en: "Our Story", ar: "قصتنا" },
+  { href: "/contact", en: "Contact", ar: "تواصل معنا" },
 ];
 
 export function Logo({ light = false }: { light?: boolean }) {
+  const lang = useLang();
   // Stacked lockup: vase mark above the MEASURE / POTTERY wordmark.
   return (
-    <Link href="/" className="logo" aria-label="Measure Pottery, home">
+    <Link href={href(lang, "/")} className="logo" aria-label={tr(lang)("Measure Pottery, home", "Measure Pottery، الصفحة الرئيسية")}>
       <img className="m" src="/logo/mark.svg" alt="" />
       <img className="w" src={light ? "/logo/wordmark-light.svg" : "/logo/wordmark.svg"} alt="Measure Pottery" />
     </Link>
   );
 }
 
+function LangSwitch({ className, onClick, style }: { className?: string; onClick?: () => void; style?: React.CSSProperties }) {
+  const lang = useLang();
+  const path = usePathname();
+  return lang === "ar"
+    ? <Link href={switchHref(lang, path)} className={className} lang="en" onClick={onClick} style={{ fontFamily: "var(--sans)", ...style }}>EN</Link>
+    : <Link href={switchHref(lang, path)} className={className} lang="ar" onClick={onClick} style={style}>العربية</Link>;
+}
+
 export function Header() {
+  const lang = useLang();
+  const t = tr(lang);
   const path = usePathname();
   const [menu, setMenu] = useState(false);
   return (
     <>
       <div className="announce">
-        <span>Free delivery in Riyadh on orders over 500 SAR</span>
+        <span>{t("Free delivery in Riyadh on orders over 500 SAR", "توصيل مجاني داخل الرياض للطلبات فوق ٥٠٠ ريال")}</span>
         <span className="sep">|</span>
-        <span className="second">Split into 4 interest-free payments with Tamara</span>
+        <span className="second">{t("Split into 4 interest-free payments with Tamara", "قسّم مشترياتك على ٤ دفعات بدون فوائد مع تمارا")}</span>
       </div>
       <header className="header">
         <div className="wrap row" style={{ width: "100%", justifyContent: "space-between" }}>
           <Logo />
-          <nav className="nav" aria-label="Main">
-            {NAV.map((n) => <Link key={n.href} href={n.href} className={path.startsWith(n.href) ? "on" : ""}>{n.label}</Link>)}
+          <nav className="nav" aria-label={t("Main", "القائمة الرئيسية")}>
+            {NAV.map((n) => { const h = href(lang, n.href); return <Link key={n.href} href={h} className={path.startsWith(h) ? "on" : ""}>{t(n.en, n.ar)}</Link>; })}
           </nav>
           <div className="tools">
-            <Link href="/ar" className="lang hide-sm" lang="ar">العربية</Link>
-            <Link href="/shop" className="hide-sm" aria-label="Search the shop"><Icon name="search" /></Link>
-            <Link href="/contact" className="hide-sm" aria-label="Account"><Icon name="user" /></Link>
+            <LangSwitch className="lang hide-sm" />
+            <Link href={href(lang, "/shop")} className="hide-sm" aria-label={t("Search the shop", "ابحث في المتجر")}><Icon name="search" /></Link>
+            <Link href={href(lang, "/contact")} className="hide-sm" aria-label={t("Account", "حسابي")}><Icon name="user" /></Link>
             <CartButton />
-            <button className="menubtn" onClick={() => setMenu(!menu)} aria-expanded={menu} aria-label="Menu"><Icon name={menu ? "x" : "menu"} /></button>
+            <button className="menubtn" onClick={() => setMenu(!menu)} aria-expanded={menu} aria-label={t("Menu", "القائمة")}><Icon name={menu ? "x" : "menu"} /></button>
           </div>
         </div>
       </header>
       {menu && (
-        <nav className="wrap" aria-label="Mobile" style={{ display: "flex", flexDirection: "column", borderBottom: "1px solid var(--line)", background: "var(--bg)" }}>
-          {NAV.map((n) => <Link key={n.href} href={n.href} onClick={() => setMenu(false)} style={{ padding: "16px 0", borderBottom: "1px solid var(--line)" }}>{n.label}</Link>)}
-          <Link href="/ar" lang="ar" onClick={() => setMenu(false)} style={{ padding: "16px 0", fontFamily: "var(--arabic)" }}>العربية</Link>
+        <nav className="wrap" aria-label={t("Mobile", "قائمة الجوال")} style={{ display: "flex", flexDirection: "column", borderBottom: "1px solid var(--line)", background: "var(--bg)" }}>
+          {NAV.map((n) => <Link key={n.href} href={href(lang, n.href)} onClick={() => setMenu(false)} style={{ padding: "16px 0", borderBottom: "1px solid var(--line)" }}>{t(n.en, n.ar)}</Link>)}
+          <LangSwitch onClick={() => setMenu(false)} style={{ padding: "16px 0", ...(lang === "en" ? { fontFamily: "var(--arabic)" } : {}) }} />
         </nav>
       )}
     </>
@@ -60,6 +73,9 @@ export function Header() {
 }
 
 export function Footer() {
+  const lang = useLang();
+  const t = tr(lang);
+  const h = (p: string) => href(lang, p);
   const [joined, setJoined] = useState(false);
   return (
     <footer className="footer">
@@ -67,25 +83,25 @@ export function Footer() {
         <div className="cols">
           <div>
             <Logo light />
-            <p className="about">Handmade ceramics for cafés, restaurants and homes. Thrown, glazed and fired in our studio.</p>
+            <p className="about">{t("Handmade ceramics for cafés, restaurants and homes. Thrown, glazed and fired in our studio.", "خزف مصنوع يدوياً للمقاهي والمطاعم والبيوت. نشكّله ونطليه ونحرقه في مرسمنا.")}</p>
           </div>
-          <div><h5>Shop</h5><ul><li><Link href="/shop">All pieces</Link></li><li><Link href="/shop?c=Cups%20%26%20mugs">Cups &amp; mugs</Link></li><li><Link href="/shop?c=Plates">Plates &amp; bowls</Link></li><li><Link href="/shop?c=Vases">Vases</Link></li><li><Link href="/shop?c=Gift%20sets">Gift sets</Link></li></ul></div>
-          <div><h5>Business</h5><ul><li><Link href="/business">For cafés &amp; restaurants</Link></li><li><Link href="/business#quote">Request a quote</Link></li><li><Link href="/portfolio">Portfolio</Link></li><li><Link href="/business#custom">Custom glazes</Link></li></ul></div>
-          <div><h5>Help</h5><ul><li><Link href="/contact">Shipping &amp; delivery</Link></li><li><Link href="/contact">Returns &amp; exchanges</Link></li><li><Link href="/contact">Care guide</Link></li><li><Link href="/contact">Privacy policy</Link></li><li><Link href="/contact">Contact</Link></li></ul></div>
+          <div><h5>{t("Shop", "المتجر")}</h5><ul><li><Link href={h("/shop")}>{t("All pieces", "كل القطع")}</Link></li><li><Link href={h("/shop?c=Cups%20%26%20mugs")}>{t("Cups & mugs", "أكواب وفناجين")}</Link></li><li><Link href={h("/shop?c=Plates")}>{t("Plates & bowls", "أطباق وزبادي")}</Link></li><li><Link href={h("/shop?c=Vases")}>{t("Vases", "مزهريات")}</Link></li><li><Link href={h("/shop?c=Gift%20sets")}>{t("Gift sets", "أطقم هدايا")}</Link></li></ul></div>
+          <div><h5>{t("Business", "للأعمال")}</h5><ul><li><Link href={h("/business")}>{t("For cafés & restaurants", "للمقاهي والمطاعم")}</Link></li><li><Link href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")}</Link></li><li><Link href={h("/portfolio")}>{t("Portfolio", "أعمالنا")}</Link></li><li><Link href={h("/business#custom")}>{t("Custom glazes", "طلاءات مخصّصة")}</Link></li></ul></div>
+          <div><h5>{t("Help", "المساعدة")}</h5><ul><li><Link href={h("/contact")}>{t("Shipping & delivery", "الشحن والتوصيل")}</Link></li><li><Link href={h("/contact")}>{t("Returns & exchanges", "الاسترجاع والاستبدال")}</Link></li><li><Link href={h("/contact")}>{t("Care guide", "دليل العناية")}</Link></li><li><Link href={h("/contact")}>{t("Privacy policy", "سياسة الخصوصية")}</Link></li><li><Link href={h("/contact")}>{t("Contact", "تواصل معنا")}</Link></li></ul></div>
           <div>
-            <h5>Studio letters</h5>
-            <p className="small" style={{ color: "#bdbdbd" }}>New collections and studio news, once a month.</p>
-            {joined ? <p className="small" style={{ color: "#fff", marginTop: 16 }}>Thanks — you&apos;re on the list.</p> : (
+            <h5>{t("Studio letters", "رسائل المرسم")}</h5>
+            <p className="small" style={{ color: "#bdbdbd" }}>{t("New collections and studio news, once a month.", "المجموعات الجديدة وأخبار المرسم، مرة واحدة في الشهر.")}</p>
+            {joined ? <p className="small" style={{ color: "#fff", marginTop: 16 }}>{t("Thanks — you're on the list.", "شكراً — تم تسجيلك في القائمة.")}</p> : (
               <form className="news" onSubmit={(e) => { e.preventDefault(); setJoined(true); }}>
-                <input type="email" required placeholder="Email address" aria-label="Email address" />
-                <button className="btn sm light" style={{ height: 46 }}>Join</button>
+                <input type="email" required placeholder={t("Email address", "البريد الإلكتروني")} aria-label={t("Email address", "البريد الإلكتروني")} />
+                <button className="btn sm light" style={{ height: 46 }}>{t("Join", "اشترك")}</button>
               </form>
             )}
           </div>
         </div>
         <div className="bottom">
-          <span>© 2026 Measure Pottery. All rights reserved.</span>
-          <div className="row" style={{ gap: 20 }}><a href="https://instagram.com/measure.pottery" target="_blank" rel="noreferrer">Instagram</a><span>TikTok</span><span>Pinterest</span></div>
+          <span>{t("© 2026 Measure Pottery. All rights reserved.", "© ٢٠٢٦ Measure Pottery. جميع الحقوق محفوظة.")}</span>
+          <div className="row" style={{ gap: 20 }}><a href="https://instagram.com/measure.pottery" target="_blank" rel="noreferrer">{t("Instagram", "إنستغرام")}</a><span>{t("TikTok", "تيك توك")}</span><span>{t("Pinterest", "بنترست")}</span></div>
           <div className="pay"><span>mada</span><span>Apple Pay</span><span>VISA</span><span>Mastercard</span><span>tamara</span></div>
         </div>
       </div>
