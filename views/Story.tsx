@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { Footer, Header } from "@/components/Chrome";
 import Reveal from "@/components/Reveal";
-import { href, tr, type Lang } from "@/lib/i18n";
+import { tr, type Lang } from "@/lib/i18n";
 import { img } from "@/lib/products";
 
 export default function Story({ lang }: { lang: Lang }) {
@@ -79,12 +78,6 @@ export default function Story({ lang }: { lang: Lang }) {
                 <h4>{t("Maker name", "اسم الصانع")}</h4><p className="small muted">{r}</p>
               </div>
             ))}
-          </div>
-        </section>
-        <section style={{ background: "var(--sand)" }}>
-          <div className="wrap row" style={{ padding: "96px clamp(20px, 8.3vw, 120px)", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
-            <div><h2>{t("Visit the studio", "زُر المعمل")}</h2><p className="muted" style={{ marginTop: 12, maxWidth: 440 }}>{t("See the wheels, the kiln and the pieces in progress. Studio visits by appointment.", "شاهد العجلات والفرن والقطع قيد الصنع. زيارة المعمل بموعد مسبق.")}</p></div>
-            <div className="row" style={{ gap: 14, flexWrap: "wrap" }}><Link className="btn primary" href={href(lang, "/contact")}>{t("Book a visit", "احجز زيارة")}</Link><Link className="btn secondary" href={href(lang, "/shop")}>{t("Shop the collection", "تسوّق المجموعة")}</Link></div>
           </div>
         </section>
       </main>
