@@ -28,7 +28,7 @@ export default function Home({ lang }: { lang: Lang }) {
   const h = (p: string) => href(lang, p);
   const STEPS = t(
     [["01", "Consult", "Tell us about your venue, menu and the pieces you need."], ["02", "Sample", "We throw and glaze samples for you to test in service."], ["03", "Production", "Your order is made in small batches, logo-stamped if you like."], ["04", "Delivery", "Packed with care and delivered to your door across the Kingdom."]],
-    [["٠١", "الاستشارة", "حدّثنا عن مكانك وقائمتك والقطع التي تحتاجها."], ["٠٢", "العيّنات", "نشكّل عيّنات ونطليها لتجرّبها في الخدمة الفعلية."], ["٠٣", "الإنتاج", "نصنع طلبك على دفعات صغيرة، مع ختم شعارك إن رغبت."], ["٠٤", "التوصيل", "نغلّفه بعناية ونوصله إلى بابك في جميع أنحاء المملكة."]],
+    [["٠١", "الاستشارة", "حدّثنا عن مكانك وقائمتك والقطع التي تحتاجها."], ["٠٢", "العيّنات", "نشكّل عيّنات ونطليها لتجرّبها في الخدمة الفعلية."], ["٠٣", "الإنتاج", "نصنع طلبك على دفعات مقسمة، مع ختم شعارك إن رغبت."], ["٠٤", "التوصيل", "نغلّفه بعناية ونوصله إلى بابك في جميع أنحاء المملكة."]],
   );
   const title = <BlurLines lines={t(["Ceramics, made", "to measure."], ["خزفٌ مصنوع", "على قياسك."])} />;
   const eyebrow = <BlurWords text={t("Ceramics production studio · Saudi Arabia", "استوديو إنتاج خزف · المملكة العربية السعودية")} />;
@@ -62,7 +62,7 @@ export default function Home({ lang }: { lang: Lang }) {
               <Link className="btn secondary" href={h("/shop")}>{t("Shop Exclusive Pieces", "تسوّق القطع الحصرية")}</Link>
             </div>
             <div className="checks small muted">
-              <span className="check-item"><Icon name="check" /> {t("Small-batch, handmade", "دفعات صغيرة، صناعة يدوية")}</span>
+              <span className="check-item"><Icon name="check" /> {t("Small-batch, handmade", "دفعات مقسمة، صناعة يدوية")}</span>
               <span className="check-item"><Icon name="check" /> {t(<>Custom glazes &amp; logos</>, "طلاءات وشعارات مخصّصة")}</span>
             </div>
           </div>
@@ -111,20 +111,6 @@ export default function Home({ lang }: { lang: Lang }) {
           <div className="grid4">{PRODUCTS.slice(0, 4).map((p) => <ProductCard key={p.slug} p={p} lang={lang} />)}</div>
         </section>
 
-        {/* "For you": a wide 3:1 photo card under the shop */}
-        <section className="wrap">
-          <div className="wide-card">
-            <img className="wide-card-bg" src="/img/gift-box.jpg" alt={t("A handmade cup gift-wrapped in a kraft box with a 'For you' tag", "كوب مصنوع يدوياً مغلّف كهدية في علبة مع بطاقة «لك»")} loading="lazy" />
-            <div className="wide-card-copy">
-              <div className="wide-card-text">
-                <h2>{t(<>For you, your home &amp; your gifts</>, "لك ولبيتك ولهداياك")}</h2>
-                <p>{t("Limited, one-of-a-kind pieces, gift-wrapped with a handwritten note on request.", "قطع محدودة لا تتكرر، نغلّفها كهدية مع بطاقة مكتوبة بخط اليد عند الطلب.")}</p>
-              </div>
-              <Link className="btn" href={h("/shop")}>{t("Shop", "المتجر")} <Icon name="arrow" /></Link>
-            </div>
-          </div>
-        </section>
-
         <section>
           <div className="wrap section">
             <div className="section-head" style={{ marginBottom: 56 }}>
@@ -145,7 +131,7 @@ export default function Home({ lang }: { lang: Lang }) {
           <div>
             <div className="eyebrow">{t("Our story", "قصتنا")}</div>
             <h2 style={{ margin: "14px 0 22px" }}>{t(<>From clay to kiln,<br />by hand.</>, <>من الطين إلى الفرن،<br />بأيدينا.</>)}</h2>
-            <p className="lead">{t("Every piece starts as a lump of clay on our wheel. We throw, trim, glaze and fire in small batches — so each cup, plate and vase carries the marks of the hands that made it.", "تبدأ كل قطعة كتلةً من الطين على عجلتنا. نشكّلها ونهذّبها ونطليها ونحرقها على دفعات صغيرة — لتحمل كل كوب وطبق ومزهرية أثر الأيدي التي صنعتها.")}</p>
+            <p className="lead">{t("Every piece starts as a lump of clay on our wheel. We throw, trim, glaze and fire in small batches — so each cup, plate and vase carries the marks of the hands that made it.", "تبدأ كل قطعة كتلةً من الطين على عجلتنا. نشكّلها ونهذّبها ونطليها ونحرقها على دفعات مقسمة — لتحمل كل كوب وطبق ومزهرية أثر الأيدي التي صنعتها.")}</p>
             <Link className="btn secondary" href={h("/story")} style={{ marginTop: 36 }}>{t("Meet the studio", "تعرّف على المعمل")}</Link>
           </div>
         </section>

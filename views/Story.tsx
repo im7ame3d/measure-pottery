@@ -12,7 +12,7 @@ export default function Story({ lang }: { lang: Lang }) {
   );
   const VALUES = t(
     [["Handmade", "No moulds, no shortcuts. Every piece passes through our hands."], ["Local", "Made in Saudi Arabia, for the way we gather and eat here."], ["Small-batch", "We make less, so every piece gets the time it deserves."]],
-    [["صناعة يدوية", "لا قوالب ولا اختصارات. كل قطعة تمر بين أيدينا."], ["صناعة محلية", "صُنعت في السعودية، لطريقتنا في الاجتماع والأكل هنا."], ["دفعات صغيرة", "نصنع أقل، لتنال كل قطعة الوقت الذي تستحقه."]],
+    [["صناعة يدوية", "لا قوالب ولا اختصارات. كل قطعة تمر بين أيدينا."], ["صناعة محلية", "صُنعت في السعودية، لطريقتنا في الاجتماع والأكل هنا."], ["دفعات مقسمة", "نصنع أقل، لتنال كل قطعة الوقت الذي تستحقه."]],
   );
   return (
     <>
