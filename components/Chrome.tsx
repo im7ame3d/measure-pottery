@@ -94,6 +94,7 @@ export function Footer() {
   const h = (p: string) => href(lang, p);
   const [joined, setJoined] = useState(false);
   return (
+    <>
     <footer className="footer">
       <div className="wrap">
         <div className="cols">
@@ -120,8 +121,12 @@ export function Footer() {
           <div className="row" style={{ gap: 20 }}><a href="https://instagram.com/measure.pottery" target="_blank" rel="noreferrer">{t("Instagram", "إنستغرام")}</a><span>{t("TikTok", "تيك توك")}</span><span>{t("Pinterest", "بنترست")}</span></div>
           <div className="pay"><span>mada</span><span>Apple Pay</span><span>VISA</span><span>Mastercard</span><span>tamara</span></div>
         </div>
-        <a className="credit" href="https://wa.me/966504553474" target="_blank" rel="noreferrer">{t("Design by Abdulhameed Boheliga", "تصميم عبد الحميد بوحليقة")}</a>
       </div>
     </footer>
+    {/* designer credit: a thin white banner under the footer */}
+    <div className="credit-bar">
+      <a className="credit" href="https://wa.me/966504553474" target="_blank" rel="noreferrer">{t("Design by Abdulhameed Boheliga", "تصميم عبد الحميد بوحليقة")}</a>
+    </div>
+    </>
   );
 }
