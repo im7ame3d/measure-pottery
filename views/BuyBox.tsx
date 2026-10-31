@@ -47,7 +47,6 @@ export default function BuyBox({ p }: { p: Product }) {
         <div className="row" style={{ gap: 12, marginTop: 18 }}>
           {!unique && <Qty value={qty} onChange={(n) => setQty(Math.max(1, n))} />}
           <button className="btn primary" style={{ flex: 1 }} onClick={() => add(p.slug, unique ? 1 : qty)}>{t("Add to cart", "أضف إلى السلة")} — {sar(p.price * (unique ? 1 : qty), lang)}</button>
-          <button className="btn secondary" style={{ width: 52, padding: 0 }} aria-label={t("Add to wishlist", "أضف إلى المفضلة")}><Icon name="heart" /></button>
         </div>
         <div className="row small muted" style={{ gap: 10, marginTop: 16 }}><Icon name="truck" size={18} /> {t("Ships in 2–4 days with OTO · Free over 500 SAR in Riyadh", "يُشحن خلال ٢–٤ أيام مع OTO · مجاناً فوق ٥٠٠ ريال داخل الرياض")}</div>
         <div style={{ marginTop: 28, borderTop: "1px solid var(--line)" }}>

@@ -100,8 +100,6 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .pcard { display: flex; flex-direction: column; gap: 14px; }
 .pcard .photo { aspect-ratio: 4 / 5; }
 .pcard .top { position: absolute; top: 14px; left: 14px; right: 14px; display: flex; justify-content: space-between; }
-.pcard .heart { width: 36px; height: 36px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; }
-.pcard .heart svg { width: 18px; height: 18px; }
 .pcard .name { font-family: var(--serif); font-size: 22px; line-height: 1.2; }
 .pcard .meta { display: flex; justify-content: space-between; align-items: baseline; }
 .pcard .price { font-size: 15px; font-weight: 500; }
