@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Footer, Header } from "@/components/Chrome";
 import HeroVideo from "@/components/HeroVideo";
+import ProximityBlur, { BlurLines, BlurWords } from "@/components/ProximityBlur";
 import Icon from "@/components/Icon";
 import ProductCard from "@/components/ProductCard";
 import { href, tr, type Lang } from "@/lib/i18n";
@@ -32,7 +33,8 @@ export default function Home({ lang }: { lang: Lang }) {
     [["Under 200 SAR", "espresso", "/shop"], ["Gift sets", "mumsie", "/shop?c=Gift%20sets"], ["One-of-a-kind pieces", "spread_wide", "/shop"]],
     [["أقل من ٢٠٠ ريال", "espresso", "/shop"], ["أطقم هدايا", "mumsie", "/shop?c=Gift%20sets"], ["قطع فريدة لا تتكرر", "spread_wide", "/shop"]],
   );
-  const title = t(<>Ceramics, made<br />to measure.</>, <>خزفٌ مصنوع<br />على قياسك.</>);
+  const title = <BlurLines lines={t(["Ceramics, made", "to measure."], ["خزفٌ مصنوع", "على قياسك."])} />;
+  const eyebrow = <BlurWords text={t("Ceramics production studio · Saudi Arabia", "استوديو إنتاج خزف · المملكة العربية السعودية")} />;
   return (
     <>
       <Header overlay />
@@ -40,11 +42,11 @@ export default function Home({ lang }: { lang: Lang }) {
         {/* Phones: full-screen video hero with the header floating on top. */}
         <section className="vhero">
           <HeroVideo src="/video/hero.mp4" poster="/video/hero-poster.jpg" />
-          <div className="vhero-blur" aria-hidden="true" />
+          <ProximityBlur root=".vhero" />
           <div className="vhero-copy">
-            <div className="eyebrow">{t("Handmade ceramics studio · Saudi Arabia", "استوديو خزف يدوي · المملكة العربية السعودية")}</div>
+            <div className="eyebrow">{eyebrow}</div>
             <h1>{title}</h1>
-            <p>{t("Tableware for cafés and restaurants, and one-of-a-kind pieces for your home.", "أوانٍ للمقاهي والمطاعم، وقطع فريدة لبيتك ولمن تحب.")}</p>
+            <p><BlurWords text={t("Tableware for cafés and restaurants, and one-of-a-kind pieces for your home.", "أوانٍ للمقاهي والمطاعم، وقطع فريدة لبيتك ولمن تحب.")} /></p>
             <div className="vhero-ctas">
               <Link className="btn primary" href={h("/business")}>{t(<>For Cafés &amp; Restaurants</>, "للمقاهي والمطاعم")} <Icon name="arrow" /></Link>
               <Link className="btn secondary" href={h("/shop")}>{t("Shop", "المتجر")}</Link>
@@ -53,10 +55,11 @@ export default function Home({ lang }: { lang: Lang }) {
         </section>
         {/* Tablet/desktop hero */}
         <section className="wrap hero">
+          <ProximityBlur root=".hero" radius={150} />
           <div className="hero-copy">
-            <div className="eyebrow">{t("Handmade ceramics studio · Saudi Arabia", "استوديو خزف يدوي · المملكة العربية السعودية")}</div>
+            <div className="eyebrow">{eyebrow}</div>
             <h1>{title}</h1>
-            <p className="lead" style={{ maxWidth: 500 }}>{t("Tableware crafted for cafés and restaurants that care about every detail — and exclusive, one-of-a-kind pieces for your home and the people you love.", "أوانٍ مصنوعة يدوياً للمقاهي والمطاعم التي تهتم بأدق التفاصيل، وقطع حصرية فريدة لبيتك ولمن تحب.")}</p>
+            <p className="lead" style={{ maxWidth: 500 }}><BlurWords text={t("Tableware crafted for cafés and restaurants that care about every detail — and exclusive, one-of-a-kind pieces for your home and the people you love.", "أوانٍ مصنوعة يدوياً للمقاهي والمطاعم التي تهتم بأدق التفاصيل، وقطع حصرية فريدة لبيتك ولمن تحب.")} /></p>
             <div className="ctas">
               <Link className="btn primary" href={h("/business")}>{t(<>For Cafés &amp; Restaurants</>, "للمقاهي والمطاعم")} <Icon name="arrow" /></Link>
               <Link className="btn secondary" href={h("/shop")}>{t("Shop Exclusive Pieces", "تسوّق القطع الحصرية")}</Link>
