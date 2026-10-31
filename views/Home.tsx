@@ -92,7 +92,7 @@ export default function Home({ lang }: { lang: Lang }) {
           <div className="path terra photo">
             <div className="path-media"><img src="/img/business-ceiling.jpg" alt={t("Terracotta coffered ceiling", "سقف خزفي بلون التيراكوتا")} loading="lazy" /></div>
             <div className="eyebrow">{t("For business", "للأعمال")}</div>
-            <h2>{t(<>For your café<br />or restaurant</>, <>لمقهاك<br />أو مطعمك</>)}</h2>
+            <h2>{t("For your café, restaurant or business", "لمقهاك ولمطعمك ولمؤسستك")}</h2>
             <p style={{ maxWidth: 420 }}>{t("Custom tableware in your colours, with your logo, made in the quantities you need.", "أوانٍ مخصّصة بألوانك وشعارك، وبالكميات التي تحتاجها.")}</p>
             <ul>
               <li className="check-item"><Icon name="check" /> {t(<>Cups, plates, bowls &amp; serving pieces</>, "أكواب وأطباق وزبادي وقطع تقديم")}</li>
@@ -103,7 +103,7 @@ export default function Home({ lang }: { lang: Lang }) {
           </div>
         </FocusPanel>
 
-        <section className="wrap" style={{ paddingBottom: 112 }}>
+        <section className="wrap" style={{ paddingBottom: 56 }}>
           <div className="section-head inline">
             <h2>{t("Shop", "المتجر")}</h2>
             <Link className="btn secondary" href={h("/shop")}>{t("View shop", "عرض المتجر")} <Icon name="arrow" /></Link>
@@ -112,7 +112,7 @@ export default function Home({ lang }: { lang: Lang }) {
         </section>
 
         {/* "For you": a wide 3:1 photo card under the shop */}
-        <section className="wrap" style={{ paddingBottom: 112 }}>
+        <section className="wrap">
           <div className="wide-card">
             <img className="wide-card-bg" src="/img/gift-box.jpg" alt={t("A handmade cup gift-wrapped in a kraft box with a 'For you' tag", "كوب مصنوع يدوياً مغلّف كهدية في علبة مع بطاقة «لك»")} loading="lazy" />
             <div className="wide-card-copy">
