@@ -105,6 +105,7 @@ export default function Home({ lang }: { lang: Lang }) {
             <Link className="btn" href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
           </div>
           <div className="path ivory">
+            <div className="path-media"><img src="/img/gift-box.jpg" alt={t("A handmade cup gift-wrapped in a kraft box with a 'For you' tag", "كوب مصنوع يدوياً مغلّف كهدية في علبة مع بطاقة «لك»")} loading="lazy" /></div>
             <div className="eyebrow">{t("For you", "لك")}</div>
             <h2>{t(<>For your home<br />&amp; gifting</>, <>لبيتك<br />وهداياك</>)}</h2>
             <p style={{ maxWidth: 420 }}>{t(<>Limited, one-of-a-kind pieces — when they&apos;re gone, they&apos;re gone. Gift-wrapped with a handwritten note on request.</>, "قطع محدودة لا تتكرر — حين تنفد لا تعود. نغلّفها كهدية مع بطاقة مكتوبة بخط اليد عند الطلب.")}</p>
