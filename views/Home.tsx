@@ -99,7 +99,7 @@ export default function Home({ lang }: { lang: Lang }) {
               <li className="check-item"><Icon name="check" /> {t(<>Logo stamping &amp; custom glazes</>, "ختم الشعار وطلاءات مخصّصة")}</li>
               <li className="check-item"><Icon name="check" /> {t("Samples before production", "عيّنات قبل الإنتاج")}</li>
             </ul>
-            <Link className="btn panel-cta" href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
+            <Link className="btn panel-cta" href={h("/business#quote")}>{t("Start your order", "ابدأ طلبك")} <Icon name="arrow" /></Link>
           </div>
         </FocusPanel>
 
