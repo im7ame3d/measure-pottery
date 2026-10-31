@@ -98,14 +98,14 @@ export function Footer() {
         <div className="cols">
           <div>
             <Logo light />
-            <p className="about">{t("Handmade ceramics for cafés, restaurants and homes. Thrown, glazed and fired in our studio.", "خزف مصنوع يدوياً للمقاهي والمطاعم والبيوت. نشكّله ونطليه ونحرقه في مرسمنا.")}</p>
+            <p className="about">{t("Handmade ceramics for cafés, restaurants and homes. Thrown, glazed and fired in our studio.", "خزف مصنوع يدوياً للمقاهي والمطاعم والبيوت. نشكّله ونطليه ونحرقه في معملنا.")}</p>
           </div>
           <div><h5>{t("Shop", "المتجر")}</h5><ul><li><Link href={h("/shop")}>{t("All pieces", "كل القطع")}</Link></li><li><Link href={h("/shop?c=Cups%20%26%20mugs")}>{t("Cups & mugs", "أكواب وفناجين")}</Link></li><li><Link href={h("/shop?c=Plates")}>{t("Plates & bowls", "أطباق وزبادي")}</Link></li><li><Link href={h("/shop?c=Vases")}>{t("Vases", "مزهريات")}</Link></li><li><Link href={h("/shop?c=Gift%20sets")}>{t("Gift sets", "أطقم هدايا")}</Link></li></ul></div>
           <div><h5>{t("Business", "للأعمال")}</h5><ul><li><Link href={h("/business")}>{t("For cafés & restaurants", "للمقاهي والمطاعم")}</Link></li><li><Link href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")}</Link></li><li><Link href={h("/portfolio")}>{t("Portfolio", "أعمالنا")}</Link></li><li><Link href={h("/business#custom")}>{t("Custom glazes", "طلاءات مخصّصة")}</Link></li></ul></div>
           <div><h5>{t("Help", "المساعدة")}</h5><ul><li><Link href={h("/contact")}>{t("Shipping & delivery", "الشحن والتوصيل")}</Link></li><li><Link href={h("/contact")}>{t("Returns & exchanges", "الاسترجاع والاستبدال")}</Link></li><li><Link href={h("/contact")}>{t("Care guide", "دليل العناية")}</Link></li><li><Link href={h("/contact")}>{t("Privacy policy", "سياسة الخصوصية")}</Link></li><li><Link href={h("/contact")}>{t("Contact", "تواصل معنا")}</Link></li></ul></div>
           <div>
-            <h5>{t("Studio letters", "رسائل المرسم")}</h5>
-            <p className="small" style={{ color: "#bdbdbd" }}>{t("New collections and studio news, once a month.", "المجموعات الجديدة وأخبار المرسم، مرة واحدة في الشهر.")}</p>
+            <h5>{t("Studio letters", "رسائل المعمل")}</h5>
+            <p className="small" style={{ color: "#bdbdbd" }}>{t("New collections and studio news, once a month.", "المجموعات الجديدة وأخبار المعمل، مرة واحدة في الشهر.")}</p>
             {joined ? <p className="small" style={{ color: "#fff", marginTop: 16 }}>{t("Thanks — you're on the list.", "شكراً — تم تسجيلك في القائمة.")}</p> : (
               <form className="news" onSubmit={(e) => { e.preventDefault(); setJoined(true); }}>
                 <input type="email" required placeholder={t("Email address", "البريد الإلكتروني")} aria-label={t("Email address", "البريد الإلكتروني")} />

@@ -32,7 +32,7 @@ export default function Home({ lang }: { lang: Lang }) {
     [["Under 200 SAR", "espresso", "/shop"], ["Gift sets", "mumsie", "/shop?c=Gift%20sets"], ["One-of-a-kind pieces", "spread_wide", "/shop"]],
     [["أقل من ٢٠٠ ريال", "espresso", "/shop"], ["أطقم هدايا", "mumsie", "/shop?c=Gift%20sets"], ["قطع فريدة لا تتكرر", "spread_wide", "/shop"]],
   );
-  const title = t(<>Ceramics, made<br />to measure.</>, <>خزفٌ مصنوع<br />على مقاسك.</>);
+  const title = t(<>Ceramics, made<br />to measure.</>, <>خزفٌ مصنوع<br />على قياسك.</>);
   return (
     <>
       <Header overlay />
@@ -130,12 +130,12 @@ export default function Home({ lang }: { lang: Lang }) {
         </section>
 
         <section className="wrap section story">
-          <div className="photo" style={{ height: 560 }}><img src={img("studio")} alt={t("The Measure studio with a table of glazed cups", "مرسم Measure وطاولة عليها أكواب مطليّة")} /></div>
+          <div className="photo" style={{ height: 560 }}><img src={img("studio")} alt={t("The Measure studio with a table of glazed cups", "معمل Measure وطاولة عليها أكواب مطليّة")} /></div>
           <div>
             <div className="eyebrow">{t("Our story", "قصتنا")}</div>
             <h2 style={{ margin: "14px 0 22px" }}>{t(<>From clay to kiln,<br />by hand.</>, <>من الطين إلى الفرن،<br />بأيدينا.</>)}</h2>
             <p className="lead">{t("Every piece starts as a lump of clay on our wheel. We throw, trim, glaze and fire in small batches — so each cup, plate and vase carries the marks of the hands that made it.", "تبدأ كل قطعة كتلةً من الطين على عجلتنا. نشكّلها ونهذّبها ونطليها ونحرقها على دفعات صغيرة — لتحمل كل كوب وطبق ومزهرية أثر الأيدي التي صنعتها.")}</p>
-            <Link className="btn secondary" href={h("/story")} style={{ marginTop: 36 }}>{t("Meet the studio", "تعرّف على المرسم")}</Link>
+            <Link className="btn secondary" href={h("/story")} style={{ marginTop: 36 }}>{t("Meet the studio", "تعرّف على المعمل")}</Link>
           </div>
         </section>
 

@@ -12,7 +12,7 @@ import { bySlug, img, pName, sar } from "@/lib/products";
 const DELIVERY = [
   { id: "standard", title: "Standard delivery", sub: "2–4 business days", price: 25, ar: ["توصيل عادي", "٢–٤ أيام عمل"] },
   { id: "express", title: "Express delivery", sub: "Next business day · Riyadh only", price: 45, ar: ["توصيل سريع", "يوم العمل التالي · داخل الرياض فقط"] },
-  { id: "pickup", title: "Studio pickup", sub: "Ready in 1 business day", price: 0, ar: ["الاستلام من المرسم", "جاهز خلال يوم عمل واحد"] },
+  { id: "pickup", title: "Studio pickup", sub: "Ready in 1 business day", price: 0, ar: ["الاستلام من المعمل", "جاهز خلال يوم عمل واحد"] },
 ];
 const PAYMENT = [["card", "mada / Visa / Mastercard", "Card", "مدى / فيزا / ماستركارد", "بطاقة"], ["apple", "Apple Pay", "Apple Pay", "Apple Pay", "Apple Pay"], ["tamara", "Split into 4 payments", "tamara", "قسّمها على ٤ دفعات", "تمارا"]];
 const CITIES = [["Riyadh", "الرياض"], ["Jeddah", "جدة"], ["Dammam", "الدمام"], ["Khobar", "الخبر"], ["Makkah", "مكة المكرمة"], ["Madinah", "المدينة المنورة"]];

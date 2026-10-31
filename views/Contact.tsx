@@ -7,7 +7,7 @@ export default function Contact({ lang }: { lang: Lang }) {
   const t = tr(lang);
   const ar = lang === "ar";
   const INFO: [string, string, React.ReactNode][] = [
-    ["pin", t("Studio", "المرسم"), t("Studio address, District, Riyadh, Saudi Arabia", "عنوان المرسم، الحي، الرياض، المملكة العربية السعودية")],
+    ["pin", t("Studio", "المعمل"), t("Studio address, District, Riyadh, Saudi Arabia", "عنوان المعمل، الحي، الرياض، المملكة العربية السعودية")],
     ["clock", t("Opening hours", "ساعات العمل"), t("Sun – Thu · 10:00 – 19:00\nSat · 14:00 – 20:00 · Friday closed", "الأحد – الخميس · ١٠:٠٠ – ١٩:٠٠\nالسبت · ١٤:٠٠ – ٢٠:٠٠ · الجمعة مغلق")],
     ["mail", t("Email", "البريد الإلكتروني"), ar ? <span dir="ltr">hello@measure.sa</span> : "hello@measure.sa"],
     ["phone", t("Phone", "الهاتف"), ar ? <span dir="ltr">+966 5X XXX XXXX</span> : "+966 5X XXX XXXX"],
@@ -29,7 +29,7 @@ export default function Contact({ lang }: { lang: Lang }) {
             </div>
             <div className="field"><label htmlFor="e">{t("Email", "البريد الإلكتروني")}</label><input id="e" className="input" type="email" dir={ar ? "ltr" : undefined} required placeholder="name@email.com" /></div>
             <div className="field"><label htmlFor="t">{t("What can we help with?", "كيف يمكننا مساعدتك؟")}</label>
-              <select id="t" className="input">{t(["Order support", "Business / bulk order", "Custom piece", "Studio visit", "Other"], ["دعم الطلبات", "طلب أعمال / كميات", "قطعة مخصّصة", "زيارة المرسم", "أخرى"]).map((o) => <option key={o}>{o}</option>)}</select></div>
+              <select id="t" className="input">{t(["Order support", "Business / bulk order", "Custom piece", "Studio visit", "Other"], ["دعم الطلبات", "طلب أعمال / كميات", "قطعة مخصّصة", "زيارة المعمل", "أخرى"]).map((o) => <option key={o}>{o}</option>)}</select></div>
             <div className="field"><label htmlFor="m">{t("Message", "الرسالة")}</label><textarea id="m" className="input" required placeholder={t("Tell us a little more…", "أخبرنا بالمزيد…")} /></div>
             <button className="btn primary" style={{ alignSelf: "flex-start", padding: "0 44px" }}>{t("Send message", "إرسال الرسالة")}</button>
           </SentForm>
