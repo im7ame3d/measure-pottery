@@ -6,6 +6,8 @@ const nextConfig = {
     return [
       { source: "/ar", destination: "/", permanent: true },
       { source: "/ar/:path*", destination: "/:path*", permanent: true },
+      { source: "/product/dune-vase-no-07", destination: "/product/dune-vase", permanent: true },
+      { source: "/en/product/dune-vase-no-07", destination: "/en/product/dune-vase", permanent: true },
     ];
   },
 };

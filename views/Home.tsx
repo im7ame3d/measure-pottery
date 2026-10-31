@@ -119,9 +119,9 @@ export default function Home({ lang }: { lang: Lang }) {
         </section>
 
         <section className="wrap" style={{ paddingBottom: 112 }}>
-          <div className="section-head">
-            <div><div className="eyebrow">{t("Exclusive pieces", "قطع حصرية")}</div><h2 style={{ marginTop: 12 }}>{t("Featured this season", "مختارات هذا الموسم")}</h2></div>
-            <Link className="btn secondary" href={h("/shop")}>{t("View all pieces", "عرض كل القطع")} <Icon name="arrow" /></Link>
+          <div className="section-head inline">
+            <h2>{t("Shop", "المتجر")}</h2>
+            <Link className="btn secondary" href={h("/shop")}>{t("View shop", "عرض المتجر")} <Icon name="arrow" /></Link>
           </div>
           <div className="grid4">{PRODUCTS.slice(0, 4).map((p) => <ProductCard key={p.slug} p={p} lang={lang} />)}</div>
         </section>

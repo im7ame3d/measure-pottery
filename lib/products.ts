@@ -17,14 +17,14 @@ export type Product = {
 };
 
 export const PRODUCTS: Product[] = [
-  { slug: "dune-vase-no-07", name: "Dune Vase No. 07", price: 420, tag: "One of a kind", category: "Vases", glaze: "#D9D2C7", image: "espresso", gallery: ["espresso", "studio", "cups_bisque", "mumsie"],
+  { slug: "dune-vase", name: "Dune Vase", price: 420, tag: "One of a kind", category: "Vases", glaze: "#D9D2C7", image: "espresso", gallery: ["espresso", "studio", "cups_bisque", "mumsie"],
     description: "A tall, softly shouldered vase thrown in speckled stoneware and finished in our sand glaze. The glaze pools differently on every piece — this one is yours alone.",
     details: "Height 32 cm · Diameter 18 cm · Speckled stoneware, sand glaze · Food safe, watertight.",
-    ar: { name: "مزهرية الكثبان رقم ٠٧", description: "مزهرية طويلة بكتفين ناعمين، مشكّلة على العجلة من الحجري المنقّط ومطلية بطلائنا الرملي. يتجمّع الطلاء بشكل مختلف في كل قطعة — وهذه القطعة لك وحدك.", details: "الارتفاع ٣٢ سم · القطر ١٨ سم · خزف حجري منقّط بطلاء رملي · آمنة للطعام ولا تسرّب الماء." } },
-  { slug: "ash-glaze-cup-set", name: "Ash Glaze Cup Set ×4", price: 260, category: "Cups & mugs", glaze: "#B9AFA2", image: "peekabrew", gallery: ["peekabrew", "eyes", "studio"],
+    ar: { name: "مزهرية الكثبان", description: "مزهرية طويلة بكتفين ناعمين، مشكّلة على العجلة من الحجري المنقّط ومطلية بطلائنا الرملي. يتجمّع الطلاء بشكل مختلف في كل قطعة — وهذه القطعة لك وحدك.", details: "الارتفاع ٣٢ سم · القطر ١٨ سم · خزف حجري منقّط بطلاء رملي · آمنة للطعام ولا تسرّب الماء." } },
+  { slug: "ash-glaze-cup-set", name: "Ash Glaze Cup Set", price: 260, category: "Cups & mugs", glaze: "#B9AFA2", image: "peekabrew", gallery: ["peekabrew", "eyes", "studio"],
     description: "Four everyday cups in our ash glaze, thrown to sit comfortably in the hand.",
     details: "250 ml each · Stoneware, ash glaze · Dishwasher safe.",
-    ar: { name: "طقم أكواب بطلاء الرماد ×٤", description: "أربعة أكواب للاستخدام اليومي بطلاء الرماد، مشكّلة لتستقر براحة في اليد.", details: "٢٥٠ مل لكل كوب · خزف حجري بطلاء الرماد · آمنة في غسالة الصحون." } },
+    ar: { name: "طقم أكواب بطلاء الرماد", description: "أربعة أكواب للاستخدام اليومي بطلاء الرماد، مشكّلة لتستقر براحة في اليد.", details: "٢٥٠ مل لكل كوب · خزف حجري بطلاء الرماد · آمنة في غسالة الصحون." } },
   { slug: "sand-serving-bowl", name: "Sand Serving Bowl", price: 310, tag: "New", category: "Bowls", glaze: "#D9D2C7", image: "cups_bisque", gallery: ["cups_bisque", "spread_close"],
     description: "A generous serving bowl with a soft, uneven rim — made for sharing.",
     details: "Diameter 28 cm · Stoneware, sand glaze · Dishwasher safe.",

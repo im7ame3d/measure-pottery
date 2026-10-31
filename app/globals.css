@@ -114,6 +114,7 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 /* sections */
 .section { padding-top: 112px; padding-bottom: 112px; }
 .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px; }
+.section-head.inline { align-items: center; }
 .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-top: 72px; padding-bottom: 96px; align-items: center; }
 .hero h1 { margin: 22px 0 24px; }
 .hero .ctas { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
@@ -371,5 +372,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .featured .copy, .dark-banner { padding: 28px; }
   .story-hero .card-over { padding: 28px; bottom: 24px; }
   .section-head { flex-direction: column; align-items: flex-start; }
+  .section-head.inline { flex-direction: row; align-items: center; }
+  .section-head.inline .btn { height: 44px; padding: 0 18px; font-size: 14px; }
   .cksteps .label { display: none; }
 }
