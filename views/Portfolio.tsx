@@ -53,7 +53,7 @@ export default function Portfolio() {
                 </div>
                 <div className="row" style={{ gap: 8, flexWrap: "wrap" }}><span className="tag">{pick(p.type)}</span><span className="tag">{pick(p.city)}</span></div>
                 <p className="muted">{pick(p.text)}</p>
-                <Link className="btn secondary" href={href(lang, "/business#quote")} style={{ alignSelf: "flex-start", marginTop: 8 }}>{t("Start a project like this", "ابدأ مشروعاً مثل هذا")}</Link>
+                <Link className="btn secondary" href={href(lang, "/business#quote")} style={{ alignSelf: "flex-start", marginTop: 8 }}>{t("Start a project like this", "اطلب مشروعاً مثل هذا")}</Link>
               </div>
             </article>
           ))}
