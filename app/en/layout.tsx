@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: { default: "Measure Pottery — Handmade ceramics", template: "%s · Measure Pottery" },
   description: "Handmade tableware for cafés and restaurants, and one-of-a-kind ceramics for your home and gifts. Made in Saudi Arabia.",
   icons: { icon: "/logo/mark.svg" },
-  alternates: { languages: { ar: "/ar" } },
+  alternates: { languages: { ar: "/" } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

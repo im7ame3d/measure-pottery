@@ -17,15 +17,29 @@ export default function Home({ lang }: { lang: Lang }) {
     [["Under 200 SAR", "espresso", "/shop"], ["Gift sets", "mumsie", "/shop?c=Gift%20sets"], ["One-of-a-kind pieces", "spread_wide", "/shop"]],
     [["أقل من ٢٠٠ ريال", "espresso", "/shop"], ["أطقم هدايا", "mumsie", "/shop?c=Gift%20sets"], ["قطع فريدة لا تتكرر", "spread_wide", "/shop"]],
   );
+  const title = t(<>Ceramics, made<br />to measure.</>, <>خزفٌ مصنوع<br />على مقاسك.</>);
   return (
     <>
-      <Header />
+      <Header overlay />
       <main>
-        <section className="wrap hero">
+        {/* Phones: full-screen video hero with the header floating on top. */}
+        <section className="vhero">
           <HeroVideo src="/video/hero.mp4" poster="/video/hero-poster.jpg" />
+          <div className="vhero-copy">
+            <div className="eyebrow">{t("Handmade ceramics studio · Saudi Arabia", "استوديو خزف يدوي · المملكة العربية السعودية")}</div>
+            <h1>{title}</h1>
+            <p>{t("Tableware for cafés and restaurants, and one-of-a-kind pieces for your home.", "أوانٍ للمقاهي والمطاعم، وقطع فريدة لبيتك ولمن تحب.")}</p>
+            <div className="vhero-ctas">
+              <Link className="btn primary" href={h("/business")}>{t(<>For Cafés &amp; Restaurants</>, "للمقاهي والمطاعم")} <Icon name="arrow" /></Link>
+              <Link className="btn secondary" href={h("/shop")}>{t("Shop Pieces", "تسوّق القطع")}</Link>
+            </div>
+          </div>
+        </section>
+        {/* Tablet/desktop hero */}
+        <section className="wrap hero">
           <div className="hero-copy">
             <div className="eyebrow">{t("Handmade ceramics studio · Saudi Arabia", "استوديو خزف يدوي · المملكة العربية السعودية")}</div>
-            <h1>{t(<>Ceramics, made<br />to measure.</>, <>خزفٌ مصنوع<br />على مقاسك.</>)}</h1>
+            <h1>{title}</h1>
             <p className="lead" style={{ maxWidth: 500 }}>{t("Tableware crafted for cafés and restaurants that care about every detail — and exclusive, one-of-a-kind pieces for your home and the people you love.", "أوانٍ مصنوعة يدوياً للمقاهي والمطاعم التي تهتم بأدق التفاصيل، وقطع حصرية فريدة لبيتك ولمن تحب.")}</p>
             <div className="ctas">
               <Link className="btn primary" href={h("/business")}>{t(<>For Cafés &amp; Restaurants</>, "للمقاهي والمطاعم")} <Icon name="arrow" /></Link>

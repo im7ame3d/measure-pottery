@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { href, switchHref, tr } from "@/lib/i18n";
 import { CartButton } from "./Cart";
 import Icon from "./Icon";
@@ -35,19 +35,34 @@ function LangSwitch({ className, onClick, style }: { className?: string; onClick
     : <Link href={switchHref(lang, path)} className={className} lang="ar" onClick={onClick} style={style}>العربية</Link>;
 }
 
-export function Header() {
+/**
+ * overlay: on phones the header floats transparently over the full-screen
+ * video hero (no announcement bar) and turns solid once the hero scrolls away.
+ */
+export function Header({ overlay = false }: { overlay?: boolean }) {
   const lang = useLang();
   const t = tr(lang);
   const path = usePathname();
   const [menu, setMenu] = useState(false);
+  const [overHero, setOverHero] = useState(overlay);
+  useEffect(() => {
+    if (!overlay) return;
+    const hero = document.querySelector(".vhero");
+    const update = () => setOverHero(!!hero && hero.getBoundingClientRect().bottom > 80);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
+  }, [overlay]);
+  const headCls = `header${overlay ? " overlay" : ""}${overlay && overHero && !menu ? " clear" : ""}`;
   return (
     <>
-      <div className="announce">
+      <div className={`announce${overlay ? " overlay-hide" : ""}`}>
         <span>{t("Free delivery in Riyadh on orders over 500 SAR", "توصيل مجاني داخل الرياض للطلبات فوق ٥٠٠ ريال")}</span>
         <span className="sep">|</span>
         <span className="second">{t("Split into 4 interest-free payments with Tamara", "قسّم مشترياتك على ٤ دفعات بدون فوائد مع تمارا")}</span>
       </div>
-      <header className="header">
+      <header className={headCls}>
         <div className="wrap row" style={{ width: "100%", justifyContent: "space-between" }}>
           <Logo />
           <nav className="nav" aria-label={t("Main", "القائمة الرئيسية")}>
@@ -63,7 +78,7 @@ export function Header() {
         </div>
       </header>
       {menu && (
-        <nav className="wrap" aria-label={t("Mobile", "قائمة الجوال")} style={{ display: "flex", flexDirection: "column", borderBottom: "1px solid var(--line)", background: "var(--bg)" }}>
+        <nav className={`wrap mobile-menu${overlay ? " overlay" : ""}`} aria-label={t("Mobile", "قائمة الجوال")} style={{ display: "flex", flexDirection: "column", borderBottom: "1px solid var(--line)", background: "var(--bg)" }}>
           {NAV.map((n) => <Link key={n.href} href={href(lang, n.href)} onClick={() => setMenu(false)} style={{ padding: "16px 0", borderBottom: "1px solid var(--line)" }}>{t(n.en, n.ar)}</Link>)}
           <LangSwitch onClick={() => setMenu(false)} style={{ padding: "16px 0", ...(lang === "en" ? { fontFamily: "var(--arabic)" } : {}) }} />
         </nav>
