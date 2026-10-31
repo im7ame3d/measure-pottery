@@ -166,6 +166,19 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .path { overflow: hidden; }
 .path-media { margin: -56px -56px 12px; height: 260px; }
 .path-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+/* "For you" wide card: 3:1 photo banner with a dark gradient on the text side */
+.wide-card { position: relative; isolation: isolate; aspect-ratio: 3 / 1; border-radius: 12px; overflow: hidden; display: flex; align-items: center; color: #fff; }
+.wide-card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; z-index: -2; }
+.wide-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to right, rgba(20, 14, 10, 0.88) 0%, rgba(20, 14, 10, 0.6) 45%, rgba(20, 14, 10, 0.15) 100%); }
+[dir="rtl"] .wide-card::after { background: linear-gradient(to left, rgba(20, 14, 10, 0.88) 0%, rgba(20, 14, 10, 0.6) 45%, rgba(20, 14, 10, 0.15) 100%); }
+.wide-card-copy { padding: 0 clamp(28px, 5vw, 72px); max-width: 620px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.wide-card .label { font-family: var(--serif); font-size: clamp(44px, 5vw, 72px); line-height: 1.05; }
+[dir="rtl"] .wide-card .label { font-family: var(--arabic-display); line-height: 1.3; }
+.wide-card h2 { font-size: clamp(24px, 2.4vw, 34px); color: #fff; }
+.wide-card p { color: rgba(255, 255, 255, 0.86); font-size: 16px; }
+.wide-card .btn { margin-top: 10px; background: var(--ivory); color: var(--brown); }
+.wide-card .btn:hover { background: #fff; }
+
 /* full-viewport slides stacked vertically (swipe up) for the business / personal cards */
 /* the slider is its own full-screen panel: one swipe = exactly one slide (handled in Slider.tsx);
    arriving swipes settle the panel to fill the screen; past the first/last slide the page scrolls on */
@@ -372,6 +385,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 
 /* responsive */
 @media (max-width: 1100px) {
+  .wide-card { aspect-ratio: 16 / 9; }
   .nav, .tools .hide-sm { display: none; }
   .menubtn { display: inline-flex; }
   .hero, .story, .paths, .pdp, .checkout, .biz-hero .inner, .moq, .quote-wrap, .featured, .contact { grid-template-columns: 1fr; }
@@ -386,6 +400,9 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .story-hero .card-over { inset-inline: 20px; }
 }
 @media (max-width: 640px) {
+  .wide-card { aspect-ratio: auto; min-height: 420px; align-items: flex-end; }
+  .wide-card::after, [dir="rtl"] .wide-card::after { background: linear-gradient(to bottom, rgba(20, 14, 10, 0.2) 0%, rgba(20, 14, 10, 0.55) 40%, rgba(20, 14, 10, 0.9) 100%); }
+  .wide-card-copy { padding: 28px 24px 32px; }
   .enquiry { min-height: calc(100svh - 72px); }
   .enquiry-inner { padding-top: 48px; padding-bottom: 64px; }
   .blank, .blank.wide { width: 100%; min-width: 0; }

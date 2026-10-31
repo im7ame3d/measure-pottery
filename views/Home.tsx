@@ -111,6 +111,19 @@ export default function Home({ lang }: { lang: Lang }) {
           <div className="grid4">{PRODUCTS.slice(0, 4).map((p) => <ProductCard key={p.slug} p={p} lang={lang} />)}</div>
         </section>
 
+        {/* "For you": a wide 3:1 photo card under the shop */}
+        <section className="wrap" style={{ paddingBottom: 112 }}>
+          <div className="wide-card">
+            <img className="wide-card-bg" src="/img/gift-box.jpg" alt={t("A handmade cup gift-wrapped in a kraft box with a 'For you' tag", "كوب مصنوع يدوياً مغلّف كهدية في علبة مع بطاقة «لك»")} loading="lazy" />
+            <div className="wide-card-copy">
+              <div className="label">{t("For you", "لك")}</div>
+              <h2>{t(<>For your home &amp; gifting</>, "لبيتك وهداياك")}</h2>
+              <p>{t("Limited, one-of-a-kind pieces — gift-wrapped with a handwritten note on request.", "قطع محدودة لا تتكرر — نغلّفها كهدية مع بطاقة مكتوبة بخط اليد عند الطلب.")}</p>
+              <Link className="btn" href={h("/shop")}>{t("Shop the collection", "تسوّق المجموعة")} <Icon name="arrow" /></Link>
+            </div>
+          </div>
+        </section>
+
         <section>
           <div className="wrap section">
             <div className="section-head" style={{ marginBottom: 56 }}>
