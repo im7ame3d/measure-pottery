@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Footer, Header } from "@/components/Chrome";
 import HeroVideo from "@/components/HeroVideo";
 import ProximityBlur, { BlurLines, BlurWords } from "@/components/ProximityBlur";
+import Slider from "@/components/Slider";
 import Icon from "@/components/Icon";
 import ProductCard from "@/components/ProductCard";
 import { href, tr, type Lang } from "@/lib/i18n";
@@ -91,7 +92,7 @@ export default function Home({ lang }: { lang: Lang }) {
           </div>
         </section>
 
-        <section className="wrap paths" style={{ paddingBottom: 112 }}>
+        <Slider label={t("For business and for you", "للأعمال ولك")}>
           <div className="path terra photo">
             <div className="path-media"><img src="/img/business-ceiling.jpg" alt={t("Terracotta coffered ceiling", "سقف خزفي بلون التيراكوتا")} loading="lazy" /></div>
             <div className="eyebrow">{t("For business", "للأعمال")}</div>
@@ -116,7 +117,7 @@ export default function Home({ lang }: { lang: Lang }) {
             </ul>
             <Link className="btn" href={h("/shop")}>{t("Shop the collection", "تسوّق المجموعة")} <Icon name="arrow" /></Link>
           </div>
-        </section>
+        </Slider>
 
         <section className="wrap" style={{ paddingBottom: 112 }}>
           <div className="section-head inline">

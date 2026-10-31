@@ -80,7 +80,7 @@ export function Qty({ value, onChange, small }: { value: number; onChange: (n: n
   const lang = useLang();
   const t = tr(lang);
   return (
-    <div className="qty" style={small ? { height: 36, borderRadius: 6 } : undefined}>
+    <div className="qty" style={small ? { height: 36 } : undefined}>
       <button type="button" onClick={() => onChange(value - 1)} aria-label={t("Decrease quantity", "إنقاص الكمية")}>−</button>
       <span aria-live="polite">{num(value, lang)}</span>
       <button type="button" onClick={() => onChange(value + 1)} aria-label={t("Increase quantity", "زيادة الكمية")}>+</button>
