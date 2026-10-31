@@ -7,7 +7,14 @@ import { href, tr, type Lang } from "@/lib/i18n";
 import { PRODUCTS, img } from "@/lib/products";
 
 // Client logos: black SVGs in public/clients/. Remaining slots stay as placeholders.
-const CLIENTS = [{ name: "Mumsie", logo: "/clients/mumsie.svg" }];
+const CLIENTS = [
+  { name: "Mumsie", logo: "/clients/mumsie.svg", h: 30 },
+  { name: "urbn.", logo: "/clients/urbn.svg", h: 30 },
+  { name: "طمية", logo: "/clients/tamya.svg", h: 46 },
+  { name: "KEU", logo: "/clients/keu.svg", h: 30 },
+  { name: "UR Specialty Coffee", logo: "/clients/ur-specialty-coffee.svg", h: 48 },
+  { name: "Client logo", logo: "/clients/calligraphy.svg", h: 44 },
+];
 
 export default function Home({ lang }: { lang: Lang }) {
   const t = tr(lang);
@@ -65,8 +72,8 @@ export default function Home({ lang }: { lang: Lang }) {
         <section className="wrap" style={{ paddingBottom: 96 }}>
           <div className="eyebrow" style={{ textAlign: "center", marginBottom: 28 }}>{t(<>Served at cafés &amp; restaurants across the Kingdom</>, "نخدم المقاهي والمطاعم في أنحاء المملكة")}</div>
           <div className="logos">
-            {CLIENTS.map((c) => <div key={c.name} className="client"><img src={c.logo} alt={c.name} loading="lazy" /></div>)}
-            {Array.from({ length: 6 - CLIENTS.length }, (_, i) => <div key={i}>{t("CLIENT LOGO", "شعار العميل")}</div>)}
+            {CLIENTS.map((c) => <div key={c.name} className="client"><img src={c.logo} alt={c.name} loading="lazy" style={{ height: c.h }} /></div>)}
+            {Array.from({ length: Math.max(0, 6 - CLIENTS.length) }, (_, i) => <div key={i}>{t("CLIENT LOGO", "شعار العميل")}</div>)}
           </div>
         </section>
 
