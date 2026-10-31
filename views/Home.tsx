@@ -47,7 +47,7 @@ export default function Home({ lang }: { lang: Lang }) {
             <p>{t("Tableware for cafés and restaurants, and one-of-a-kind pieces for your home.", "أوانٍ للمقاهي والمطاعم، وقطع فريدة لبيتك ولمن تحب.")}</p>
             <div className="vhero-ctas">
               <Link className="btn primary" href={h("/business")}>{t(<>For Cafés &amp; Restaurants</>, "للمقاهي والمطاعم")} <Icon name="arrow" /></Link>
-              <Link className="btn secondary" href={h("/shop")}>{t("Shop Pieces", "تسوّق القطع")}</Link>
+              <Link className="btn secondary" href={h("/shop")}>{t("Shop", "المتجر")}</Link>
             </div>
           </div>
         </section>
