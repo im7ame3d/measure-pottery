@@ -1,34 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
 import { Footer, Header } from "@/components/Chrome";
 import { useLang } from "@/components/Lang";
+import Slides from "@/components/Slides";
 import { href, tr } from "@/lib/i18n";
 import { PROJECTS } from "@/lib/projects";
-
-/** One photo at a time; swipe (or tap the dots) to see the next. */
-function Slides({ images, label }: { images: { src: string; alt: string }[]; label: (i: number, n: number) => string }) {
-  const track = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-  const go = (i: number) => {
-    const el = track.current;
-    if (el) el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" });
-  };
-  return (
-    <div className="slides">
-      {/* the track is laid out left-to-right in both languages so scroll positions map straight to slide numbers */}
-      <div className="slides-track" ref={track} dir="ltr" onScroll={(e) => setActive(Math.round(e.currentTarget.scrollLeft / e.currentTarget.clientWidth))}>
-        {images.map((im, i) => <div key={im.src} className="photo"><img src={im.src} alt={im.alt} loading={i ? "lazy" : undefined} /></div>)}
-      </div>
-      {images.length > 1 && (
-        <div className="slides-dots" dir="ltr">
-          {images.map((im, i) => <button key={im.src} type="button" className={i === active ? "on" : undefined} aria-label={label(i + 1, images.length)} aria-current={i === active || undefined} onClick={() => go(i)} />)}
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function Portfolio() {
   const lang = useLang();

@@ -5,6 +5,7 @@ import ProximityBlur, { BlurLines, BlurWords } from "@/components/ProximityBlur"
 import FocusPanel from "@/components/FocusPanel";
 import Icon from "@/components/Icon";
 import ProductCard from "@/components/ProductCard";
+import Slides from "@/components/Slides";
 import { href, tr, type Lang } from "@/lib/i18n";
 import { PRODUCTS, img } from "@/lib/products";
 import { PROJECTS } from "@/lib/projects";
@@ -110,7 +111,7 @@ export default function Home({ lang }: { lang: Lang }) {
           <div className="work-row">
             {PROJECTS.map((p) => (
               <article key={p.id} className="work-card">
-                <Link href={h(`/portfolio#${p.id}`)} className="photo" tabIndex={-1} aria-hidden="true"><img src={p.images[0].src} alt="" loading="lazy" /></Link>
+                <Link href={h(`/portfolio#${p.id}`)} className="work-photo" tabIndex={-1} aria-hidden="true"><Slides images={p.images.map((im) => ({ src: im.src, alt: "" }))} dots={false} /></Link>
                 <div className="work-info">
                   <div className="work-title">
                     <img src={p.logo.src} alt="" aria-hidden="true" width={p.logo.w} height={p.logo.h} style={{ height: Math.round(p.logo.h * 0.75) }} />
