@@ -354,6 +354,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .featured .copy { padding: 56px; display: flex; flex-direction: column; gap: 18px; justify-content: center; }
 .pull { border-inline-start: 2px solid var(--brand); padding-inline-start: 18px; }
 .projects { display: grid; gap: 32px; }
+.project-logo { display: block; align-self: flex-start; height: 40px; width: auto; margin-bottom: 6px; }
 .dark-banner { background: var(--ink); color: #fff; border-radius: 12px; padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
 
 /* story */

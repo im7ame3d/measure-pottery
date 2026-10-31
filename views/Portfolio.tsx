@@ -16,6 +16,7 @@ const PROJECTS = [
       "Hand-thrown cups in a soft pink glaze, lettered with the Mumsie logo and finished with sculpted clay handles.",
       "أكواب مشكّلة يدوياً بطلاء وردي ناعم، تحمل شعار Mumsie ومقابض طينية مشكّلة باليد.",
     ],
+    logo: { src: "/clients/mumsie.svg", w: 144, h: 40 },
     image: "/img/work-mumsie.jpg",
     alt: ["Pink-glazed Mumsie Bakery cups laid out on linen", "أكواب مخبز ممزي بطلاء وردي على قماش"],
   },
@@ -38,6 +39,7 @@ export default function Portfolio() {
             <article key={p.id} className="featured">
               <div className="photo"><img src={p.image} alt={pick(p.alt)} /></div>
               <div className="copy">
+                <img className="project-logo" src={p.logo.src} alt={p.name[0]} width={p.logo.w} height={p.logo.h} />
                 <h2>{pick(p.name)}</h2>
                 <div className="row" style={{ gap: 8, flexWrap: "wrap" }}><span className="tag">{pick(p.type)}</span><span className="tag">{pick(p.city)}</span></div>
                 <p className="muted">{pick(p.text)}</p>
