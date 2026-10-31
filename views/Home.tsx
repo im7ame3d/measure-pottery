@@ -126,15 +126,16 @@ export default function Home({ lang }: { lang: Lang }) {
           <div className="grid4">{PRODUCTS.slice(0, 4).map((p) => <ProductCard key={p.slug} p={p} lang={lang} />)}</div>
         </section>
 
-        <section className="white">
+        <section>
           <div className="wrap section">
             <div className="section-head" style={{ marginBottom: 56 }}>
               <div><div className="eyebrow">{t("B2B ordering", "طلبات الأعمال")}</div><h2 style={{ marginTop: 12 }}>{t("How it works", "كيف نعمل")}</h2></div>
               <Link className="btn primary" href={h("/business#quote")}>{t("Start your order", "ابدأ طلبك")}</Link>
             </div>
-            <div className="steps4">
+            {/* same simple layout as the business page highlights: big display title + one muted line */}
+            <div className="stats plain">
               {STEPS.map(([n, s, d]) => (
-                <div className="step" key={n}><div className="n">{n}</div><h4 style={{ margin: "10px 0 8px" }}>{s}</h4><p className="small muted">{d}</p></div>
+                <div key={n}><div className="v">{s}</div><div className="small muted">{d}</div></div>
               ))}
             </div>
           </div>

@@ -256,6 +256,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .biz-hero .inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; padding-top: 96px; padding-bottom: 96px; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; padding-top: 72px; padding-bottom: 72px; border-bottom: 1px solid var(--line); }
 .stats .v { font-family: var(--serif); font-size: 44px; }
+.stats.plain { padding: 0; border: 0; }
 .cats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
 .cats .photo { height: 230px; margin-bottom: 14px; }
 .custom3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
