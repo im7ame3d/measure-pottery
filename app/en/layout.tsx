@@ -5,7 +5,7 @@ import { enFontVars } from "@/lib/fonts-en";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Measure Pottery — Handmade ceramics", template: "%s · Measure Pottery" },
+  title: { default: "Measure Ceramics — Handmade ceramics studio", template: "%s · Measure Ceramics" },
   description: "Handmade tableware for cafés and restaurants, and one-of-a-kind ceramics for your home and gifts. Made in Saudi Arabia.",
   icons: { icon: "/logo/mark.svg" },
   alternates: { languages: { ar: "/" } },

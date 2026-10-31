@@ -5,7 +5,7 @@ import { arFontVars } from "@/lib/fonts-ar";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Measure Pottery — خزف مصنوع يدوياً", template: "%s · Measure Pottery" },
+  title: { default: "Measure Ceramics — خزف مصنوع يدوياً", template: "%s · Measure Ceramics" },
   description: "أوانٍ مصنوعة يدوياً للمقاهي والمطاعم، وقطع خزفية فريدة لبيتك وهداياك. صُنعت في المملكة العربية السعودية.",
   icons: { icon: "/logo/mark.svg" },
   alternates: { languages: { en: "/en" } },

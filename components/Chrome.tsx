@@ -20,7 +20,7 @@ export function Logo({ light = false }: { light?: boolean }) {
   const lang = useLang();
   // Stacked lockup: mark above the MEASURE / CERAMICS wordmark (single SVG).
   return (
-    <Link href={href(lang, "/")} className="logo" aria-label={tr(lang)("Measure Pottery, home", "Measure Pottery، الصفحة الرئيسية")}>
+    <Link href={href(lang, "/")} className="logo" aria-label={tr(lang)("Measure Ceramics, home", "Measure Ceramics، الصفحة الرئيسية")}>
       <img className="lockup" src={light ? "/logo/logo-light.svg" : "/logo/logo.svg"} alt="Measure Ceramics" width={121} height={112} />
     </Link>
   );
@@ -114,7 +114,7 @@ export function Footer() {
           </div>
         </div>
         <div className="bottom">
-          <span>{t("© 2026 Measure Pottery. All rights reserved.", "© ٢٠٢٦ Measure Pottery. جميع الحقوق محفوظة.")}</span>
+          <span>{t("© 2026 Measure Ceramics. All rights reserved.", "© ٢٠٢٦ Measure Ceramics. جميع الحقوق محفوظة.")}</span>
           <div className="row" style={{ gap: 20 }}><a href="https://instagram.com/measure.pottery" target="_blank" rel="noreferrer">{t("Instagram", "إنستغرام")}</a><span>{t("TikTok", "تيك توك")}</span><span>{t("Pinterest", "بنترست")}</span></div>
           <div className="pay"><span>mada</span><span>Apple Pay</span><span>VISA</span><span>Mastercard</span><span>tamara</span></div>
         </div>
