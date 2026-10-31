@@ -26,7 +26,7 @@ export const PRODUCTS: Product[] = [
   { slug: "beach-princess-mug", name: "Beach Princess Mug", price: 799, category: "Cups & mugs", glaze: "#2F6E86", image: "beach-princess", gallery: ["beach-princess"],
     description: "A handmade mug in a deep ocean-blue glaze that melts down onto bare sandy clay like a wave meeting the shore, with a small window framing a hand-painted blue flower.",
     details: "Handmade mug · Glazed stoneware · Each piece varies slightly in glaze and form.",
-    ar: { name: "أميرة الشاطئ", description: "كوب مصنوع يدوياً بطلاء أزرق عميق يذوب نحو الأسفل كموجة تلامس الرمل، مع نافذة صغيرة تحتضن زهرة زرقاء مرسومة باليد.", details: "كوب مصنوع يدوياً · خزف مطليّ · تختلف كل قطعة قليلاً في الطلاء والشكل." } },
+    ar: { name: "كوب أميرة الشاطئ", description: "كوب مصنوع يدوياً بطلاء أزرق عميق يذوب نحو الأسفل كموجة تلامس الرمل، مع نافذة صغيرة تحتضن زهرة زرقاء مرسومة باليد.", details: "كوب مصنوع يدوياً · خزف مطليّ · تختلف كل قطعة قليلاً في الطلاء والشكل." } },
 ];
 
 export const CATEGORIES: Category[] = ["Cups & mugs", "Plates", "Bowls", "Vases", "Gift sets"];
