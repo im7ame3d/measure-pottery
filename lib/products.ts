@@ -23,6 +23,10 @@ export const PRODUCTS: Product[] = [
     description: "A handmade cup and saucer. A soft sea-blue glaze flows over the rim like a whisper of waves, above bare, sand-coloured clay.",
     details: "Handmade cup with saucer · Glazed stoneware · Each piece varies slightly in glaze and form.",
     ar: { name: "كوب وصحن همس الموج", description: "كوب وصحن مصنوعان يدوياً، بطلاء أزرق بلون البحر ينساب على الحافة كهمس الموج، فوق طين بلون الرمل.", details: "كوب مع صحن مصنوعان يدوياً · خزف مطليّ · تختلف كل قطعة قليلاً في الطلاء والشكل." } },
+  { slug: "beach-princess-mug", name: "Beach Princess Mug", price: 799, category: "Cups & mugs", glaze: "#2F6E86", image: "beach-princess", gallery: ["beach-princess"],
+    description: "A handmade mug in a deep ocean-blue glaze that melts down onto bare sandy clay like a wave meeting the shore, with a small window framing a hand-painted blue flower.",
+    details: "Handmade mug · Glazed stoneware · Each piece varies slightly in glaze and form.",
+    ar: { name: "أميرة الشاطئ", description: "كوب مصنوع يدوياً بطلاء أزرق عميق يذوب نحو الأسفل كموجة تلامس الرمل، مع نافذة صغيرة تحتضن زهرة زرقاء مرسومة باليد.", details: "كوب مصنوع يدوياً · خزف مطليّ · تختلف كل قطعة قليلاً في الطلاء والشكل." } },
 ];
 
 export const CATEGORIES: Category[] = ["Cups & mugs", "Plates", "Bowls", "Vases", "Gift sets"];
