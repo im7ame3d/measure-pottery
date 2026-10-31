@@ -92,7 +92,7 @@ export default function Home({ lang }: { lang: Lang }) {
           </div>
         </section>
 
-        <Slider label={t("For business and for you", "للأعمال ولك")}>
+        <Slider label={t("For business", "للأعمال")}>
           <div className="path terra photo">
             <div className="path-media"><img src="/img/business-ceiling.jpg" alt={t("Terracotta coffered ceiling", "سقف خزفي بلون التيراكوتا")} loading="lazy" /></div>
             <div className="eyebrow">{t("For business", "للأعمال")}</div>
@@ -104,18 +104,6 @@ export default function Home({ lang }: { lang: Lang }) {
               <li className="check-item"><Icon name="check" /> {t("Samples before production", "عيّنات قبل الإنتاج")}</li>
             </ul>
             <Link className="btn" href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
-          </div>
-          <div className="path ivory photo">
-            <div className="path-media"><img src="/img/gift-box.jpg" alt={t("A handmade cup gift-wrapped in a kraft box with a 'For you' tag", "كوب مصنوع يدوياً مغلّف كهدية في علبة مع بطاقة «لك»")} loading="lazy" /></div>
-            <div className="eyebrow">{t("For you", "لك")}</div>
-            <h2>{t(<>For your home<br />&amp; gifting</>, <>لبيتك<br />وهداياك</>)}</h2>
-            <p style={{ maxWidth: 420 }}>{t(<>Limited, one-of-a-kind pieces — when they&apos;re gone, they&apos;re gone. Gift-wrapped with a handwritten note on request.</>, "قطع محدودة لا تتكرر — حين تنفد لا تعود. نغلّفها كهدية مع بطاقة مكتوبة بخط اليد عند الطلب.")}</p>
-            <ul>
-              <li className="check-item"><Icon name="check" /> {t("Exclusive pieces, never repeated", "قطع حصرية لا تتكرر")}</li>
-              <li className="check-item"><Icon name="check" /> {t(<>Gift wrapping &amp; personal message</>, "تغليف هدايا ورسالة شخصية")}</li>
-              <li className="check-item"><Icon name="check" /> {t("Pay in 4 with Tamara", "قسّمها على ٤ دفعات مع تمارا")}</li>
-            </ul>
-            <Link className="btn" href={h("/shop")}>{t("Shop the collection", "تسوّق المجموعة")} <Icon name="arrow" /></Link>
           </div>
         </Slider>
 

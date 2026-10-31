@@ -17,6 +17,7 @@ export default function Slider({ children, label }: { children: React.ReactNode;
   const [active, setActive] = useState(0);
   const current = useRef(0);
   const busy = useRef(false);
+  const holdUntil = useRef(0);   // after snapping, the rest of that gesture (e.g. trackpad momentum) is held
   const count = Children.count(children);
 
   const go = useCallback((i: number) => {
@@ -54,6 +55,7 @@ export default function Slider({ children, label }: { children: React.ReactNode;
       if (busy.current) return;
       if (a === "align") { window.scrollBy({ top: panel.getBoundingClientRect().top, behavior: "smooth" }); lock(700); }
       else go(current.current + dir);
+      holdUntil.current = Date.now() + 1100;
     };
 
     // touch: decide on the first move whether this swipe changes slides or scrolls the page
@@ -74,6 +76,10 @@ export default function Slider({ children, label }: { children: React.ReactNode;
     // wheel / trackpad: one gesture = one slide
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) < 4) return;
+      // hold: right after a snap, swallow the rest of the gesture so the panel stays put
+      if (Date.now() < holdUntil.current && Math.abs(panel.getBoundingClientRect().top) < window.innerHeight * 0.35) {
+        e.preventDefault(); holdUntil.current = Date.now() + 250; return;
+      }
       const dir = e.deltaY > 0 ? 1 : -1;
       const a = action(dir);
       if (!a) return;
@@ -96,14 +102,16 @@ export default function Slider({ children, label }: { children: React.ReactNode;
 
   return (
     <section className="slider" ref={root} aria-roledescription="carousel" aria-label={label}>
-      <div className="slider-dots" role="tablist">
-        <div>
-          {Array.from({ length: count }, (_, i) => (
-            <button key={i} type="button" role="tab" aria-selected={i === active} className={i === active ? "on" : ""}
-              aria-label={lang === "ar" ? `الشريحة ${i + 1}` : `Slide ${i + 1}`} onClick={() => go(i)} />
-          ))}
+      {count > 1 && (
+        <div className="slider-dots" role="tablist">
+          <div>
+            {Array.from({ length: count }, (_, i) => (
+              <button key={i} type="button" role="tab" aria-selected={i === active} className={i === active ? "on" : ""}
+                aria-label={lang === "ar" ? `الشريحة ${i + 1}` : `Slide ${i + 1}`} onClick={() => go(i)} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <div className="slider-track" ref={track}>{children}</div>
     </section>
   );
