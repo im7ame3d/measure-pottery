@@ -354,9 +354,14 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .featured .copy { padding: 56px; display: flex; flex-direction: column; gap: 18px; justify-content: center; }
 .pull { border-inline-start: 2px solid var(--brand); padding-inline-start: 18px; }
 .projects { display: grid; gap: 32px; }
-.project-photos { display: grid; gap: 2px; }
-.project-photos.n2 { grid-template-columns: 1fr 1fr; }
-.project-photos .photo { border-radius: 0; height: 560px; }
+.slides { position: relative; min-width: 0; }
+.slides-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.slides-track::-webkit-scrollbar { display: none; }
+.slides-track .photo { flex: 0 0 100%; scroll-snap-align: start; border-radius: 0; height: 560px; }
+.slides-dots { position: absolute; bottom: 18px; left: 50%; translate: -50% 0; display: flex; gap: 8px; padding: 8px 12px; background: rgba(20, 14, 10, 0.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 999px; }
+.slides-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: background 0.2s, width 0.2s; }
+.slides-dots button.on { width: 22px; border-radius: 4px; background: #fff; }
+@media (prefers-reduced-motion: reduce) { .slides-track { scroll-behavior: auto; } }
 .project-title { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .project-logo { display: block; flex: none; width: auto; }
 .dark-banner { background: var(--ink); color: #fff; border-radius: 12px; padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -472,7 +477,6 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .mainpic { height: 420px; }
   .featured .copy, .dark-banner { padding: 28px; }
   .featured .photo { height: auto; aspect-ratio: 1; }
-  .project-photos.n2 .photo { aspect-ratio: 3 / 4; }
   .story-hero .card-over { padding: 28px; bottom: 24px; }
   .section-head { flex-direction: column; align-items: flex-start; }
   .section-head.inline { flex-direction: row; align-items: center; }
