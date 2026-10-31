@@ -141,7 +141,7 @@ export default function Home({ lang }: { lang: Lang }) {
         </section>
 
         <section className="wrap section story">
-          <div className="photo" style={{ height: 560 }}><img src={img("studio")} alt={t("The Measure studio with a table of glazed cups", "معمل Measure وطاولة عليها أكواب مطليّة")} /></div>
+          <div className="photo" style={{ height: 640 }}><img src="/img/story-table.jpg" alt={t("Glazed plates, saucers and cups stamped with the Solaire logo, laid out on a table in our studio", "أطباق وصحون وأكواب مطليّة مختومة بشعار Solaire على طاولة في معملنا")} loading="lazy" /></div>
           <div>
             <div className="eyebrow">{t("Our story", "قصتنا")}</div>
             <h2 style={{ margin: "14px 0 22px" }}>{t(<>From clay to kiln,<br />by hand.</>, <>من الطين إلى الفرن،<br />بأيدينا.</>)}</h2>
