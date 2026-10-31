@@ -157,15 +157,6 @@ export default function Home({ lang }: { lang: Lang }) {
             <Link className="btn secondary" href={h("/story")} style={{ marginTop: 36 }}>{t("Meet the studio", "تعرّف على المعمل")}</Link>
           </div>
         </section>
-
-
-        <section className="quote">
-          <div className="wrap">
-            <blockquote>{t("“Our guests ask about the cups before they ask about the coffee. The pieces made our space feel like ours.”", "«يسأل ضيوفنا عن الأكواب قبل أن يسألوا عن القهوة. هذه القطع جعلت مكاننا يشبهنا.»")}</blockquote>
-            <div className="small" style={{ marginTop: 28, fontWeight: 500 }}>{t("Client name", "اسم العميل")}</div>
-            <div className="xs muted">{t("Owner, Café name — Riyadh", "مالك المقهى، اسم المقهى — الرياض")}</div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
