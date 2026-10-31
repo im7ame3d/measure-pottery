@@ -5,37 +5,7 @@ import { useRef, useState } from "react";
 import { Footer, Header } from "@/components/Chrome";
 import { useLang } from "@/components/Lang";
 import { href, tr } from "@/lib/i18n";
-
-// Real client projects. Add new ones here; each renders as a photo + details card.
-const PROJECTS = [
-  {
-    id: "mumsie-bakery",
-    name: ["Mumsie Bakery", "مخبز ممزي"],
-    type: ["Bakery", "مخبز"],
-    city: ["Dammam", "الدمام"],
-    text: [
-      "Hand-thrown cups in a soft pink glaze, lettered with the Mumsie logo and finished with sculpted clay handles.",
-      "لمخبز ممزي سوّينا أكواب وردية تفتح النفس، كل واحد منها مشكّل باليد وعليه شعارهم، ومقابضها من الطين معقودة على شكل فيونكة. تشرب فيها قهوتك وتحس إن الصبح صار أحلى.",
-    ],
-    logo: { src: "/clients/mumsie.svg", w: 87, h: 24 },
-    images: [{ src: "/img/work-mumsie.jpg", alt: ["Pink-glazed Mumsie Bakery cups laid out on linen", "أكواب مخبز ممزي بطلاء وردي على قماش"] }],
-  },
-  {
-    id: "peek-a-brew",
-    name: ["Peek a Brew", "بيك ا برو"],
-    type: ["Café", "مقهى"],
-    city: ["Khobar", "الخبر"],
-    text: [
-      "Wheel-thrown cups stamped with the Peek a Brew logo in green, with “Have a brew-tiful day!” inside the rim and a pair of eyes peeking up from the bottom.",
-      "أكواب بيك ا برو وراها سالفة حلوة: من برّا ختم شعارهم بالأخضر، ومن داخل على الحافة «\u2068Have a brew-tiful day!\u2069» تصبّح عليك، ولا خلّصت قهوتك تلقى عيونين يطالعونك من قاع الكوب. يعني لازم تخلّصها!",
-    ],
-    logo: { src: "/clients/hands.svg", w: 30, h: 34 },
-    images: [
-      { src: "/img/work-peekabrew-1.jpg", alt: ["Peek a Brew cups with the stamped green logo on a shelf", "أكواب Peek a Brew بختم الشعار الأخضر على رف"] },
-      { src: "/img/work-peekabrew-2.jpg", alt: ["Looking into Peek a Brew cups: the rim message and the peeking eyes", "من داخل أكواب Peek a Brew: العبارة على الحافة والعينان في القاع"] },
-    ],
-  },
-] as const;
+import { PROJECTS } from "@/lib/projects";
 
 /** One photo at a time; swipe (or tap the dots) to see the next. */
 function Slides({ images, label }: { images: { src: string; alt: string }[]; label: (i: number, n: number) => string }) {
@@ -74,7 +44,7 @@ export default function Portfolio() {
         </section>
         <section className="wrap projects" style={{ paddingBottom: 112 }}>
           {PROJECTS.map((p) => (
-            <article key={p.id} className="featured">
+            <article key={p.id} id={p.id} className="featured">
               <Slides images={p.images.map((im) => ({ src: im.src, alt: pick(im.alt) }))} label={(i, n) => t(`Photo ${i} of ${n}`, `الصورة ${i} من ${n}`)} />
               <div className="copy">
                 <div className="project-title">

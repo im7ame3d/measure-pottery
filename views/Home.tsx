@@ -7,6 +7,7 @@ import Icon from "@/components/Icon";
 import ProductCard from "@/components/ProductCard";
 import { href, tr, type Lang } from "@/lib/i18n";
 import { PRODUCTS, img } from "@/lib/products";
+import { PROJECTS } from "@/lib/projects";
 
 // Client logos: black SVGs in public/clients/, shown in the scrolling strip on the home page.
 const CLIENTS = [
@@ -102,6 +103,26 @@ export default function Home({ lang }: { lang: Lang }) {
             <Link className="btn panel-cta" href={h("/business#quote")}>{t("Start your order", "ابدأ طلبك")} <Icon name="arrow" /></Link>
           </div>
         </FocusPanel>
+
+        {/* Our work: one card per portfolio project, side by side (swipeable row on phones) */}
+        <section className="wrap work" style={{ paddingBottom: 96 }}>
+          <h2 style={{ textAlign: "center", marginBottom: 36 }}>{t("Our work", "أعــمالنا")}</h2>
+          <div className="work-row">
+            {PROJECTS.map((p) => (
+              <article key={p.id} className="work-card">
+                <Link href={h(`/portfolio#${p.id}`)} className="photo" tabIndex={-1} aria-hidden="true"><img src={p.images[0].src} alt="" loading="lazy" /></Link>
+                <div className="work-info">
+                  <div className="work-title">
+                    <img src={p.logo.src} alt="" aria-hidden="true" width={p.logo.w} height={p.logo.h} style={{ height: Math.round(p.logo.h * 0.75) }} />
+                    <h3>{t(p.name[0], p.name[1])}</h3>
+                  </div>
+                  <div className="row" style={{ gap: 8, flexWrap: "wrap" }}><span className="tag">{t(p.type[0], p.type[1])}</span><span className="tag">{t(p.city[0], p.city[1])}</span></div>
+                  <Link className="btn secondary" href={h(`/portfolio#${p.id}`)}>{t("View project", "شوف المشروع")} <Icon name="arrow" /></Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section className="wrap" style={{ paddingBottom: 56 }}>
           <div className="section-head inline">

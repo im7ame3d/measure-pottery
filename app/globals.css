@@ -362,6 +362,17 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .slides-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: background 0.2s, width 0.2s; }
 .slides-dots button.on { width: 22px; border-radius: 4px; background: #fff; }
 @media (prefers-reduced-motion: reduce) { .slides-track { scroll-behavior: auto; } }
+/* home "our work" strip */
+.work-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 1fr); gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.work-row::-webkit-scrollbar { display: none; }
+.work-card { scroll-snap-align: start; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.work-card .photo { border-radius: 0; aspect-ratio: 4 / 3; }
+.work-info { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+.work-title { display: flex; align-items: center; gap: 10px; }
+.work-title img { flex: none; width: auto; }
+.work-title h3 { font-size: 24px; }
+.work-info .btn { align-self: flex-start; margin-top: auto; }
+.projects article { scroll-margin-top: 120px; }
 .project-title { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .project-logo { display: block; flex: none; width: auto; }
 .dark-banner { background: var(--ink); color: #fff; border-radius: 12px; padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -477,6 +488,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .mainpic { height: 420px; }
   .featured .copy, .dark-banner { padding: 28px; }
   .featured .photo { height: auto; aspect-ratio: 1; }
+  .work-row { --edge: clamp(20px, 8.3vw, 120px); grid-auto-columns: 84%; gap: 14px; margin-inline: calc(-1 * var(--edge)); padding-inline: var(--edge); scroll-padding-inline: var(--edge); }
   .story-hero .card-over { padding: 28px; bottom: 24px; }
   .section-head { flex-direction: column; align-items: flex-start; }
   .section-head.inline { flex-direction: row; align-items: center; }
