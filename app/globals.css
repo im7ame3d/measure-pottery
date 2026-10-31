@@ -339,6 +339,10 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .enquiry-send:hover { background: #fff; }
 .enquiry-done .enquiry-note { margin-top: 18px; font-size: 18px; color: rgba(255, 255, 255, 0.85); }
 .enquiry .success { background: transparent; padding: 0; }
+/* the same enquiry as a band above the footer on every other page */
+.enquiry.band { min-height: 0; }
+.enquiry.band .enquiry-inner { padding-top: 112px; padding-bottom: 112px; }
+.enquiry.band .madlib { font-size: clamp(30px, 3.6vw, 52px); }
 
 /* portfolio */
 .featured { display: grid; grid-template-columns: 1.4fr 1fr; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
@@ -397,6 +401,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .stats .v { font-size: 30px; }
   .enquiry { min-height: calc(100svh - 72px); }
   .enquiry-inner { padding-top: 48px; padding-bottom: 64px; }
+  .enquiry.band .enquiry-inner { padding-top: 72px; padding-bottom: 72px; }
   .blank, .blank.wide { width: 100%; min-width: 0; }
   .blank.phone { width: 8em; }
   .enquiry-send { width: 100%; }

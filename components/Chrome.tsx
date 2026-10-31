@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { href, switchHref, tr } from "@/lib/i18n";
 import { CartButton } from "./Cart";
+import Enquiry from "./Enquiry";
 import Icon from "./Icon";
 import { useLang } from "./Lang";
 
@@ -98,13 +99,15 @@ export function Header({ overlay = false, announce = true }: { overlay?: boolean
   );
 }
 
-export function Footer() {
+/** Site footer. `enquiry` adds the business enquiry band above it (off on the business page, which is that form). */
+export function Footer({ enquiry = true }: { enquiry?: boolean }) {
   const lang = useLang();
   const t = tr(lang);
   const h = (p: string) => href(lang, p);
   const [joined, setJoined] = useState(false);
   return (
     <>
+    {enquiry && <Enquiry id="enquiry" />}
     <footer className="footer">
       <div className="wrap">
         <div className="cols">
