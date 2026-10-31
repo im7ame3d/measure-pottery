@@ -382,10 +382,37 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .dark-banner { background: var(--ink); color: #fff; border-radius: 12px; padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
 
 /* story */
-.story-hero { display: grid; grid-template-columns: 1fr minmax(0, 520px); gap: 64px; align-items: center; padding-top: 56px; padding-bottom: 72px; }
-.story-hero .photo { aspect-ratio: 3 / 4; }
-.values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.values > div { border-top: 1.5px solid #fff; padding-top: 22px; }
+.story-hero { position: relative; height: 620px; }
+.story-hero .photo { border-radius: 0; height: 100%; }
+.story-hero .photo img { object-position: 50% 26%; }
+/* the card sits on the photo's plain-wall side (left) in both languages, clear of the sign */
+.story-hero .card-over { position: absolute; left: clamp(20px, 8.3vw, 120px); bottom: 72px; background: var(--bg); padding: 44px 52px; border-radius: 12px; max-width: 460px; }
+/* story "what we value" as a chat */
+.chat { max-width: 760px; margin-inline: auto; display: flex; flex-direction: column; gap: 28px; }
+.chat-pair { display: flex; flex-direction: column; gap: 10px; }
+.bubble { max-width: min(78%, 460px); padding: 14px 18px; border-radius: 22px; font-size: 17px; line-height: 1.6; }
+.bubble.ask { align-self: flex-end; background: var(--ivory); color: var(--brown); border-end-end-radius: 6px; }
+.chat-reply { display: flex; align-items: flex-end; gap: 10px; }
+.chat-avatar { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--ivory); display: grid; place-items: center; }
+.chat-avatar img { width: 24px; height: auto; }
+.bubble.reply { background: var(--terracotta); color: #fff; border-end-start-radius: 6px; }
+.bubble.reply b { display: block; font-weight: 500; font-size: 13px; letter-spacing: 0.04em; opacity: 0.85; margin-bottom: 4px; }
+[dir="rtl"] .bubble.reply b { letter-spacing: 0; }
+/* bubbles pop in one by one, like messages arriving */
+.chat.ready .bubble, .chat.ready .chat-avatar { opacity: 0; }
+.chat.in .bubble, .chat.in .chat-avatar { animation: bubble-in 0.5s cubic-bezier(0.2, 0.8, 0.3, 1.2) both; }
+.chat.in .bubble.ask { transform-origin: 100% 100%; }
+[dir="rtl"] .chat.in .bubble.ask { transform-origin: 0 100%; }
+.chat.in .chat-reply .bubble { transform-origin: 0 100%; }
+[dir="rtl"] .chat.in .chat-reply .bubble { transform-origin: 100% 100%; }
+.chat.in .chat-pair:nth-child(1) .ask { animation-delay: 0.1s; }
+.chat.in .chat-pair:nth-child(1) .chat-reply > * { animation-delay: 0.7s; }
+.chat.in .chat-pair:nth-child(2) .ask { animation-delay: 1.4s; }
+.chat.in .chat-pair:nth-child(2) .chat-reply > * { animation-delay: 2s; }
+.chat.in .chat-pair:nth-child(3) .ask { animation-delay: 2.7s; }
+.chat.in .chat-pair:nth-child(3) .chat-reply > * { animation-delay: 3.3s; }
+@keyframes bubble-in { from { opacity: 0; transform: translateY(10px) scale(0.92); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .chat.ready .bubble, .chat.ready .chat-avatar { opacity: 1; animation: none !important; } }
 
 /* contact */
 .contact-page { padding-top: 56px; padding-bottom: 140px; }
@@ -422,13 +449,12 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .hero, .story, .paths, .pdp, .checkout, .biz-hero .inner, .moq, .quote-wrap, .featured { grid-template-columns: 1fr; }
   .hero-pics { height: 460px; }
   .grid4, .cats { grid-template-columns: repeat(2, 1fr); }
-  .grid3, .custom3, .values { grid-template-columns: 1fr 1fr; }
+  .grid3, .custom3 { grid-template-columns: 1fr 1fr; }
   .steps4, .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .shop { grid-template-columns: 1fr; }
   .footer .cols { grid-template-columns: 1fr 1fr; }
   .mainpic { height: 520px; }
   .summary { position: static; }
-  .story-hero { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
 @media (max-width: 640px) {
   .stats .v { font-size: 30px; }
@@ -484,7 +510,8 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .panel .path h2 { font-size: min(30px, 8vw); }
   [dir="rtl"] .panel .path h2 { white-space: nowrap; }
   .grid4 { gap: 24px 12px; }
-  .grid3, .custom3, .values, .footer .cols { grid-template-columns: 1fr; }
+  .grid3, .custom3, .footer .cols { grid-template-columns: 1fr; }
+  .bubble { max-width: 85%; font-size: 16px; }
   .footer .links ul { display: flex; flex-wrap: wrap; gap: 12px 28px; }
   .footer .links li { margin: 0; }
   .pcard .name { font-size: 18px; }
@@ -499,7 +526,9 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .featured .photo { height: auto; aspect-ratio: 1; }
   .contact-buttons { grid-template-columns: 1fr; }
   .work-row { --edge: clamp(20px, 8.3vw, 120px); grid-auto-columns: 84%; gap: 14px; margin-inline: calc(-1 * var(--edge)); padding-inline: var(--edge); scroll-padding-inline: var(--edge); }
-  .story-hero { grid-template-columns: 1fr; gap: 28px; padding-top: 36px; padding-bottom: 48px; }
+  .story-hero { height: 560px; }
+  .story-hero .photo img { object-position: 60% 20%; }
+  .story-hero .card-over { left: 20px; right: 20px; max-width: none; padding: 28px; bottom: 24px; }
   .section-head { flex-direction: column; align-items: flex-start; }
   .section-head.inline { flex-direction: row; align-items: center; }
   .section-head.inline .btn { height: 44px; padding: 0 18px; font-size: 14px; }

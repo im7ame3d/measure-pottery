@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Footer, Header } from "@/components/Chrome";
+import Reveal from "@/components/Reveal";
 import { href, tr, type Lang } from "@/lib/i18n";
 import { img } from "@/lib/products";
 
@@ -10,17 +11,26 @@ export default function Story({ lang }: { lang: Lang }) {
     [["Clay", "We wedge local and imported stoneware clays by hand.", "cups_bisque"], ["Wheel", "Each piece is thrown, trimmed and finished on the wheel.", "studio"], ["Glaze", "Glazes are mixed in the studio and tested on every batch.", "mumsie"], ["Kiln", "Fired to 1240°C for strength you can use every day.", "spread_close"]],
     [["الطين", "نعجن طين الخزف الحجري المحلي والمستورد بأيدينا.", "cups_bisque"], ["العجلة", "تُشكَّل كل قطعة وتُهذَّب وتُشطَّب على العجلة.", "studio"], ["الطلاء", "نخلط الطلاءات في المعمل ونختبرها مع كل دفعة.", "mumsie"], ["الفرن", "تُحرق على ١٢٤٠° مئوية لمتانة تناسب الاستخدام اليومي.", "spread_close"]],
   );
-  const VALUES = t(
-    [["Handmade", "No moulds, no shortcuts. Every piece passes through our hands."], ["Local", "Made in Saudi Arabia, for the way we gather and eat here."], ["Small-batch", "We make less, so every piece gets the time it deserves."]],
-    [["صناعة يدوية", "لا قوالب ولا اختصارات. كل قطعة تمر بين أيدينا."], ["صناعة محلية", "صُنعت في السعودية، لطريقتنا في الاجتماع والأكل هنا."], ["دفعات مقسمة", "نصنع أقل، لتنال كل قطعة الوقت الذي تستحقه."]],
+  // "What we value" as a short chat: a visitor asks, the studio answers with the value.
+  const CHAT = t(
+    [
+      ["Is every piece really handmade?", "Handmade", "Yes. No moulds, no shortcuts — every piece passes through our hands."],
+      ["Where is it made?", "Local", "Right here in Saudi Arabia, made for the way we gather and eat."],
+      ["Why such small batches?", "Small-batch", "We make less, so every piece gets the time it deserves."],
+    ],
+    [
+      ["كل قطعة يدوية فعلاً؟", "صناعة يدوية", "إيه والله، لا قوالب ولا اختصارات. كل قطعة تمر بين أيدينا."],
+      ["وين تنصنع؟", "صناعة محلية", "هنا في السعودية، على طريقتنا في الجَمعة والسفرة."],
+      ["ليش الكميات محدودة؟", "دفعات مقسمة", "نصنع أقل، عشان كل قطعة تاخذ وقتها اللي تستاهله."],
+    ],
   );
   return (
     <>
       <Header />
       <main>
-        <section className="wrap story-hero">
-          <div className="story-hero-copy"><div className="eyebrow">{t("Our story", "قصتنا")}</div><h1 style={{ marginTop: 14 }}>{t(<>Made slowly,<br />made to last.</>, <>صُنعت بتأنٍّ،<br />لتدوم طويلاً.</>)}</h1></div>
+        <section className="story-hero">
           <div className="photo"><img src="/img/story-studio-wall.jpg" alt={t("The Measure Pottery sign on the studio wall above a red slab roller", "لوحة Measure Pottery على جدار المعمل فوق آلة فرد الطين الحمراء")} /></div>
+          <div className="card-over"><div className="eyebrow">{t("Our story", "قصتنا")}</div><h1 style={{ marginTop: 14 }}>{t(<>Made slowly,<br />made to last.</>, <>صُنعت بتأنٍّ،<br />لتدوم طويلاً.</>)}</h1></div>
         </section>
         <section className="wrap section story" style={{ alignItems: "start" }}>
           <h2>{t("Measure began with a single wheel and a simple idea.", "بدأت Measure بعجلة واحدة وفكرة بسيطة.")}</h2>
@@ -46,7 +56,17 @@ export default function Story({ lang }: { lang: Lang }) {
           <div className="wrap section">
             <div className="eyebrow" style={{ color: "#bdbdbd" }}>{t("What we value", "ما نؤمن به")}</div>
             <h2 style={{ margin: "12px 0 48px" }}>{t(<>Three things we won&apos;t compromise</>, "ثلاثة أشياء لا نتنازل عنها")}</h2>
-            <div className="values">{VALUES.map(([v, d]) => <div key={v}><h3 style={{ marginBottom: 10 }}>{v}</h3><p style={{ color: "#cfcfcf" }}>{d}</p></div>)}</div>
+            <Reveal className="chat">
+              {CHAT.map(([q, v, d]) => (
+                <div key={v} className="chat-pair">
+                  <p className="bubble ask">{q}</p>
+                  <div className="chat-reply">
+                    <span className="chat-avatar" aria-hidden="true"><img src="/logo/mark.svg" alt="" /></span>
+                    <p className="bubble reply"><b>{v}</b>{d}</p>
+                  </div>
+                </div>
+              ))}
+            </Reveal>
           </div>
         </section>
         <section className="wrap section">
