@@ -41,14 +41,14 @@ export default function BuyBox({ p }: { p: Product }) {
         <div className="divider" style={{ margin: "30px 0" }} />
         <label className="row" style={{ gap: 12, marginBottom: 16 }}>
           <input type="checkbox" className="check" checked={gift} onChange={(e) => setGift(e.target.checked)} />
-          <Icon name="gift" size={18} /> {t("Add gift wrapping", "أضف تغليف الهدايا")} <span className="small muted">{t("(+15 SAR)", "(+١٥ ر.س)")}</span>
+          <Icon name="gift" size={18} /> {t("Add gift wrapping", "أضف تغليف الهدايا")} <span className="small muted">{t(`(+${sar(15)})`, `(+${sar(15, "ar")})`)}</span>
         </label>
         {gift && <div className="field" style={{ marginBottom: 8 }}><label htmlFor="msg">{t("Gift message (optional)", "رسالة الهدية (اختياري)")}</label><textarea id="msg" className="input" placeholder={t("Write a short note — we'll handwrite it on a card.", "اكتب رسالة قصيرة — سنكتبها بخط اليد على بطاقة.")} /></div>}
         <div className="row" style={{ gap: 12, marginTop: 18 }}>
           {!unique && <Qty value={qty} onChange={(n) => setQty(Math.max(1, n))} />}
           <button className="btn primary" style={{ flex: 1 }} onClick={() => add(p.slug, unique ? 1 : qty)}>{t("Add to cart", "أضف إلى السلة")} — {sar(p.price * (unique ? 1 : qty), lang)}</button>
         </div>
-        <div className="row small muted" style={{ gap: 10, marginTop: 16 }}><Icon name="truck" size={18} /> {t("Ships in 2–4 days with OTO · Free over 500 SAR in Riyadh", "يُشحن خلال ٢–٤ أيام مع OTO · مجاناً فوق ٥٠٠ ريال داخل الرياض")}</div>
+        <div className="row small muted" style={{ gap: 10, marginTop: 16 }}><Icon name="truck" size={18} /> {t("Ships in 2–4 days with OTO · Free over ⃁ 500 in Riyadh", "يُشحن خلال ٢–٤ أيام مع OTO · مجاناً فوق ٥٠٠ ⃁ داخل الرياض")}</div>
         <div style={{ marginTop: 28, borderTop: "1px solid var(--line)" }}>
           <details open><summary>{t(<>Details &amp; dimensions</>, "التفاصيل والمقاسات")}</summary><p>{lang === "ar" ? p.ar.details : p.details}</p></details>
           <details><summary>{t("Care", "العناية")}</summary><p>{t("Dishwasher and microwave safe unless noted. Avoid sudden temperature changes. Each piece is handmade, so small variations in glaze and shape are part of its character.", "آمنة في غسالة الصحون والمايكروويف ما لم يُذكر غير ذلك. تجنّب التغيّرات المفاجئة في الحرارة. كل قطعة مصنوعة يدوياً، لذا فإن الاختلافات البسيطة في الطلاء والشكل جزء من طابعها.")}</p></details>

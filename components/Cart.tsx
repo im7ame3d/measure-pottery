@@ -35,7 +35,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const saved = JSON.parse(localStorage.getItem(KEY) || "null");
-      if (saved?.lines) { setLines(saved.lines); setGiftWrap(!!saved.giftWrap); }
+      if (saved?.lines) { setLines(saved.lines.filter((l: Line) => bySlug(l.slug))); setGiftWrap(!!saved.giftWrap); } // drop products no longer sold
     } catch {}
   }, []);
   useEffect(() => {
@@ -134,7 +134,7 @@ function CartDrawer() {
               })}
               <label className="row small" style={{ gap: 12, padding: "18px 0" }}>
                 <input type="checkbox" className="check" checked={giftWrap} onChange={(e) => setGiftWrap(e.target.checked)} />
-                <Icon name="gift" size={18} /> {t(<>Add gift wrapping (+{GIFT_WRAP} SAR)</>, <>أضف تغليف الهدايا (+{num(GIFT_WRAP, lang)} ر.س)</>)}
+                <Icon name="gift" size={18} /> {t(<>Add gift wrapping (+{sar(GIFT_WRAP)})</>, <>أضف تغليف الهدايا (+{sar(GIFT_WRAP, lang)})</>)}
               </label>
             </div>
             <div className="dfoot">

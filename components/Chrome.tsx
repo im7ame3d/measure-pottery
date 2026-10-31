@@ -58,7 +58,7 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
   return (
     <>
       <div className={`announce${overlay ? " overlay-hide" : ""}`}>
-        <span>{t("Free delivery in Riyadh on orders over 500 SAR", "توصيل مجاني داخل الرياض للطلبات فوق ٥٠٠ ريال")}</span>
+        <span>{t("Free delivery in Riyadh on orders over ⃁ 500", "توصيل مجاني داخل الرياض للطلبات فوق ٥٠٠ ⃁")}</span>
         <span className="sep">|</span>
         <span className="second">{t("Split into 4 interest-free payments with Tamara", "قسّم مشترياتك على ٤ دفعات بدون فوائد مع تمارا")}</span>
       </div>

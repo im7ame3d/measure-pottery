@@ -24,10 +24,12 @@ export default function Product({ p, lang }: { p: P; lang: Lang }) {
             <Link className="btn light" href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
           </div>
         </section>
-        <section className="wrap" style={{ paddingBottom: 112 }}>
-          <h2 style={{ marginBottom: 36 }}>{t("You may also like", "قد يعجبك أيضاً")}</h2>
-          <div className="grid4">{related.map((r) => <ProductCard key={r.slug} p={r} lang={lang} />)}</div>
-        </section>
+        {related.length > 0 && (
+          <section className="wrap" style={{ paddingBottom: 112 }}>
+            <h2 style={{ marginBottom: 36 }}>{t("You may also like", "قد يعجبك أيضاً")}</h2>
+            <div className="grid4">{related.map((r) => <ProductCard key={r.slug} p={r} lang={lang} />)}</div>
+          </section>
+        )}
       </main>
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Product", name: pName(p, lang), description: lang === "ar" ? p.ar.description : p.description, offers: { "@type": "Offer", price: p.price, priceCurrency: "SAR" } }) }} />

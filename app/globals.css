@@ -1,3 +1,7 @@
+/* Official Saudi riyal sign (U+20C1), taken from Thmanyah Sans; only downloaded when the sign appears */
+@font-face { font-family: "Riyal"; src: url("/fonts/riyal-400.woff2") format("woff2"); font-weight: 100 449; unicode-range: U+20C1; font-display: swap; }
+@font-face { font-family: "Riyal"; src: url("/fonts/riyal-500.woff2") format("woff2"); font-weight: 450 599; unicode-range: U+20C1; font-display: swap; }
+@font-face { font-family: "Riyal"; src: url("/fonts/riyal-700.woff2") format("woff2"); font-weight: 600 900; unicode-range: U+20C1; font-display: swap; }
 :root {
   --ink: #2b2b2b;
   --brand: #8d8d8d;
@@ -10,11 +14,11 @@
   --ivory: #fff8e7;
   --terracotta: #c98262;
   --brown: #6b4f3a;
-  --serif: var(--font-cormorant), "Cormorant Garamond", serif;
-  --sans: var(--font-inter), "Inter", sans-serif;
-  --arabic: var(--font-arabic), var(--font-inter), sans-serif;
-  --arabic-display: var(--font-arabic-display), var(--font-arabic), serif;
-  --arabic-serif: var(--font-arabic-serif), var(--font-arabic), serif;
+  --serif: "Riyal", var(--font-cormorant), "Cormorant Garamond", serif;
+  --sans: "Riyal", var(--font-inter), "Inter", sans-serif;
+  --arabic: "Riyal", var(--font-arabic), var(--font-inter), sans-serif;
+  --arabic-display: "Riyal", var(--font-arabic-display), var(--font-arabic), serif;
+  --arabic-serif: "Riyal", var(--font-arabic-serif), var(--font-arabic), serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }

@@ -30,8 +30,8 @@ export default function Home({ lang }: { lang: Lang }) {
     [["٠١", "الاستشارة", "حدّثنا عن مكانك وقائمتك والقطع التي تحتاجها."], ["٠٢", "العيّنات", "نشكّل عيّنات ونطليها لتجرّبها في الخدمة الفعلية."], ["٠٣", "الإنتاج", "نصنع طلبك على دفعات صغيرة، مع ختم شعارك إن رغبت."], ["٠٤", "التوصيل", "نغلّفه بعناية ونوصله إلى بابك في جميع أنحاء المملكة."]],
   );
   const GIFTS = t(
-    [["Under 200 SAR", "espresso", "/shop"], ["Gift sets", "mumsie", "/shop?c=Gift%20sets"], ["One-of-a-kind pieces", "spread_wide", "/shop"]],
-    [["أقل من ٢٠٠ ريال", "espresso", "/shop"], ["أطقم هدايا", "mumsie", "/shop?c=Gift%20sets"], ["قطع فريدة لا تتكرر", "spread_wide", "/shop"]],
+    [["Under ⃁ 200", "espresso", "/shop"], ["Gift sets", "mumsie", "/shop?c=Gift%20sets"], ["One-of-a-kind pieces", "spread_wide", "/shop"]],
+    [["أقل من ٢٠٠ ⃁", "espresso", "/shop"], ["أطقم هدايا", "mumsie", "/shop?c=Gift%20sets"], ["قطع فريدة لا تتكرر", "spread_wide", "/shop"]],
   );
   const title = <BlurLines lines={t(["Ceramics, made", "to measure."], ["خزفٌ مصنوع", "على قياسك."])} />;
   const eyebrow = <BlurWords text={t("Ceramics production studio · Saudi Arabia", "استوديو إنتاج خزف · المملكة العربية السعودية")} />;
