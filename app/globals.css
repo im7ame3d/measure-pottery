@@ -309,6 +309,27 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .btype input { width: 20px; height: 20px; accent-color: var(--ink); }
 .success { padding: 24px; border-radius: 12px; background: var(--sand); }
 
+/* business: one full-screen, fill-in-the-blanks enquiry over the ceiling photo */
+.enquiry { position: relative; isolation: isolate; min-height: calc(100vh - 136px); min-height: calc(100svh - 136px); display: flex; align-items: center; color: #fff; overflow: hidden; }
+.enquiry-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.enquiry::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to bottom, rgba(20, 14, 10, 0.55), rgba(20, 14, 10, 0.82)); }
+.enquiry-inner { width: 100%; padding-top: 72px; padding-bottom: 88px; }
+.enquiry .eyebrow { color: rgba(255, 255, 255, 0.8); margin-bottom: 28px; }
+.madlib { font-family: var(--serif); font-size: clamp(34px, 4.6vw, 64px); line-height: 1.6; max-width: 1100px; }
+[dir="rtl"] .madlib { font-family: var(--arabic-display); line-height: 1.9; }
+.blank { font: inherit; color: #fff; background: transparent; border: 0; border-bottom: 2px solid rgba(255, 255, 255, 0.55); border-radius: var(--radius-control); padding: 0 4px; width: 9em; max-width: 100%; transition: border-color 0.2s; }
+.blank.wide { width: 13em; }
+.blank.phone { width: 7em; }
+@supports (field-sizing: content) { .blank { field-sizing: content; width: auto; min-width: 5em; } .blank.wide { min-width: 8em; } }
+.blank::placeholder { color: rgba(255, 255, 255, 0.42); font-size: 0.62em; }
+.blank:focus { outline: none; border-bottom-color: #fff; }
+.blank:focus-visible { outline: none; }
+.enquiry-send { margin-top: 40px; background: var(--ivory); color: var(--brown); height: 60px; padding: 0 40px; font-family: var(--serif); font-size: 20px; }
+[dir="rtl"] .enquiry-send { font-family: var(--arabic-display); }
+.enquiry-send:hover { background: #fff; }
+.enquiry-done .enquiry-note { margin-top: 18px; font-size: 18px; color: rgba(255, 255, 255, 0.85); }
+.enquiry .success { background: transparent; padding: 0; }
+
 /* portfolio */
 .featured { display: grid; grid-template-columns: 1.4fr 1fr; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .featured .photo { border-radius: 0; height: 560px; }
@@ -363,6 +384,11 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .story-hero .card-over { inset-inline: 20px; }
 }
 @media (max-width: 640px) {
+  .enquiry { min-height: calc(100svh - 72px); }
+  .enquiry-inner { padding-top: 48px; padding-bottom: 64px; }
+  .blank, .blank.wide { width: 100%; min-width: 0; }
+  .blank.phone { width: 8em; }
+  .enquiry-send { width: 100%; }
   .shop-page { padding-top: 32px; padding-bottom: 72px; }
   .shop-page h1 { margin: 14px 0 24px; }
   .marquee .client { padding: 0 24px; height: 64px; }
