@@ -38,7 +38,7 @@ export default function Home({ lang }: { lang: Lang }) {
     <>
       <Header overlay />
       <main>
-        {/* Phones: full-screen video hero with the header floating on top. */}
+        {/* Full-screen video hero with the header floating on top (all screen sizes). */}
         <section className="vhero">
           <HeroVideo src="/video/hero.mp4" poster="/video/hero-poster.jpg" />
           <ProximityBlur root=".vhero" />
@@ -52,31 +52,6 @@ export default function Home({ lang }: { lang: Lang }) {
             </div>
           </div>
         </section>
-        {/* Tablet/desktop hero */}
-        <section className="wrap hero">
-          <ProximityBlur root=".hero" radius={150} />
-          <div className="hero-copy">
-            <div className="eyebrow">{eyebrow}</div>
-            <h1>{title}</h1>
-            <p className="lead" style={{ maxWidth: 500 }}><BlurWords text={t("Tableware crafted for cafés and restaurants that care about every detail — and exclusive, one-of-a-kind pieces for your home and the people you love.", "أوانٍ مصنوعة يدوياً للمقاهي والمطاعم التي تهتم بأدق التفاصيل، وقطع حصرية فريدة لبيتك ولمن تحب.")} /></p>
-            <div className="ctas">
-              <Link className="btn primary" href={h("/business")}>{t(<>For Cafés &amp; Restaurants</>, "للمقاهي والمطاعم")} <Icon name="arrow" /></Link>
-              <Link className="btn secondary" href={h("/shop")}>{t("Shop Exclusive Pieces", "تسوّق القطع الحصرية")}</Link>
-            </div>
-            <div className="checks small muted">
-              <span className="check-item"><Icon name="check" /> {t("Small-batch, handmade", "دفعات مقسمة، صناعة يدوية")}</span>
-              <span className="check-item"><Icon name="check" /> {t(<>Custom glazes &amp; logos</>, "طلاءات وشعارات مخصّصة")}</span>
-            </div>
-          </div>
-          <div className="hero-pics">
-            <div className="photo"><img src={img("cups_bisque")} alt={t("Hand-shaped cups drying before glazing", "أكواب مشكّلة باليد تجفّ قبل الطلاء")} /></div>
-            <div className="stack">
-              <div className="photo"><img src={img("peekabrew")} alt={t("Café cups stamped with the Peek a Brew logo", "أكواب مقهى مختومة بشعار Peek a Brew")} /></div>
-              <div className="photo"><img src={img("mumsie")} alt={t("Pink-glazed cups lettered by hand", "أكواب بطلاء وردي وكتابة يدوية")} /></div>
-            </div>
-          </div>
-        </section>
-
         <section className="wrap clients">
           <h2 style={{ textAlign: "center", marginBottom: 36 }}>{t("Our clients", "عمــلاؤنـا")}</h2>
           {/* Endless marquee: the list is rendered twice and the track slides by exactly half its width. */}

@@ -3,28 +3,37 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Full-bleed background video for the mobile hero. The source is only attached
- * on small screens, so desktop visitors never download the video.
+ * Full-bleed background video for the hero.
+ * Phones: the portrait video fills the screen.
+ * Wider screens: the same video plays blurred across the whole hero, with the sharp
+ * portrait video framed on one side (the source is portrait, so stretching it
+ * edge to edge would crop and soften it).
  */
 export default function HeroVideo({ src, poster }: { src: string; poster: string }) {
-  const ref = useRef<HTMLVideoElement>(null);
-  const [on, setOn] = useState(false);
+  const bg = useRef<HTMLVideoElement>(null);
+  const frame = useRef<HTMLVideoElement>(null);
+  const [wide, setWide] = useState(false);
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 640px)");
-    const sync = () => setOn(mq.matches);
+    const mq = window.matchMedia("(min-width: 641px)");
+    const sync = () => setWide(mq.matches);
     sync();
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
   }, []);
   useEffect(() => {
-    const v = ref.current;
-    if (!on || !v) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    v.play().catch(() => {});
-  }, [on]);
+    bg.current?.play().catch(() => {});
+    frame.current?.play().catch(() => {});
+  }, [wide]);
+  const still = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   return (
     <div className="hero-video" aria-hidden="true">
-      {on && <video ref={ref} src={src} poster={poster} muted loop playsInline autoPlay preload="auto" />}
+      <video ref={bg} className="hero-bg" src={src} poster={poster} muted loop playsInline autoPlay={!still} preload="auto" />
+      {wide && (
+        <div className="hero-frame">
+          <video ref={frame} src={src} poster={poster} muted loop playsInline autoPlay={!still} preload="auto" />
+        </div>
+      )}
     </div>
   );
 }
