@@ -126,9 +126,9 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .pcard:hover .photo img { transform: scale(1.03); }
 .pcard .photo img { transition: transform 0.5s ease; }
 /* image cards share the premium card shadow */
-.mainpic, .story .photo, .grid3 .photo, .grid4 .photo { box-shadow: var(--shadow-card); }
-/* product thumbnails stay flat on the page background */
-.pcard .photo { box-shadow: none; }
+.story .photo, .grid3 .photo, .grid4 .photo { box-shadow: var(--shadow-card); }
+/* product photos (thumbnails and the main product photo) stay flat on the page background */
+.pcard .photo, .mainpic { box-shadow: none; }
 .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 24px; }
 
