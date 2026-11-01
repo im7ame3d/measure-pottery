@@ -134,7 +134,7 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 
 /* sections */
 .section { padding-top: var(--space-section); padding-bottom: var(--space-section); }
-.clients { padding-bottom: var(--space-section); }
+.clients { padding-top: var(--space-section); padding-bottom: var(--space-section); }
 .work { padding-bottom: var(--space-section); }
 .shop-strip { padding-bottom: calc(var(--space-section) * 0.5); }
 .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px; }
