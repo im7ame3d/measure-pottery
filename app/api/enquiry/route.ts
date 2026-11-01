@@ -9,6 +9,9 @@ import { NextResponse } from "next/server";
 const LIMITS = { business: 120, brief: 1000, phone: 30, page: 200 } as const;
 
 const clean = (v: unknown, max: number) => (typeof v === "string" ? v.replace(/\s+/g, " ").trim().slice(0, max) : "");
+/** Like clean, but keeps the line breaks people type into the brief. */
+const cleanLines = (v: unknown, max: number) =>
+  typeof v === "string" ? v.replace(/\r\n?/g, "\n").replace(/[^\S\n]+/g, " ").replace(/ *\n */g, "\n").replace(/\n{3,}/g, "\n\n").trim().slice(0, max) : "";
 
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
@@ -22,7 +25,7 @@ export async function POST(req: Request) {
   if (clean(body.website, 200)) return NextResponse.json({ ok: true });
 
   const business = clean(body.business, LIMITS.business);
-  const brief = clean(body.brief, LIMITS.brief);
+  const brief = cleanLines(body.brief, LIMITS.brief);
   const phone = clean(body.phone, LIMITS.phone);
   const digits = phone.replace(/\D/g, "");
   if (!business || !brief || digits.length < 7 || digits.length > 15) {
