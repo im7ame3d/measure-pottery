@@ -4,6 +4,8 @@
 @font-face { font-family: "Riyal"; src: url("/fonts/riyal-700.woff2") format("woff2"); font-weight: 600 900; unicode-range: U+20C1; font-display: swap; }
 /* design system: interactive controls (buttons, toggles, inputs) have sharp corners */
 :root {
+  /* breathing room between page sections (smaller on phones) */
+  --space-section: 144px;
   /* premium card shadow: a tight contact shadow plus a long soft fall-off */
   --shadow-card: 0 1px 2px rgba(20, 14, 10, 0.04), 0 4px 12px rgba(20, 14, 10, 0.05), 0 24px 48px -16px rgba(20, 14, 10, 0.16);
   --shadow-card-hover: 0 2px 4px rgba(20, 14, 10, 0.05), 0 10px 24px rgba(20, 14, 10, 0.07), 0 36px 64px -18px rgba(20, 14, 10, 0.22);
@@ -126,7 +128,10 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 24px; }
 
 /* sections */
-.section { padding-top: 112px; padding-bottom: 112px; }
+.section { padding-top: var(--space-section); padding-bottom: var(--space-section); }
+.clients { padding-bottom: var(--space-section); }
+.work { padding-bottom: var(--space-section); }
+.shop-strip { padding-bottom: calc(var(--space-section) * 0.5); }
 .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px; }
 .section-head.inline { align-items: center; }
 .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-top: 72px; padding-bottom: 96px; align-items: center; }
@@ -176,7 +181,7 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 /* "For you" wide card: 3:1 photo banner with a dark gradient on the text side */
 
 /* full-screen "for business" panel: photo blends into the page at top and bottom, CTA comes into focus */
-.panel { position: relative; margin-bottom: 64px; }
+.panel { position: relative; margin-bottom: calc(var(--space-section) * 0.75); }
 .panel .path { min-height: 100vh; min-height: 100svh; border-radius: 0; justify-content: flex-end; padding: 200px clamp(24px, 8.3vw, 120px) max(220px, 27vh); gap: 18px; }
 .panel .path .btn { margin-top: 12px; }
 .panel .path p { max-width: 520px; font-size: 17px; }
@@ -484,7 +489,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .shop-page { padding-top: 32px; padding-bottom: 72px; }
   .shop-page h1 { margin: 14px 0 24px; }
   .marquee .client { padding: 0 24px; height: 64px; }
-  .clients { padding-top: 72px; }
+  .clients { padding-top: var(--space-section); }
   .marquee-track { animation-duration: 35s; }
   /* full-screen video hero (phones): header floats over it, copy + CTAs at the bottom */
   .hero { display: none; }
@@ -518,7 +523,7 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .header { height: 72px; }
   .logo .lockup { height: 50px; }
   .announce .sep, .announce .second { display: none; }
-  .section { padding-top: 72px; padding-bottom: 72px; }
+  :root { --space-section: 96px; }
   .path { padding: 28px; min-height: 0; }
   .path-media { margin: -28px -28px 8px; height: 200px; }
   .path.photo .path-media { margin: 0; height: auto; }

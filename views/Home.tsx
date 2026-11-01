@@ -77,7 +77,7 @@ export default function Home({ lang }: { lang: Lang }) {
           </div>
         </section>
 
-        <section className="wrap clients" style={{ paddingBottom: 96 }}>
+        <section className="wrap clients">
           <h2 style={{ textAlign: "center", marginBottom: 36 }}>{t("Our clients", "عمــلاؤنـا")}</h2>
           {/* Endless marquee: the list is rendered twice and the track slides by exactly half its width. */}
           <div className="marquee">
@@ -106,7 +106,7 @@ export default function Home({ lang }: { lang: Lang }) {
         </FocusPanel>
 
         {/* Our work: one card per portfolio project, side by side (swipeable row on phones) */}
-        <section className="wrap work" style={{ paddingBottom: 96 }}>
+        <section className="wrap work">
           <h2 style={{ textAlign: "center", marginBottom: 36 }}>{t("Our work", "أعــمالنا")}</h2>
           <div className="work-row">
             {PROJECTS.map((p) => (
@@ -125,7 +125,7 @@ export default function Home({ lang }: { lang: Lang }) {
           </div>
         </section>
 
-        <section className="wrap" style={{ paddingBottom: 56 }}>
+        <section className="wrap shop-strip">
           <div className="section-head inline">
             <h2>{t("Shop", "المتجر")}</h2>
             <Link className="btn secondary" href={h("/shop")}>{t("View shop", "عرض المتجر")} <Icon name="arrow" /></Link>
