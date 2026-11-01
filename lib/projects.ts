@@ -17,12 +17,12 @@ export const PROJECTS = [
   },
   {
     id: "peek-a-brew",
-    name: ["Peek a Brew", "بيك ا برو"],
+    name: ["Peek a Brew", "بيك أَ برو"],
     type: ["Café", "مقهى"],
     city: ["Khobar", "الخبر"],
     text: [
       "Wheel-thrown cups stamped with the Peek a Brew logo in green, with “Have a brew-tiful day!” inside the rim and a pair of eyes peeking up from the bottom.",
-      "أكواب بيك ا برو وراها سالفة حلوة: من برّا ختم شعارهم بالأخضر، ومن داخل على الحافة «\u2068Have a brew-tiful day!\u2069» تصبّح عليك، ولا خلّصت قهوتك تلقى عيونين يطالعونك من قاع الكوب. يعني لازم تخلّصها!",
+      "أكواب بيك أَ برو وراها سالفة حلوة: من برّا ختم شعارهم بالأخضر، ومن داخل على الحافة «\u2068Have a brew-tiful day!\u2069» تصبّح عليك، ولا خلّصت قهوتك تلقى عيونين يطالعونك من قاع الكوب. يعني لازم تخلّصها!",
     ],
     logo: { src: "/clients/hands.svg", w: 30, h: 34 },
     images: [

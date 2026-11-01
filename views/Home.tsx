@@ -153,7 +153,7 @@ export default function Home({ lang }: { lang: Lang }) {
           <div>
             <div className="eyebrow">{t("Our story", "قصتنا")}</div>
             <h2 style={{ margin: "14px 0 22px" }}>{t(<>From clay to kiln,<br />by hand.</>, <>من الطين إلى الفرن،<br />بأيدينا.</>)}</h2>
-            <p className="lead">{t("Every piece starts as a lump of clay on our wheel. We throw, trim, glaze and fire in small batches — so each cup, plate and vase carries the marks of the hands that made it.", "تبدأ كل قطعة كتلةً من الطين على عجلتنا. نشكّلها ونهذّبها ونطليها ونحرقها على دفعات مقسمة — لتحمل كل كوب وطبق ومزهرية أثر الأيدي التي صنعتها.")}</p>
+            <p className="lead">{t("Every piece starts as a lump of clay on our wheel. We throw, trim, glaze and fire in small batches, so each cup, plate and vase carries the marks of the hands that made it.", "تبدأ كل قطعة كتلةً من الطين على عجلتنا. نشكّلها ونهذّبها ونطليها ونحرقها على دفعات مقسمة، لتحمل كل كوب وطبق ومزهرية أثر الأيدي التي صنعتها.")}</p>
             <Link className="btn secondary" href={h("/story")} style={{ marginTop: 36 }}>{t("Meet the studio", "تعرّف على المعمل")}</Link>
           </div>
         </section>
