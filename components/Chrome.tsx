@@ -10,6 +10,7 @@ import Icon from "./Icon";
 import { useLang } from "./Lang";
 
 const NAV = [
+  { href: "/", en: "Home", ar: "الرئيسية" },
   { href: "/shop", en: "Shop", ar: "المتجر" },
   { href: "/portfolio", en: "Portfolio", ar: "أعمالنا" },
   { href: "/story", en: "Our Story", ar: "قصتنا" },
@@ -77,7 +78,7 @@ export function Header({ overlay = false, announce = true }: { overlay?: boolean
         <div className="wrap row" style={{ width: "100%", justifyContent: "space-between" }}>
           <Logo />
           <nav className="nav" aria-label={t("Main", "القائمة الرئيسية")}>
-            {NAV.map((n) => { const h = href(lang, n.href); return <Link key={n.href} href={h} className={path.startsWith(h) ? "on" : ""}>{t(n.en, n.ar)}</Link>; })}
+            {NAV.map((n) => { const h = href(lang, n.href); return <Link key={n.href} href={h} className={(n.href === "/" ? path === h : path.startsWith(h)) ? "on" : ""}>{t(n.en, n.ar)}</Link>; })}
           </nav>
           <div className="tools">
             <LangSwitch className="lang hide-sm" />
