@@ -21,7 +21,7 @@ export default function Product({ p, lang }: { p: P; lang: Lang }) {
         <section className="wrap" style={{ paddingBottom: 96 }}>
           <div className="dark-banner">
             <div><div className="eyebrow" style={{ color: "#bdbdbd" }}>{t("For business", "للأعمال")}</div><h3 style={{ marginTop: 10 }}>{t("Love this glaze for your café?", "أعجبك هذا الطلاء لمقهاك؟")}</h3><p style={{ color: "#cfcfcf", marginTop: 8 }}>{t("We can make cups, plates and bowls in the same finish, in the quantities you need.", "نصنع لك أكواباً وأطباقاً وزبادي بنفس اللمسة، وبالكميات التي تحتاجها.")}</p></div>
-            <Link className="btn light" href={h("/business#quote")}>{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
+            <Link className="btn light" href="#enquiry">{t("Request a quote", "اطلب عرض سعر")} <Icon name="arrow" /></Link>
           </div>
         </section>
         {related.length > 0 && (

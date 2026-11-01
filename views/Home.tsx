@@ -47,7 +47,7 @@ export default function Home({ lang }: { lang: Lang }) {
             <h1>{title}</h1>
             <p><BlurWords text={t("Tableware for cafés and restaurants, and one-of-a-kind pieces for your home.", "أوانٍ للمقاهي والمطاعم، وقطع فريدة لبيتك ولمن تحب.")} /></p>
             <div className="vhero-ctas">
-              <Link className="btn primary" href={h("/business")}>{t(<>For Cafés &amp; Restaurants</>, "للمقاهي والمطاعم")} <Icon name="arrow" /></Link>
+              <Link className="btn primary" href={h("/portfolio")}>{t(<>For Cafés &amp; Restaurants</>, "للمقاهي والمطاعم")} <Icon name="arrow" /></Link>
               <Link className="btn secondary" href={h("/shop")}>{t("Shop", "المتجر")}</Link>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function Home({ lang }: { lang: Lang }) {
               <li className="check-item"><Icon name="check" /> {t(<>Logo stamping &amp; custom glazes</>, "ختم الشعار وطلاءات مخصّصة")}</li>
               <li className="check-item"><Icon name="check" /> {t("Samples before production", "عيّنات قبل الإنتاج")}</li>
             </ul>
-            <Link className="btn panel-cta" href={h("/business#quote")}>{t("Start your order", "ابدأ طلبك")} <Icon name="arrow" /></Link>
+            <Link className="btn panel-cta" href="#enquiry">{t("Start your order", "ابدأ طلبك")} <Icon name="arrow" /></Link>
           </div>
         </FocusPanel>
 
@@ -119,7 +119,7 @@ export default function Home({ lang }: { lang: Lang }) {
                 <div key={n}><div className="v">{s}</div><div className="small muted">{d}</div></div>
               ))}
             </div>
-            <Link className="btn primary" href={h("/business#quote")} style={{ marginTop: 56 }}>{t("Start your order", "ابدأ طلبك")} <Icon name="arrow" /></Link>
+            <Link className="btn primary" href="#enquiry" style={{ marginTop: 56 }}>{t("Start your order", "ابدأ طلبك")} <Icon name="arrow" /></Link>
           </div>
         </section>
 

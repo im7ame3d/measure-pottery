@@ -11,7 +11,6 @@ import { useLang } from "./Lang";
 
 const NAV = [
   { href: "/shop", en: "Shop", ar: "المتجر" },
-  { href: "/business", en: "For Business", ar: "للأعمال" },
   { href: "/portfolio", en: "Portfolio", ar: "أعمالنا" },
   { href: "/story", en: "Our Story", ar: "قصتنا" },
   { href: "/contact", en: "Contact", ar: "تواصل معنا" },
