@@ -4,8 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { href, switchHref, tr } from "@/lib/i18n";
+import { CONTACT } from "@/lib/shipping";
 import { CartButton } from "./Cart";
 import Enquiry from "./Enquiry";
+import FloatingWhatsApp from "./FloatingWhatsApp";
 import Icon from "./Icon";
 import { useLang } from "./Lang";
 
@@ -114,8 +116,12 @@ export function Footer({ enquiry = true }: { enquiry?: boolean }) {
           <div>
             <Logo light />
             <p className="about">{t("Handmade ceramics for cafés, restaurants and homes. Thrown, glazed and fired in our studio.", "خزف مصنوع يدوياً للمقاهي والمطاعم والبيوت. نشكّله ونطليه ونحرقه في معملنا.")}</p>
+            <ul className="foot-contact">
+              <li><a href={CONTACT.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" size={16} /> <span dir="ltr">{CONTACT.phone}</span></a></li>
+              <li><a href={`mailto:${CONTACT.email}`}><Icon name="mail" size={16} /> <span dir="ltr">{CONTACT.email}</span></a></li>
+            </ul>
           </div>
-          <div className="links"><h5>{t("Explore", "تصفّح")}</h5><ul>{NAV.map((n) => <li key={n.href}><Link href={h(n.href)}>{t(n.en, n.ar)}</Link></li>)}</ul></div>
+          <div className="links"><h5>{t("Explore", "تصفّح")}</h5><ul>{NAV.map((n) => <li key={n.href}><Link href={h(n.href)}>{t(n.en, n.ar)}</Link></li>)}<li><Link href={h("/returns")}>{t("Returns & exchanges", "سياسة الاستبدال والاسترجاع")}</Link></li></ul></div>
           <div>
             <h5>{t("Studio letters", "رسائل المعمل")}</h5>
             <p className="small" style={{ color: "#bdbdbd" }}>{t("New collections and studio news, once a month.", "المجموعات الجديدة وأخبار المعمل، مرة واحدة في الشهر.")}</p>
@@ -134,6 +140,7 @@ export function Footer({ enquiry = true }: { enquiry?: boolean }) {
         </div>
       </div>
     </footer>
+    <FloatingWhatsApp />
     {/* designer credit: a thin white banner under the footer */}
     <div className="credit-bar">
       <a className="credit" href="https://wa.me/966504553474" target="_blank" rel="noreferrer">{t("Design by Abdulhameed Boheliga", "تصميم عبد الحميد بوحليقة")}</a>

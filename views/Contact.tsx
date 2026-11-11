@@ -2,10 +2,9 @@ import Link from "next/link";
 import { Footer, Header } from "@/components/Chrome";
 import Icon from "@/components/Icon";
 import { href, tr, type Lang } from "@/lib/i18n";
+import { CONTACT } from "@/lib/shipping";
 
-const PHONE = "+966 55 435 2666";
-const WHATSAPP = "https://wa.me/966554352666";
-const EMAIL = "Noraalsheikh90@gmail.com";
+const { phone: PHONE, whatsapp: WHATSAPP, email: EMAIL } = CONTACT;
 
 /** Contact: just two ways to reach us — WhatsApp and email. */
 export default function Contact({ lang }: { lang: Lang }) {

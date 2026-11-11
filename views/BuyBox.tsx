@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Qty, useCart } from "@/components/Cart";
 import Icon from "@/components/Icon";
 import { useLang } from "@/components/Lang";
-import { num, tr } from "@/lib/i18n";
+import { href, num, tr } from "@/lib/i18n";
 import { img, pName, sar, type Product } from "@/lib/products";
 
 export default function BuyBox({ p }: { p: Product }) {
@@ -43,6 +44,7 @@ export default function BuyBox({ p }: { p: Product }) {
           {!unique && <Qty value={qty} onChange={(n) => setQty(Math.max(1, n))} />}
           <button className="btn primary buy" style={{ flex: 1 }} onClick={() => add(p.slug, unique ? 1 : qty)}>{t("Get it now", "اقتنِه الآن")}</button>
         </div>
+        <p className="small muted buy-note"><Icon name="check" size={16} /> {t("Returns & exchanges within 7 days.", "إرجاع واستبدال خلال ٧ أيام.")} <Link href={href(lang, "/returns")}>{t("Returns policy", "سياسة الاستبدال والاسترجاع")}</Link></p>
         {p.capacity && (
           <div style={{ marginTop: 28, borderTop: "1px solid var(--line)" }}>
             <details open><summary>{t("Capacity", "السعة")}</summary><p>{lang === "ar" ? p.capacity.ar : p.capacity.en}</p></details>

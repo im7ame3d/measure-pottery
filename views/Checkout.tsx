@@ -8,12 +8,8 @@ import Icon from "@/components/Icon";
 import { useLang } from "@/components/Lang";
 import { href, num, tr } from "@/lib/i18n";
 import { bySlug, img, pName, sar } from "@/lib/products";
+import { DELIVERY, FREE_SHIPPING_OVER } from "@/lib/shipping";
 
-const DELIVERY = [
-  { id: "standard", title: "Standard delivery", sub: "2–4 business days", price: 25, ar: ["توصيل عادي", "٢–٤ أيام عمل"] },
-  { id: "express", title: "Express delivery", sub: "Next business day · Riyadh only", price: 45, ar: ["توصيل سريع", "يوم العمل التالي · داخل الرياض فقط"] },
-  { id: "pickup", title: "Studio pickup", sub: "Ready in 1 business day", price: 0, ar: ["الاستلام من المعمل", "جاهز خلال يوم عمل واحد"] },
-];
 const PAYMENT = [["card", "mada / Visa / Mastercard", "Card", "مدى / فيزا / ماستركارد", "بطاقة"], ["apple", "Apple Pay", "Apple Pay", "Apple Pay", "Apple Pay"], ["tamara", "Split into 4 payments", "tamara", "قسّمها على ٤ دفعات", "تمارا"]];
 const CITIES = [["Riyadh", "الرياض"], ["Jeddah", "جدة"], ["Dammam", "الدمام"], ["Khobar", "الخبر"], ["Makkah", "مكة المكرمة"], ["Madinah", "المدينة المنورة"]];
 
@@ -26,7 +22,7 @@ export default function Checkout() {
   const [pay, setPay] = useState("card");
   const [placed, setPlaced] = useState<string | null>(null);
   const shipping = DELIVERY.find((d) => d.id === ship)!.price;
-  const free = ship === "standard" && subtotal >= 500;
+  const free = ship === "standard" && subtotal >= FREE_SHIPPING_OVER;
   const total = subtotal + (giftWrap ? GIFT_WRAP : 0) + (free ? 0 : shipping);
   const step = placed ? 3 : 1;
 
@@ -100,6 +96,7 @@ export default function Checkout() {
               ))}
             </fieldset>
             <button className="btn primary" style={{ alignSelf: "flex-start", padding: "0 44px" }}>{t("Place order", "تأكيد الطلب")} — {sar(total, lang)}</button>
+            <p className="small muted">{t(<>By placing your order you agree to our <Link href={href(lang, "/returns")} style={{ textDecoration: "underline" }}>returns &amp; exchanges policy</Link>.</>, <>بتأكيد الطلب أنت توافق على <Link href={href(lang, "/returns")} style={{ textDecoration: "underline" }}>سياسة الاستبدال والاسترجاع</Link>.</>)}</p>
           </div>
           <aside className="card summary">
             <h4>{t("Order summary", "ملخص الطلب")}</h4>
