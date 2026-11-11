@@ -53,7 +53,6 @@ export default function Returns({ lang }: { lang: Lang }) {
           <h2>{t("Refunds", "استرداد المبلغ")}</h2>
           <ul>
             <li>{t("Refunds go back to the original payment method within 7–14 business days of us receiving the piece.", "يُعاد المبلغ بنفس طريقة الدفع خلال ٧ إلى ١٤ يوم عمل من استلامنا للقطعة.")}</li>
-            <li>{t("Orders paid with Tamara are refunded through Tamara.", "الطلبات المدفوعة عبر تمارا يُعاد مبلغها عن طريق تمارا.")}</li>
             <li>{t("For returns that aren't due to a defect, return shipping is paid by the customer and the original delivery fee isn't refunded.", "في حال الإرجاع لغير عيب، يتحمّل العميل تكلفة شحن الإرجاع، ولا تُسترد رسوم التوصيل الأصلية.")}</li>
           </ul>
 

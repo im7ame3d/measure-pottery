@@ -25,7 +25,6 @@ const PAY = [
   { name: "applepay", label: "Apple Pay", h: 20 },
   { name: "visa", label: "Visa", h: 12 },
   { name: "mastercard", label: "Mastercard", h: 20 },
-  { name: "tamara", label: "tamara", h: 14 },
   { name: "aramex", label: "Aramex", h: 13 },
 ];
 
@@ -72,8 +71,6 @@ export function Header({ overlay = false, announce = true }: { overlay?: boolean
       {announce && (
       <div className={`announce${overlay ? " overlay-hide" : ""}`}>
           <span>{t("Free delivery across the Kingdom on orders over ⃁ 500", "توصيل مجاني لأنحاء المملكة للطلبات فوق ٥٠٠ ⃁")}</span>
-          <span className="sep">|</span>
-          <span className="second">{t("Split into 4 interest-free payments with Tamara", "قسّم مشترياتك على ٤ دفعات بدون فوائد مع تمارا")}</span>
         </div>
       )}
       <header className={headCls}>

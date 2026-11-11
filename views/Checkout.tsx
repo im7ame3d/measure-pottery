@@ -10,7 +10,7 @@ import { href, num, tr } from "@/lib/i18n";
 import { bySlug, img, pName, sar } from "@/lib/products";
 import { DELIVERY, FREE_SHIPPING_OVER } from "@/lib/shipping";
 
-const PAYMENT = [["card", "mada / Visa / Mastercard", "Card", "مدى / فيزا / ماستركارد", "بطاقة"], ["apple", "Apple Pay", "Apple Pay", "Apple Pay", "Apple Pay"], ["tamara", "Split into 4 payments", "tamara", "قسّمها على ٤ دفعات", "تمارا"]];
+const PAYMENT = [["card", "mada / Visa / Mastercard", "Card", "مدى / فيزا / ماستركارد", "بطاقة"], ["apple", "Apple Pay", "Apple Pay", "Apple Pay", "Apple Pay"]];
 const CITIES = [["Riyadh", "الرياض"], ["Jeddah", "جدة"], ["Dammam", "الدمام"], ["Khobar", "الخبر"], ["Makkah", "مكة المكرمة"], ["Madinah", "المدينة المنورة"]];
 
 export default function Checkout() {
@@ -117,7 +117,6 @@ export default function Checkout() {
             <div className="sumrow"><span className="muted">{t("VAT (15%) included", "شامل ضريبة القيمة المضافة (١٥٪)")}</span><span>{sar(Math.round((total - total / 1.15) * 100) / 100, lang)}</span></div>
             <div className="divider" />
             <div className="sumrow total"><span>{t("Total", "الإجمالي")}</span><span>{sar(total, lang)}</span></div>
-            <p className="xs muted">{t(<>or 4 interest-free payments of {sar(Math.round((total / 4) * 100) / 100)} with Tamara</>, <>أو ٤ دفعات بدون فوائد قيمة كل منها {sar(Math.round((total / 4) * 100) / 100, lang)} مع تمارا</>)}</p>
           </aside>
         </form>
       )}

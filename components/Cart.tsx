@@ -139,7 +139,7 @@ function CartDrawer() {
             </div>
             <div className="dfoot">
               <div className="row" style={{ justifyContent: "space-between", fontWeight: 600, fontSize: 18 }}><span>{t("Subtotal", "المجموع الفرعي")}</span><span>{sar(subtotal + (giftWrap ? GIFT_WRAP : 0), lang)}</span></div>
-              <p className="xs muted">{t("Shipping calculated at checkout · or 4 interest-free payments with Tamara", "تُحسب رسوم الشحن عند الدفع · أو ٤ دفعات بدون فوائد مع تمارا")}</p>
+              <p className="xs muted">{t("Shipping calculated at checkout", "تُحسب رسوم الشحن عند الدفع")}</p>
               <Link className="btn primary block" href={href(lang, "/checkout")} onClick={() => setOpen(false)}>{t("Checkout", "إتمام الطلب")}</Link>
               <button className="btn secondary block" onClick={() => setOpen(false)}>{t("Continue shopping", "متابعة التسوق")}</button>
             </div>

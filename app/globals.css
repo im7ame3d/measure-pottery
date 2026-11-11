@@ -294,7 +294,6 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .thumbs button.on { border-color: var(--ink); }
 .pcard .pcard-info { display: flex; flex-direction: column; gap: 4px; }
 .pcard .btn.block { margin-top: auto; }
-.tamara { display: flex; gap: 10px; align-items: center; margin-top: 10px; padding: 12px 14px; background: #fff; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; }
 .qty { display: flex; align-items: center; height: 52px; border: 1px solid var(--line); border-radius: var(--radius-control); background: #fff; }
 .qty button { width: 44px; height: 100%; font-size: 18px; }
 .qty span { min-width: 28px; text-align: center; }
@@ -564,7 +563,6 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
   .vhero-ctas .btn.secondary { flex: 1 1 auto; }
   .header { height: 72px; }
   .logo .lockup { height: 50px; }
-  .announce .sep, .announce .second { display: none; }
   :root { --space-section: 96px; }
   .path { padding: 28px; min-height: 0; }
   .path-media { margin: -28px -28px 8px; height: 200px; }

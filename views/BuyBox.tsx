@@ -32,7 +32,6 @@ export default function BuyBox({ p }: { p: Product }) {
       <div>
         <h1 style={{ fontSize: 56, margin: "0 0 18px" }}>{name}</h1>
         <div className="serif" style={{ fontSize: 34 }}>{sar(p.price, lang)}</div>
-        <div className="small muted" style={{ marginTop: 8 }}>{t(<>Or 4 interest-free payments of <b>{sar(Math.round((p.price / 4) * 100) / 100)}</b> with Tamara</>, <>أو ٤ دفعات بدون فوائد مع تمارا، قيمة كل دفعة <b>{sar(Math.round((p.price / 4) * 100) / 100, lang)}</b></>)}</div>
         <p className="muted" style={{ marginTop: 26 }}>{lang === "ar" ? p.ar.description : p.description}</p>
         <div className="divider" style={{ margin: "30px 0" }} />
         <label className="row" style={{ gap: 12, marginBottom: 16 }}>
