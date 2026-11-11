@@ -481,7 +481,8 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }
 /* returns & shipping policy */
 .policy { max-width: 820px; padding-top: 56px; padding-bottom: var(--space-section); }
-.policy h1 { margin: 18px 0 16px; }
+.policy h1 { margin: 18px 0 8px; }
+.policy-date { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
 .policy h2 { font-size: 28px; margin: 48px 0 14px; }
 [dir="rtl"] .policy h2 { font-size: 30px; }
 .policy ul + p, .policy ol + p { margin-top: 14px; }

@@ -96,7 +96,7 @@ export default function Checkout() {
               ))}
             </fieldset>
             <button className="btn primary" style={{ alignSelf: "flex-start", padding: "0 44px" }}>{t("Place order", "تأكيد الطلب")} — {sar(total, lang)}</button>
-            <p className="small muted">{t(<>By placing your order you agree to our <Link href={href(lang, "/returns")} style={{ textDecoration: "underline" }}>returns &amp; exchanges policy</Link>.</>, <>بتأكيد الطلب أنت توافق على <Link href={href(lang, "/returns")} style={{ textDecoration: "underline" }}>سياسة الاستبدال والاسترجاع</Link>.</>)}</p>
+            <p className="small muted">{t(<>By placing your order you agree to our <Link href={href(lang, "/terms")} style={{ textDecoration: "underline" }}>terms &amp; conditions</Link> and <Link href={href(lang, "/returns")} style={{ textDecoration: "underline" }}>returns &amp; exchanges policy</Link>.</>, <>بتأكيد الطلب أنت توافق على <Link href={href(lang, "/terms")} style={{ textDecoration: "underline" }}>الشروط والأحكام</Link> و<Link href={href(lang, "/returns")} style={{ textDecoration: "underline" }}>سياسة الاستبدال والاسترجاع</Link>.</>)}</p>
           </div>
           <aside className="card summary">
             <h4>{t("Order summary", "ملخص الطلب")}</h4>

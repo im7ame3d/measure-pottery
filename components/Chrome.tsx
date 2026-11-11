@@ -118,7 +118,7 @@ export function Footer({ enquiry = true }: { enquiry?: boolean }) {
               <li><a href={`mailto:${CONTACT.email}`}><Icon name="mail" size={16} /> <span dir="ltr">{CONTACT.email}</span></a></li>
             </ul>
           </div>
-          <div className="links"><h5>{t("Explore", "تصفّح")}</h5><ul>{NAV.map((n) => <li key={n.href}><Link href={h(n.href)}>{t(n.en, n.ar)}</Link></li>)}<li><Link href={h("/returns")}>{t("Returns & exchanges", "سياسة الاستبدال والاسترجاع")}</Link></li></ul></div>
+          <div className="links"><h5>{t("Explore", "تصفّح")}</h5><ul>{NAV.map((n) => <li key={n.href}><Link href={h(n.href)}>{t(n.en, n.ar)}</Link></li>)}<li><Link href={h("/returns")}>{t("Returns & exchanges", "سياسة الاستبدال والاسترجاع")}</Link></li><li><Link href={h("/privacy")}>{t("Privacy policy", "سياسة الخصوصية")}</Link></li><li><Link href={h("/terms")}>{t("Terms & conditions", "الشروط والأحكام")}</Link></li></ul></div>
           <div>
             <h5>{t("Studio letters", "رسائل المعمل")}</h5>
             <p className="small" style={{ color: "#bdbdbd" }}>{t("New collections and studio news, once a month.", "المجموعات الجديدة وأخبار المعمل، مرة واحدة في الشهر.")}</p>
