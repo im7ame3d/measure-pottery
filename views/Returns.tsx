@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { Footer, Header } from "@/components/Chrome";
 import { href, tr, type Lang } from "@/lib/i18n";
-import { sar } from "@/lib/products";
-import { CONTACT, DELIVERY, FREE_SHIPPING_OVER } from "@/lib/shipping";
+import { CONTACT } from "@/lib/shipping";
 
-/** Returns, exchanges and shipping policy: what a payment provider asks a store to publish. */
+/** Returns and exchanges policy: what a payment provider asks a store to publish. */
 export default function Returns({ lang }: { lang: Lang }) {
   const t = tr(lang);
-  const ar = lang === "ar";
   const phone = <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" dir="ltr">{CONTACT.phone}</a>;
   const email = <a href={`mailto:${CONTACT.email}`} dir="ltr">{CONTACT.email}</a>;
   return (
@@ -16,7 +14,7 @@ export default function Returns({ lang }: { lang: Lang }) {
       <main>
         <section className="wrap policy">
           <div className="crumb"><Link href={href(lang, "/")}>{t("Home", "الرئيسية")}</Link> / {t("Returns & exchanges", "الاستبدال والاسترجاع")}</div>
-          <h1>{t("Returns, exchanges & shipping", "سياسة الاستبدال والاسترجاع والشحن")}</h1>
+          <h1>{t("Returns & exchanges policy", "سياسة الاستبدال والاسترجاع")}</h1>
           <p className="lead">{t(
             "Every piece is made by hand in our studio in Dhahran. If something isn't right, we'll make it right. Here is how.",
             "كل قطعة مصنوعة يدوياً في معملنا بالظهران، وإذا ما كانت القطعة مثل ما تتوقع، نحلّها معك. هذي التفاصيل:",
@@ -58,21 +56,6 @@ export default function Returns({ lang }: { lang: Lang }) {
             <li>{t("Orders paid with Tamara are refunded through Tamara.", "الطلبات المدفوعة عبر تمارا يُعاد مبلغها عن طريق تمارا.")}</li>
             <li>{t("For returns that aren't due to a defect, return shipping is paid by the customer and the original delivery fee isn't refunded.", "في حال الإرجاع لغير عيب، يتحمّل العميل تكلفة شحن الإرجاع، ولا تُسترد رسوم التوصيل الأصلية.")}</li>
           </ul>
-
-          <h2>{t("Prices & delivery", "الأسعار والتوصيل")}</h2>
-          <p>{t("All prices are shown in Saudi riyals. Delivery options and fees:", "جميع الأسعار معروضة بالريال السعودي. خيارات التوصيل ورسومها:")}</p>
-          <table className="policy-table">
-            <tbody>
-              {DELIVERY.map((d) => (
-                <tr key={d.id}>
-                  <th scope="row">{ar ? d.ar[0] : d.title}</th>
-                  <td>{ar ? d.ar[1] : d.sub}</td>
-                  <td>{d.price ? sar(d.price, lang) : t("Free", "مجاناً")}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p>{t(<>Standard delivery is free on orders over {sar(FREE_SHIPPING_OVER)}.</>, <>التوصيل العادي مجاني للطلبات فوق {sar(FREE_SHIPPING_OVER, lang)}.</>)}</p>
 
           <h2>{t("Contact us", "تواصل معنا")}</h2>
           <p>{t(<>WhatsApp / phone: {phone}<br />Email: {email}</>, <>واتساب / جوال: {phone}<br />البريد الإلكتروني: {email}</>)}</p>

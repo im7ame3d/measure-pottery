@@ -489,10 +489,6 @@ details p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .policy p, .policy li { font-size: 16px; line-height: 1.85; color: var(--muted); }
 .policy ul, .policy ol { padding-inline-start: 22px; display: flex; flex-direction: column; gap: 6px; }
 .policy a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-.policy-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 15px; }
-.policy-table th, .policy-table td { text-align: start; padding: 14px 10px; border-bottom: 1px solid var(--line); }
-.policy-table th { font-weight: 500; }
-.policy-table td:last-child { text-align: end; white-space: nowrap; font-weight: 500; }
 /* contact */
 .contact-page { padding-top: 56px; padding-bottom: 140px; }
 .contact-buttons { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 16px; margin-top: 40px; }
