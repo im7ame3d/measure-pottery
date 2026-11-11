@@ -2,13 +2,14 @@
 
 import { usePathname } from "next/navigation";
 import { tr } from "@/lib/i18n";
+import { rpc } from "@/lib/supabase-config";
 import Icon from "./Icon";
 import { useLang } from "./Lang";
 import SentForm from "./Sent";
 
 const WHATSAPP = "966554352666";
-// Set NEXT_PUBLIC_SHEET_CONNECTED=1 (with SHEET_WEBHOOK_URL) on Vercel once the Google Sheet script is live;
-// until then the form hands the enquiry to WhatsApp as a ready-written message.
+// Enquiries are saved to the database (see the admin dashboard) and handed to WhatsApp as a ready-written
+// message. Set NEXT_PUBLIC_SHEET_CONNECTED=1 (with SHEET_WEBHOOK_URL) to send them to the Google Sheet instead.
 const SHEET = process.env.NEXT_PUBLIC_SHEET_CONNECTED === "1";
 
 /** Grow a textarea with its content (for browsers without CSS field-sizing). */
@@ -28,6 +29,8 @@ export default function Enquiry({ id, full = false }: { id: string; full?: boole
   const page = usePathname();
 
   const toWhatsApp = (f: Record<string, string>) => {
+    // keep a copy for the admin dashboard; keepalive lets it finish even as WhatsApp opens
+    rpc("submit_enquiry", { p_business: f.business, p_brief: f.brief, p_phone: f.phone, p_page: page, p_lang: lang }, { keepalive: true }).catch(() => {});
     const text = t(
       `Hi, we're ${f.business}\nWe're looking for:\n${f.brief}\nReach us on ${f.phone}`,
       `مرحباً، نحن ${f.business}\nونبحث عن:\n${f.brief}\nتواصلوا معنا على ${f.phone}`,

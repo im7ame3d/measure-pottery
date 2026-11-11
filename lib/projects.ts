@@ -1,8 +1,21 @@
+type Pair = readonly [string, string];
+
+/** A client project. Pairs are [English, Arabic]; the first image is the cover. */
+export type Project = {
+  id: string;
+  name: Pair;
+  type: Pair;
+  city: Pair;
+  text: Pair;
+  logo: { src: string; h: number; w?: number };
+  images: readonly { src: string; alt: Pair }[];
+};
+
 /**
- * Real client projects, shown on the portfolio page and in the home page "our work" strip.
- * Add new ones here. Pairs are [English, Arabic]; the first image is the cover.
+ * Built-in projects: used when the database can't be reached (and the data it was seeded from).
+ * Projects are managed in the admin dashboard.
  */
-export const PROJECTS = [
+export const PROJECTS: readonly Project[] = [
   {
     id: "mumsie-bakery",
     name: ["Mumsie Bakery", "مخبز ممزي"],
@@ -30,6 +43,4 @@ export const PROJECTS = [
       { src: "/img/work-peekabrew-2.jpg", alt: ["Looking into Peek a Brew cups: the rim message and the peeking eyes", "من داخل أكواب Peek a Brew: العبارة على الحافة والعينان في القاع"] },
     ],
   },
-] as const;
-
-export type Project = (typeof PROJECTS)[number];
+];

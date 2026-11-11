@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { CartProvider } from "@/components/Cart";
+import { CatalogProvider } from "@/components/Catalog";
 import { LangProvider } from "@/components/Lang";
 import { enFontVars } from "@/lib/fonts-en";
+import { getProducts } from "@/lib/catalog";
 import { SITE_URL } from "@/lib/site";
 import "../globals.css";
 
@@ -13,11 +15,12 @@ export const metadata: Metadata = {
   openGraph: { siteName: "Measure Ceramics", locale: "en_US", type: "website" },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const products = await getProducts();
   return (
     <html lang="en" className={enFontVars}>
       <body>
-        <LangProvider lang="en"><CartProvider>{children}</CartProvider></LangProvider>
+        <LangProvider lang="en"><CatalogProvider products={products}><CartProvider>{children}</CartProvider></CatalogProvider></LangProvider>
       </body>
     </html>
   );

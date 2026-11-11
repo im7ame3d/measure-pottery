@@ -16,8 +16,11 @@ export type Product = {
   ar: { name: string; description: string; details: string };
   /** Shown under the "السعة" heading on the product page, e.g. { en: "250 ml", ar: "٢٥٠ مل" }. */
   capacity?: { en: string; ar: string };
+  /** Shown as sold out: can't be added to the cart. */
+  soldOut?: boolean;
 };
 
+/** Built-in catalogue: used when the database can't be reached (and as the starting data it was seeded from). */
 export const PRODUCTS: Product[] = [
   { slug: "wave-whisper-cup-and-saucer", name: "Wave Whisper Cup & Saucer", price: 699, category: "Cups & mugs", glaze: "#8FB3B8", image: "wave-whisper", gallery: ["wave-whisper"],
     description: "A handmade cup and saucer. A soft sea-blue glaze flows over the rim like a whisper of waves, above bare, sand-coloured clay.",
@@ -35,7 +38,8 @@ export const GLAZES = ["#F2EEE8", "#D9D2C7", "#B9AFA2", "#8D8D8D", "#5E5A55", "#
 export const CATEGORY_AR: Record<Category, string> = { "Cups & mugs": "أكواب وفناجين", Plates: "أطباق", Bowls: "زبادي", Vases: "مزهريات", "Gift sets": "أطقم هدايا" };
 export const TAG_AR: Record<string, string> = { "One of a kind": "قطعة فريدة", New: "جديد", "Gift set": "طقم هدايا" };
 
-export const img = (key: string) => `/img/${key}.jpg`;
+/** A product image: a full path or URL as stored in the database, or a short key for the built-in photos in /img. */
+export const img = (key: string) => (key.startsWith("/") || key.startsWith("http") ? key : `/img/${key}.jpg`);
 export const sar = (n: number, lang: Lang = "en") => (lang === "ar" ? `${num(n, "ar")} ⃁` : `⃁ ${n.toLocaleString("en-US")}`);
 export const pName = (p: Product, lang: Lang) => (lang === "ar" ? p.ar.name : p.name);
 export const catLabel = (c: Category, lang: Lang) => (lang === "ar" ? CATEGORY_AR[c] : c);

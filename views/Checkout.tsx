@@ -7,7 +7,9 @@ import { Logo } from "@/components/Chrome";
 import Icon from "@/components/Icon";
 import { useLang } from "@/components/Lang";
 import { href, num, tr } from "@/lib/i18n";
-import { bySlug, img, pName, sar } from "@/lib/products";
+import { useCatalog } from "@/components/Catalog";
+import { img, pName, sar } from "@/lib/products";
+import { rpc } from "@/lib/supabase-config";
 import { DELIVERY, FREE_SHIPPING_OVER } from "@/lib/shipping";
 
 const PAYMENT = [["card", "mada / Visa / Mastercard", "Card", "مدى / فيزا / ماستركارد", "بطاقة"], ["apple", "Apple Pay", "Apple Pay", "Apple Pay", "Apple Pay"]];
@@ -15,6 +17,9 @@ const CITIES = [["Riyadh", "الرياض"], ["Jeddah", "جدة"], ["Dammam", "ا
 
 export default function Checkout() {
   const { lines, subtotal, giftWrap, clear } = useCart();
+  const { bySlug } = useCatalog();
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
   const lang = useLang();
   const t = tr(lang);
   const free_ = t("Free", "مجاناً");
@@ -45,7 +50,7 @@ export default function Checkout() {
         <main className="wrap" style={{ padding: "120px 0", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}>
           <div className="eyebrow">{t("Order", "الطلب")} {placed}</div>
           <h1>{t("Thank you — your order is in.", "شكراً لك — تم استلام طلبك.")}</h1>
-          <p className="lead" style={{ maxWidth: 520 }}>{t(<>We&apos;ll pack it by hand and send your OTO tracking link within two business days.</>, "سنغلّفه بأيدينا ونرسل لك رابط تتبّع الشحنة من OTO خلال يومي عمل.")}</p>
+          <p className="lead" style={{ maxWidth: 520 }}>{t("We'll be in touch shortly on WhatsApp or by phone to confirm your order and arrange payment.", "سنتواصل معك قريباً عبر واتساب أو الجوال لتأكيد طلبك وإتمام الدفع.")}</p>
           <Link className="btn primary" href={href(lang, "/shop")}>{t("Keep shopping", "متابعة التسوق")}</Link>
         </main>
       ) : lines.length === 0 ? (
@@ -55,25 +60,43 @@ export default function Checkout() {
           <Link className="btn primary" href={href(lang, "/shop")}>{t("Shop pieces", "تسوّق القطع")}</Link>
         </main>
       ) : (
-        <form className="wrap checkout" onSubmit={(e) => { e.preventDefault(); setPlaced("#" + num(1000 + Math.floor(Math.random() * 9000), lang).replace(/[,٬]/g, "")); clear(); window.scrollTo(0, 0); }}>
+        <form className="wrap checkout" onSubmit={async (e) => {
+          e.preventDefault();
+          const f = Object.fromEntries([...new FormData(e.currentTarget).entries()].map(([k, v]) => [k, String(v).trim()]));
+          setSending(true); setFailed(false);
+          try {
+            // the database recalculates prices, delivery and gift wrap from its own records
+            const res = await rpc<{ id: number }>("place_order", {
+              p_items: lines.map((l) => ({ slug: l.slug, qty: l.qty })),
+              p_customer: { first_name: f.first_name, last_name: f.last_name, email: f.email, phone: f.phone },
+              p_address: { street: f.street, district: f.district, city: f.city, postal_code: f.postal_code, national_address: f.national_address },
+              p_delivery: ship, p_payment: pay, p_gift_wrap: giftWrap, p_lang: lang,
+            });
+            setPlaced("#" + num(res.id, lang).replace(/[,٬]/g, "")); clear(); window.scrollTo(0, 0);
+          } catch {
+            setFailed(true);
+          } finally {
+            setSending(false);
+          }
+        }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 44 }}>
             <fieldset style={{ border: 0 }}>
               <h3 style={{ marginBottom: 22 }}>{t("Contact", "بيانات التواصل")}</h3>
               <div className="grid2">
-                <div className="field"><label htmlFor="em">{t("Email", "البريد الإلكتروني")}</label><input id="em" className="input" type="email" required placeholder="name@email.com" /></div>
-                <div className="field"><label htmlFor="ph">{t("Mobile number", "رقم الجوال")}</label><input id="ph" className="input" type="tel" dir="ltr" required placeholder="+966 5X XXX XXXX" /></div>
+                <div className="field"><label htmlFor="em">{t("Email", "البريد الإلكتروني")}</label><input id="em" name="email" className="input" type="email" required placeholder="name@email.com" /></div>
+                <div className="field"><label htmlFor="ph">{t("Mobile number", "رقم الجوال")}</label><input id="ph" name="phone" className="input" type="tel" dir="ltr" required placeholder="+966 5X XXX XXXX" /></div>
               </div>
             </fieldset>
             <fieldset style={{ border: 0 }}>
               <h3 style={{ marginBottom: 22 }}>{t("Shipping address", "عنوان الشحن")}</h3>
               <div className="grid2">
-                <div className="field"><label htmlFor="fn">{t("First name", "الاسم الأول")}</label><input id="fn" className="input" required /></div>
-                <div className="field"><label htmlFor="ln">{t("Last name", "اسم العائلة")}</label><input id="ln" className="input" required /></div>
-                <div className="field span2"><label htmlFor="st">{t("Street address", "عنوان الشارع")}</label><input id="st" className="input" required placeholder={t("Street, building number", "الشارع، رقم المبنى")} /></div>
-                <div className="field"><label htmlFor="ct">{t("City", "المدينة")}</label><select id="ct" className="input">{CITIES.map(([en, ar]) => <option key={en} value={en}>{t(en, ar)}</option>)}</select></div>
-                <div className="field"><label htmlFor="ds">{t("District", "الحي")}</label><input id="ds" className="input" required /></div>
-                <div className="field"><label htmlFor="pc">{t("Postal code", "الرمز البريدي")}</label><input id="pc" className="input" inputMode="numeric" placeholder="12345" /></div>
-                <div className="field"><label htmlFor="na">{t("National address short code", "الرمز المختصر للعنوان الوطني")}</label><input id="na" className="input" placeholder="ABCD1234" /></div>
+                <div className="field"><label htmlFor="fn">{t("First name", "الاسم الأول")}</label><input id="fn" name="first_name" className="input" required /></div>
+                <div className="field"><label htmlFor="ln">{t("Last name", "اسم العائلة")}</label><input id="ln" name="last_name" className="input" required /></div>
+                <div className="field span2"><label htmlFor="st">{t("Street address", "عنوان الشارع")}</label><input id="st" name="street" className="input" required placeholder={t("Street, building number", "الشارع، رقم المبنى")} /></div>
+                <div className="field"><label htmlFor="ct">{t("City", "المدينة")}</label><select id="ct" name="city" className="input">{CITIES.map(([en, ar]) => <option key={en} value={en}>{t(en, ar)}</option>)}</select></div>
+                <div className="field"><label htmlFor="ds">{t("District", "الحي")}</label><input id="ds" name="district" className="input" required /></div>
+                <div className="field"><label htmlFor="pc">{t("Postal code", "الرمز البريدي")}</label><input id="pc" name="postal_code" className="input" inputMode="numeric" placeholder="12345" /></div>
+                <div className="field"><label htmlFor="na">{t("National address short code", "الرمز المختصر للعنوان الوطني")}</label><input id="na" name="national_address" className="input" placeholder="ABCD1234" /></div>
               </div>
             </fieldset>
             <fieldset style={{ border: 0, display: "flex", flexDirection: "column", gap: 12 }}>
@@ -95,7 +118,8 @@ export default function Checkout() {
                 </label>
               ))}
             </fieldset>
-            <button className="btn primary" style={{ alignSelf: "flex-start", padding: "0 44px" }}>{t("Place order", "تأكيد الطلب")} — {sar(total, lang)}</button>
+            <button className="btn primary" disabled={sending} style={{ alignSelf: "flex-start", padding: "0 44px" }}>{sending ? t("Sending…", "جارٍ الإرسال…") : <>{t("Place order", "تأكيد الطلب")} — {sar(total, lang)}</>}</button>
+            {failed && <p className="small" role="alert" style={{ color: "#b3261e" }}>{t("We couldn't place your order just now. Please try again, or message us on WhatsApp.", "تعذّر إرسال طلبك الآن. حاول مرة أخرى، أو راسلنا على واتساب.")}</p>}
             <p className="small muted">{t(<>By placing your order you agree to our <Link href={href(lang, "/terms")} style={{ textDecoration: "underline" }}>terms &amp; conditions</Link> and <Link href={href(lang, "/returns")} style={{ textDecoration: "underline" }}>returns &amp; exchanges policy</Link>.</>, <>بتأكيد الطلب أنت توافق على <Link href={href(lang, "/terms")} style={{ textDecoration: "underline" }}>الشروط والأحكام</Link> و<Link href={href(lang, "/returns")} style={{ textDecoration: "underline" }}>سياسة الاستبدال والاسترجاع</Link>.</>)}</p>
           </div>
           <aside className="card summary">

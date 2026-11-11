@@ -3,10 +3,10 @@
 import { useSearchParams } from "next/navigation";
 import { useLang } from "@/components/Lang";
 import ProductCard from "@/components/ProductCard";
-import { CATEGORIES, PRODUCTS, type Category } from "@/lib/products";
+import { CATEGORIES, type Category, type Product } from "@/lib/products";
 
 /** Product grid. A ?c=<category> link (e.g. from the footer) quietly narrows it; there are no filter controls. */
-export default function ShopGrid() {
+export default function ShopGrid({ products: PRODUCTS }: { products: Product[] }) {
   const lang = useLang();
   const c = useSearchParams().get("c") as Category | null;
   const inCat = c && CATEGORIES.includes(c) ? PRODUCTS.filter((p) => p.category === c) : [];

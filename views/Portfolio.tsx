@@ -5,9 +5,9 @@ import { Footer, Header } from "@/components/Chrome";
 import { useLang } from "@/components/Lang";
 import Slides from "@/components/Slides";
 import { href, tr } from "@/lib/i18n";
-import { PROJECTS } from "@/lib/projects";
+import type { Project } from "@/lib/projects";
 
-export default function Portfolio() {
+export default function Portfolio({ projects: PROJECTS }: { projects: readonly Project[] }) {
   const lang = useLang();
   const t = tr(lang);
   const pick = (pair: readonly [string, string]) => t(pair[0], pair[1]);
@@ -25,7 +25,7 @@ export default function Portfolio() {
               <Slides images={p.images.map((im) => ({ src: im.src, alt: pick(im.alt) }))} label={(i, n) => t(`Photo ${i} of ${n}`, `الصورة ${i} من ${n}`)} />
               <div className="copy">
                 <div className="project-title">
-                  <img className="project-logo" src={p.logo.src} alt="" aria-hidden="true" width={p.logo.w} height={p.logo.h} style={{ height: p.logo.h }} />
+                  {p.logo.src && <img className="project-logo" src={p.logo.src} alt="" aria-hidden="true" height={p.logo.h} style={{ height: p.logo.h }} />}
                   <h2>{pick(p.name)}</h2>
                 </div>
                 <div className="row" style={{ gap: 8, flexWrap: "wrap" }}><span className="tag">{pick(p.type)}</span><span className="tag">{pick(p.city)}</span></div>

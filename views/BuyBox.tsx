@@ -40,8 +40,10 @@ export default function BuyBox({ p }: { p: Product }) {
         </label>
         {gift && <div className="field" style={{ marginBottom: 8 }}><label htmlFor="msg">{t("Gift message (optional)", "رسالة الهدية (اختياري)")}</label><textarea id="msg" className="input" placeholder={t("Write a short note — we'll handwrite it on a card.", "اكتب رسالة قصيرة — سنكتبها بخط اليد على بطاقة.")} /></div>}
         <div className="row" style={{ gap: 12, marginTop: 18 }}>
-          {!unique && <Qty value={qty} onChange={(n) => setQty(Math.max(1, n))} />}
-          <button className="btn primary buy" style={{ flex: 1 }} onClick={() => add(p.slug, unique ? 1 : qty)}>{t("Get it now", "اقتنِه الآن")}</button>
+          {!unique && !p.soldOut && <Qty value={qty} onChange={(n) => setQty(Math.max(1, n))} />}
+          {p.soldOut
+            ? <button className="btn primary buy" style={{ flex: 1 }} disabled>{t("Sold out", "نفدت الكمية")}</button>
+            : <button className="btn primary buy" style={{ flex: 1 }} onClick={() => add(p.slug, unique ? 1 : qty)}>{t("Get it now", "اقتنِه الآن")}</button>}
         </div>
         <p className="small muted buy-note"><Icon name="check" size={16} /> {t("Returns & exchanges within 7 days.", "إرجاع واستبدال خلال ٧ أيام.")} <Link href={href(lang, "/returns")}>{t("Returns policy", "سياسة الاستبدال والاسترجاع")}</Link></p>
         {p.capacity && (

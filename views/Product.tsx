@@ -3,13 +3,13 @@ import { Footer, Header } from "@/components/Chrome";
 import Icon from "@/components/Icon";
 import ProductCard from "@/components/ProductCard";
 import { href, tr, type Lang } from "@/lib/i18n";
-import { PRODUCTS, catLabel, pName, type Product as P } from "@/lib/products";
+import { catLabel, pName, type Product as P } from "@/lib/products";
 import BuyBox from "./BuyBox";
 
-export default function Product({ p, lang }: { p: P; lang: Lang }) {
+export default function Product({ p, products, lang }: { p: P; products: P[]; lang: Lang }) {
   const t = tr(lang);
   const h = (x: string) => href(lang, x);
-  const related = PRODUCTS.filter((x) => x.slug !== p.slug).slice(0, 4);
+  const related = products.filter((x) => x.slug !== p.slug).slice(0, 4);
   return (
     <>
       <Header />

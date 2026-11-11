@@ -294,6 +294,7 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical; }
 .thumbs button.on { border-color: var(--ink); }
 .pcard .pcard-info { display: flex; flex-direction: column; gap: 4px; }
 .pcard .btn.block { margin-top: auto; }
+.btn.buy:disabled { background: var(--sand); color: var(--muted); border-color: transparent; cursor: not-allowed; }
 .qty { display: flex; align-items: center; height: 52px; border: 1px solid var(--line); border-radius: var(--radius-control); background: #fff; }
 .qty button { width: 44px; height: 100%; font-size: 18px; }
 .qty span { min-width: 28px; text-align: center; }

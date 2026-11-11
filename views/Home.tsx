@@ -7,8 +7,8 @@ import Icon from "@/components/Icon";
 import ProductCard from "@/components/ProductCard";
 import Slides from "@/components/Slides";
 import { href, tr, type Lang } from "@/lib/i18n";
-import { PRODUCTS, img } from "@/lib/products";
-import { PROJECTS } from "@/lib/projects";
+import { getProducts, getProjects } from "@/lib/catalog";
+import { img } from "@/lib/products";
 
 // Client logos: black SVGs in public/clients/, shown in the scrolling strip on the home page.
 const CLIENTS = [
@@ -25,7 +25,8 @@ const CLIENTS = [
   { name: "Peek a Brew", logo: "/clients/hands.svg", h: 46, w: 40 },
 ];
 
-export default function Home({ lang }: { lang: Lang }) {
+export default async function Home({ lang }: { lang: Lang }) {
+  const [PRODUCTS, PROJECTS] = await Promise.all([getProducts(), getProjects()]);
   const t = tr(lang);
   const h = (p: string) => href(lang, p);
   const STEPS = t(
@@ -89,7 +90,7 @@ export default function Home({ lang }: { lang: Lang }) {
                 <Link href={h(`/portfolio#${p.id}`)} className="work-photo" tabIndex={-1} aria-hidden="true"><Slides images={p.images.map((im) => ({ src: im.src, alt: "" }))} mode="auto" /></Link>
                 <div className="work-info">
                   <div className="work-title">
-                    <img src={p.logo.src} alt="" aria-hidden="true" width={p.logo.w} height={p.logo.h} style={{ height: Math.round(p.logo.h * 0.75) }} />
+                    {p.logo.src && <img src={p.logo.src} alt="" aria-hidden="true" height={p.logo.h} style={{ height: Math.round(p.logo.h * 0.75) }} />}
                     <h3>{t(p.name[0], p.name[1])}</h3>
                   </div>
                   <div className="row" style={{ gap: 8, flexWrap: "wrap" }}><span className="tag">{t(p.type[0], p.type[1])}</span><span className="tag">{t(p.city[0], p.city[1])}</span></div>

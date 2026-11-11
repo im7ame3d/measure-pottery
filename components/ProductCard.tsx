@@ -15,7 +15,7 @@ export default function ProductCard({ p, lang = "en" }: { p: Product; lang?: Lan
         <div className="name">{name}</div>
         <div className="meta"><span className="price">{sar(p.price, lang)}</span></div>
       </Link>
-      <AddToCart slug={p.slug} />
+      <AddToCart slug={p.slug} soldOut={p.soldOut} />
     </div>
   );
 }

@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { href, num, tr } from "@/lib/i18n";
-import { bySlug, img, pName, sar } from "@/lib/products";
+import { img, pName, sar } from "@/lib/products";
+import { useCatalog } from "./Catalog";
 import Icon from "./Icon";
 import { useLang } from "./Lang";
 
@@ -28,6 +29,7 @@ export const FREE_DELIVERY = 500;
 export const GIFT_WRAP = 15;
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
+  const { bySlug } = useCatalog();
   const [lines, setLines] = useState<Line[]>([]);
   const [giftWrap, setGiftWrap] = useState(false);
   const [open, setOpen] = useState(false);
@@ -54,7 +56,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const count = lines.reduce((s, l) => s + l.qty, 0);
     const subtotal = lines.reduce((s, l) => s + (bySlug(l.slug)?.price || 0) * l.qty, 0);
     return { lines, count, subtotal, giftWrap, open, setOpen, add, setQty, remove, setGiftWrap, clear };
-  }, [lines, giftWrap, open, add, setQty, remove, clear]);
+  }, [lines, giftWrap, open, add, setQty, remove, clear, bySlug]);
 
   return <Ctx.Provider value={value}>{children}<CartDrawer /></Ctx.Provider>;
 }
@@ -89,6 +91,7 @@ export function Qty({ value, onChange, small }: { value: number; onChange: (n: n
 }
 
 function CartDrawer() {
+  const { bySlug } = useCatalog();
   const { lines, open, setOpen, subtotal, setQty, remove, giftWrap, setGiftWrap } = useCart();
   const lang = useLang();
   const t = tr(lang);
